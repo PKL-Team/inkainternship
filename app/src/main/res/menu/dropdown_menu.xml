@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dropdown_menu1"
+        android:title="Prakerin (SMK)"/>
+    <item
+        android:id="@+id/dropdown_menu2"
+        android:title="PKL (Mahasiswa)"/>
+
+</menu>
