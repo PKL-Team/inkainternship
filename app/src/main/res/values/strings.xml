@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">INKA INTERNSHIP</string>
+    <string name="openDrawer">Drawer dibuka</string>
+    <string name="closeDrawer">Drawer ditutup</string>
 </resources>

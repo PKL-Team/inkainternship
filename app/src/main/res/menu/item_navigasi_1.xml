@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/navigation1"
+            android:checked="false"
+            android:icon="@drawable/ic_beranda"
+            android:title="Beranda" />
+        <item
+            android:id="@+id/navigation2"
+            android:checked="false"
+            android:icon="@drawable/ic_alur"
+            android:title="Alur Pendaftaran" />
+        <item
+            android:id="@+id/navigation3"
+            android:checked="false"
+            android:icon="@drawable/ic_persyaratan"
+            android:title="Persyaratan Umum" />
+        <item
+            android:id="@+id/navigation4"
+            android:checked="false"
+            android:icon="@drawable/ic_pengaturan"
+            android:title="Pengaturan" />
+    </group>
+</menu>
