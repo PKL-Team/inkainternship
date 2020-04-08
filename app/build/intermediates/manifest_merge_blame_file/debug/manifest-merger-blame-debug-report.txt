@@ -1,0 +1,73 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.begin.diana.inkainternship"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:5:5-25:19
+12        android:allowBackup="true"
+12-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.0.1] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\aa782ce88e4a65071c9b22f6f1fd262a\core-1.0.1\AndroidManifest.xml:22:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
+21-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:12:9-61
+21-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:12:19-49
+22        <activity
+22-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:13:9-15:69
+23            android:name="com.begin.diana.inkainternship.ui.login.LoginActivity"
+23-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:14:13-51
+24            android:label="@string/title_activity_login" />
+24-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:15:13-57
+25        <activity android:name="com.begin.diana.inkainternship.BerandaActivity" />
+25-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:16:9-53
+25-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:16:19-50
+26        <activity android:name="com.begin.diana.inkainternship.SplashActivity" />
+26-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:17:9-52
+26-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:17:19-49
+27        <activity android:name="com.begin.diana.inkainternship.MainActivity" >
+27-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:18:9-24:20
+27-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:18:19-47
+28            <intent-filter>
+28-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:19:13-23:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:20:17-69
+29-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:20:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:22:17-77
+31-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:22:27-74
+32            </intent-filter>
+33        </activity>
+34
+35        <provider
+35-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+36            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+36-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+37            android:authorities="com.begin.diana.inkainternship.lifecycle-process"
+37-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+38            android:exported="false"
+38-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+39            android:multiprocess="true" />
+39-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\USER\.gradle\caches\transforms-2\files-2.1\80a00d5735d69f4f399457d9ccd7230d\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+40    </application>
+41
+42</manifest>
