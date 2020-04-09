@@ -18,7 +18,6 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
         <activity
             android:name="com.begin.diana.inkainternship.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
@@ -29,6 +28,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.begin.diana.inkainternship.MainActivity" />
+        <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
+        <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
+        <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

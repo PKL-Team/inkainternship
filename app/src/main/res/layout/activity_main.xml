@@ -35,6 +35,6 @@
         app:headerLayout="@layout/header"
         android:layout_gravity="start"
         app:itemTextColor="#000000"
-        android:background="#bebebe"/>
+        android:background="#cccccc"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
