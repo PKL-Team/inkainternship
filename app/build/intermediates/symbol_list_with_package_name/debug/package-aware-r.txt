@@ -1079,13 +1079,9 @@ id barrier
 id beginning
 id blocking
 id bottom
-<<<<<<< HEAD
-id btnCoba
-=======
->>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
-id btnDaftar
 id btnLogin
 id btnMasuk
+id btnRegister
 id btnSignup
 id button2
 id buttonPanel
@@ -1147,7 +1143,6 @@ id icon_group
 id ifRoom
 id image
 id imageView
-id imageView2
 id info
 id invisible
 id italic

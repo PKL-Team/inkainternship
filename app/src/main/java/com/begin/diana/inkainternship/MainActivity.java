@@ -1,15 +1,12 @@
 package com.begin.diana.inkainternship;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         btnLogin = findViewById(R.id.btnMasuk);
-        btnSignup = findViewById(R.id.btnDaftar);
+        btnSignup = findViewById(R.id.btnRegister);
         jdlMenu = findViewById(R.id.jdlMenu);
         jdlMenu.setText("Beranda");
 
@@ -51,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -69,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(menu);
 //            }
 //        });
-=======
+
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(menu);
             }
         });
->>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

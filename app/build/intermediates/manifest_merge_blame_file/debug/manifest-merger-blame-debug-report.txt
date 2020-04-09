@@ -11,11 +11,7 @@
 9-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml
 10
 11    <application
-<<<<<<< HEAD
-11-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:5:5-29:19
-=======
-11-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:5:5-31:19
->>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
+11-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:5:5-33:19
 12        android:allowBackup="true"
 12-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -31,92 +27,49 @@
 18-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
-<<<<<<< HEAD
 20-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:11:9-40
 21        <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
-21-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:12:9-65
-21-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:12:19-53
+21-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:13:9-65
+21-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:13:19-53
 22        <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
-22-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:13:9-60
-22-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:13:19-48
+22-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:14:9-60
+22-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:14:19-48
 23        <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
-23-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:14:9-61
-23-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:14:19-49
-24        <activity
-24-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:15:9-23:20
-25            android:name="com.begin.diana.inkainternship.SplashActivity"
-25-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:16:13-43
-26            android:theme="@style/Theme.AppCompat.NoActionBar" >
-26-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:17:13-63
-27            <intent-filter>
-27-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:18:13-22:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:19:17-69
-28-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:19:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:21:17-77
-30-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:21:27-74
-31            </intent-filter>
-32        </activity>
-33        <activity android:name="com.begin.diana.inkainternship.MainActivity" />
-33-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:24:9-59
-33-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:24:19-47
-34
-35        <meta-data
-35-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:26:9-28:57
-36            android:name="preloaded_fonts"
-36-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:27:13-43
-37            android:resource="@array/preloaded_fonts" />
-37-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:28:13-54
-38    </application>
-39
-40</manifest>
-=======
-20-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:11:9-40
-21        <activity android:name="com.begin.diana.inkainternship.PersyaratanActivity" />
-21-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:12:9-66
-21-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:12:19-54
-22        <activity android:name="com.begin.diana.inkainternship.AlurActivity" />
-22-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:13:9-50
-22-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:13:19-47
-23        <activity
-23-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:14:9-22:20
-24            android:name="com.begin.diana.inkainternship.SplashActivity"
-24-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:15:13-43
-25            android:theme="@style/Theme.AppCompat.NoActionBar" >
-25-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:16:13-63
-26            <intent-filter>
-26-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:17:13-21:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:18:17-69
-27-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:18:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:20:17-77
-29-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:20:27-74
-30            </intent-filter>
-31        </activity>
-32        <activity android:name="com.begin.diana.inkainternship.MainActivity" />
-32-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:23:9-50
-32-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:23:19-47
-33        <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
-33-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:9-52
-33-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:19-49
-34        <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
-34-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:25:9-51
-34-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:25:19-48
-35        <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
-35-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:9-56
-35-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:19-53
+23-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:15:9-61
+23-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:15:19-49
+24        <activity android:name="com.begin.diana.inkainternship.PersyaratanActivity" />
+24-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:16:9-66
+24-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:16:19-54
+25        <activity android:name="com.begin.diana.inkainternship.AlurActivity" />
+25-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:17:9-50
+25-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:17:19-47
+26        <activity
+26-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:19:9-27:20
+27            android:name="com.begin.diana.inkainternship.SplashActivity"
+27-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:20:13-43
+28            android:theme="@style/Theme.AppCompat.NoActionBar" >
+28-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:21:13-63
+29            <intent-filter>
+29-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:22:13-26:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:23:17-69
+30-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:23:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:25:17-77
+32-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:25:27-74
+33            </intent-filter>
+34        </activity>
+35        <activity android:name="com.begin.diana.inkainternship.MainActivity" />
+35-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:28:9-50
+35-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:28:19-47
 36
 37        <meta-data
-37-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:28:9-30:57
+37-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:30:9-32:57
 38            android:name="preloaded_fonts"
-38-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:13-43
+38-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:31:13-43
 39            android:resource="@array/preloaded_fonts" />
-39-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:30:13-54
+39-->D:\PKL 2020\inkainternship\app\src\main\AndroidManifest.xml:32:13-54
 40    </application>
 41
 42</manifest>
->>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
