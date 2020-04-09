@@ -1079,8 +1079,9 @@ id barrier
 id beginning
 id blocking
 id bottom
-id btnCoba
+id btnDaftar
 id btnLogin
+id btnMasuk
 id btnSignup
 id button
 id button2
@@ -1113,6 +1114,8 @@ id dimensions
 id direct
 id disableHome
 id drawer
+id drawerAlur
+id drawerPersyaratan
 id dropdown_menu1
 id dropdown_menu2
 id editText
@@ -1168,6 +1171,8 @@ id navigation2
 id navigation3
 id navigation4
 id navigationView
+id navigationViewAlur
+id navigationViewPersyaratan
 id navigation_header_container
 id never
 id none
@@ -1260,6 +1265,8 @@ id title
 id titleDividerNoCustom
 id title_template
 id toolbar
+id toolbarAlur
+id toolbarPersyaratan
 id top
 id topPanel
 id touch_outside
@@ -1324,11 +1331,15 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_alur
 layout activity_daftar
 layout activity_login
 layout activity_main
 layout activity_pengaturan
+layout activity_persyaratan
 layout activity_splash
+layout alur
+layout beranda
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

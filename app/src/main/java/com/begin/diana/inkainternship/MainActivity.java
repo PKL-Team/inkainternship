@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
-    Button btnCoba, btnLogin, btnSignup;
+    Button btnLogin, btnSignup;
     TextView jdlMenu;
     // ActionBarDrawerToggle toggle;
 
@@ -36,37 +37,28 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         setSupportActionBar(toolbar);
 
-        btnCoba = findViewById(R.id.btnCoba);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignup);
+        btnLogin = findViewById(R.id.btnMasuk);
+        btnSignup = findViewById(R.id.btnDaftar);
         jdlMenu = findViewById(R.id.jdlMenu);
         jdlMenu.setText("Beranda");
-        btnCoba.setOnClickListener(new View.OnClickListener() {
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, PengaturanActivity.class);
+                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
                 finish();
                 startActivity(menu);
             }
         });
 
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
-//                finish();
-//                startActivity(menu);
-//            }
-//        });
-//
-//        btnSignup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent menu = new Intent(MainActivity.this, SplashActivity.class);
-//                finish();
-//                startActivity(menu);
-//            }
-//        });
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menu = new Intent(MainActivity.this, DaftarActivity.class);
+                finish();
+                startActivity(menu);
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -78,22 +70,21 @@ public class MainActivity extends AppCompatActivity {
                     // pilihan menu item navigasi akan menampilkan pesan toast klik kalian bisa menggantinya
                     //dengan intent activity
                     case R.id.navigation1:
-                        Toast.makeText(MainActivity.this, "Beranda Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.navigation2:
-                        Intent pesan = new Intent(MainActivity.this, SplashActivity.class);
+                        Intent alur = new Intent(MainActivity.this, AlurActivity.class);
                         finish();
-                        startActivity(pesan);
+                        startActivity(alur);
                         return true;
                     case R.id.navigation3:
-                        Intent list = new Intent(MainActivity.this, LoginActivity.class);
+                        Intent persyaratan = new Intent(MainActivity.this, PersyaratanActivity.class);
                         finish();
-                        startActivity(list);
+                        startActivity(persyaratan);
                         return true;
                     case R.id.navigation4:
-                        Intent set = new Intent(MainActivity.this, PengaturanActivity.class);
+                        Intent pengaturan = new Intent(MainActivity.this, PengaturanActivity.class);
                         finish();
-                        startActivity(set);
+                        startActivity(pengaturan);
                         return true;
                     default:
                         Toast.makeText(getApplicationContext(),"kesalahan Terjadi ",Toast.LENGTH_SHORT).show();

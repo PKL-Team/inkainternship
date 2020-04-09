@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.begin.diana.inkainternship.PersyaratanActivity" />
+        <activity android:name="com.begin.diana.inkainternship.AlurActivity" />
         <activity
             android:name="com.begin.diana.inkainternship.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
