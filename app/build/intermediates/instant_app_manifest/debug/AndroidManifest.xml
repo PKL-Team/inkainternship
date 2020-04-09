@@ -20,6 +20,8 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
+        <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
+        <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
         <activity
             android:name="com.begin.diana.inkainternship.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
