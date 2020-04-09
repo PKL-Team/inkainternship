@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class SplashActivity extends AppCompatActivity {
-    private static int splashInterval = 5000;
+    private static int splashInterval = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

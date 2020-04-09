@@ -5,21 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="end"
     android:id="@+id/drawer"
-    android:background="@color/c1"
+    android:fitsSystemWindows="true"
+    android:background="#cccccc"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <include
             android:id="@+id/toolbar"
-            android:background="@color/c1"/>
+            layout="@layout/layout_toolbar">
+        </include>
 
+        <Button
+            android:id="@+id/btnCoba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:text="COBA"/>
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -28,8 +33,8 @@
         android:id="@+id/navigationView"
         app:menu="@menu/item_navigasi_1"
         app:headerLayout="@layout/header"
-        android:background="@color/c3"
         android:layout_gravity="start"
-        app:itemTextColor="#fff"/>
+        app:itemTextColor="#000000"
+        android:background="#bebebe"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

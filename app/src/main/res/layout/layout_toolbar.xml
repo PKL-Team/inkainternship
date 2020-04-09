@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#999999"
+    android:theme="@style/ThemeOverlay.AppCompat">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/icon_profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp" />
+    </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>

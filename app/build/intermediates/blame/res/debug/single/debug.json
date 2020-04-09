@@ -1,11 +1,11 @@
 [
     {
-        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_keluar.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\ic_keluar.xml"
+    },
+    {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
@@ -64,6 +64,10 @@
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\foto_profile.jpg"
     },
     {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_toolbar.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\layout_toolbar.xml"
+    },
+    {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
@@ -98,6 +102,10 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_alur.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\ic_alur.xml"
+    },
+    {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_profile.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\icon_profile.xml"
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_beranda.xml.flat",
