@@ -11,147 +11,184 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/textView3"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="137dp"
         android:layout_marginBottom="19dp"
+=======
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:ems="10"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.267"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/editText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="299dp"
         android:layout_marginBottom="10dp"
+=======
+        android:layout_marginTop="44dp"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:text="Email   : "
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/editText2"
         android:layout_alignParentStart="true"
         android:layout_marginStart="59dp"
         android:layout_marginBottom="22dp"
+=======
+        android:layout_marginTop="16dp"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:text="Password   :"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/textView4"
         android:layout_alignParentStart="true"
         android:layout_marginStart="59dp"
         android:layout_marginBottom="25dp"
+=======
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.267"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/editText3"
         android:layout_alignParentStart="true"
         android:layout_marginStart="57dp"
         android:layout_marginBottom="23dp"
+=======
+        android:layout_marginTop="16dp"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:text="Re-enter Password : "
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.188"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <EditText
         android:id="@+id/editText3"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/textView5"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="22dp"
+=======
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.267"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/btnDaftar"
         android:layout_alignParentStart="true"
         android:layout_marginStart="61dp"
         android:layout_marginBottom="27dp"
         android:text="Jenis Prakerin :"
         app:layout_constraintBottom_toTopOf="@+id/btnDaftar"
+=======
+        android:layout_marginTop="16dp"
+        android:text="Jenis Prakerin :"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <Button
         android:id="@+id/btnDaftar"
         android:layout_width="281dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/button2"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="62dp"
         android:layout_marginBottom="22dp"
+=======
+        android:layout_marginTop="10dp"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:text="Pilih"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="276dp"
         android:layout_height="53dp"
+<<<<<<< HEAD
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="67dp"
         android:layout_marginBottom="45dp"
+=======
+        android:layout_marginTop="20dp"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         android:text="DAFTAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.225" />
+=======
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.135" />
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_above="@+id/textView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -162,6 +199,10 @@
         android:text="DAFTAR"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
+=======
+        android:layout_marginTop="24dp"
+        android:text="DAFTAR"
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

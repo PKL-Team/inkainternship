@@ -20,11 +20,19 @@
         </include>
 
         <Button
-            android:id="@+id/btnCoba"
+            android:id="@+id/btnMasuk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
-            android:text="COBA"/>
+            android:text="Masuk"
+            android:layout_below="@id/toolbar"/>
+        <Button
+            android:id="@+id/btnDaftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar"
+            android:layout_toRightOf="@id/btnMasuk"
+            android:layout_below="@id/toolbar"/>
+
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -35,6 +43,6 @@
         app:headerLayout="@layout/header"
         android:layout_gravity="start"
         app:itemTextColor="#000000"
-        android:background="#bebebe"/>
+        android:background="#cccccc"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

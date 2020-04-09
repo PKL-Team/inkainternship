@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".PengaturanActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".DaftarActivity"></activity>
+=======
+        <activity android:name=".PersyaratanActivity"></activity>
+        <activity android:name=".AlurActivity" />
+>>>>>>> e083a9499c7a608ca9a8999f705d9f91af31856a
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -21,7 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".DaftarActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".PengaturanActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
