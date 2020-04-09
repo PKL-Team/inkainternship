@@ -1326,6 +1326,7 @@ layout abc_tooltip
 layout activity_daftar
 layout activity_login
 layout activity_main
+layout activity_pengaturan
 layout activity_splash
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

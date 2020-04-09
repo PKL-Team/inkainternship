@@ -35,22 +35,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         btnCoba = findViewById(R.id.btnCoba);
-//        btnLogin = findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnLogin);
         btnSignup = findViewById(R.id.btnSignup);
 
-        /* setSupportActionBar(toolbar);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.openDrawer,R.string.closeDrawer);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();*/
 
 
         btnCoba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
+                Intent menu = new Intent(MainActivity.this, PengaturanActivity.class);
                 finish();
                 startActivity(menu);
             }
@@ -87,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Beranda Selected", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.navigation2:
-                        Intent pesan = new Intent(MainActivity.this, DaftarActivity.class);
+                        Intent pesan = new Intent(MainActivity.this, SplashActivity.class);
                         finish();
                         startActivity(pesan);
                         return true;
@@ -97,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(list);
                         return true;
                     case R.id.navigation4:
-                        Intent set = new Intent(MainActivity.this, DaftarActivity.class);
+                        Intent set = new Intent(MainActivity.this, PengaturanActivity.class);
                         finish();
                         startActivity(set);
                         return true;
