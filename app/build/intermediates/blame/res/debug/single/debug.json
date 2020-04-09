@@ -8,6 +8,10 @@
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\ic_keluar.xml"
     },
     {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\header.xml"
+    },
+    {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\menu_item_navigasi_1.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\menu\\item_navigasi_1.xml"
     },
@@ -18,6 +22,10 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\menu_dropdown_menu.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\menu\\dropdown_menu.xml"
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\font_coming_soon.xml.flat",
@@ -46,6 +54,14 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_foto_profile.jpg.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\foto_profile.jpg"
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
@@ -86,6 +102,10 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_beranda.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\ic_beranda.xml"
+    },
+    {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_daftar.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_daftar.xml"
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",

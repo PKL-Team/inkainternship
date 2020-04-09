@@ -11,7 +11,7 @@
 9-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:5:5-26:19
+11-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:5:5-25:19
 12        android:allowBackup="true"
 12-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -29,33 +29,33 @@
 20        android:theme="@style/AppTheme" >
 20-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:11:9-40
 21        <activity
-21-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:12:9-19:20
+21-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:12:9-18:20
 22            android:name="com.begin.diana.inkainternship.SplashActivity"
 22-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:12:19-49
 23            android:theme="@style/Theme.AppCompat.NoActionBar" >
 23-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:13:13-63
 24            <intent-filter>
-24-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:14:13-18:29
+24-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:14:13-17:29
 25                <action android:name="android.intent.action.MAIN" />
 25-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:15:17-69
 25-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:15:25-66
 26
 27                <category android:name="android.intent.category.LAUNCHER" />
-27-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:17:17-77
-27-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:17:27-74
+27-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:16:17-77
+27-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:16:27-74
 28            </intent-filter>
 29        </activity>
 30        <activity android:name="com.begin.diana.inkainternship.MainActivity" >
-30-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:20:9-21:20
-30-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:20:19-47
+30-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:19:9-20:20
+30-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:19:19-47
 31        </activity>
 32
 33        <meta-data
-33-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:23:9-25:57
+33-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:22:9-24:57
 34            android:name="preloaded_fonts"
-34-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:13-43
+34-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:23:13-43
 35            android:resource="@array/preloaded_fonts" />
-35-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:25:13-54
+35-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:13-54
 36    </application>
 37
 38</manifest>
