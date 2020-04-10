@@ -1091,13 +1091,11 @@ id barrier
 id beginning
 id blocking
 id bottom
-id btnDaftar
 id btnLogin
 id btnMasuk
+id btnRegister
 id btnSignup
-id button
 id button2
-id button3
 id buttonPanel
 id cancel_action
 id center
@@ -1135,8 +1133,6 @@ id dropdown_menu2
 id editText
 id editText2
 id editText3
-id editText4
-id editText5
 id edit_query
 id end
 id end_padder
@@ -1176,6 +1172,7 @@ id line3
 id listMode
 id listTitle
 id list_item
+id login_title
 id masked
 id media_actions
 id message
@@ -1274,8 +1271,6 @@ id textView3
 id textView4
 id textView5
 id textView6
-id textView7
-id textView8
 id textView9
 id text_input_password_toggle
 id textinput_counter
