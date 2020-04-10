@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LOGIN"
-            android:textColor="#6495ed"
+            android:textColor="#fff"
             android:textSize="18dp" />
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SIGNUP"
-            android:textColor="#6495ed"
+            android:textColor="#fff"
             android:textSize="18dp" />
     </LinearLayout>
 

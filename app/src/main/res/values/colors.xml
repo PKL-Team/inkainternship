@@ -6,5 +6,8 @@
     <color name="c1">#65c69d</color>
     <color name="c2">#666f78</color>
     <color name="c3">#353e47</color>
+    <color name="dividerColor">#80cbc4</color>
+    <color name="list_item_title">#AAAAAA</color>
+    <color name="list_group_title">#808080</color>
 
 </resources>

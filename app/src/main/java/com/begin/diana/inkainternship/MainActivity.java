@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-        setSupportActionBar(toolbar);
+//        getSupportActionBar(toolbar);
 
         btnLogin = findViewById(R.id.btnMasuk);
         btnSignup = findViewById(R.id.btnDaftar);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
+                Intent menu = new Intent(MainActivity.this, Main2Activity.class);
                 finish();
                 startActivity(menu);
             }
