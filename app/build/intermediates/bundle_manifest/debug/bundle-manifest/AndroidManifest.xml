@@ -18,15 +18,15 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-<<<<<<< HEAD
-        <activity android:name="com.begin.diana.inkainternship.Main2Activity" />
-=======
+        <activity
+            android:name="com.begin.diana.inkainternship.activityCobaCoba"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.begin.diana.inkainternship.Main2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
         <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
         <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
->>>>>>> 74d6b0cc3130cd4359fa214c86cdc068d1b83595
-        <activity android:name="com.begin.diana.inkainternship.PersyaratanActivity" />
-        <activity android:name="com.begin.diana.inkainternship.AlurActivity" />
         <activity android:name="com.begin.diana.inkainternship.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.begin.diana.inkainternship.MainActivity" />
+        <activity
+            android:name="com.begin.diana.inkainternship.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

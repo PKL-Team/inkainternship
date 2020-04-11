@@ -7,42 +7,27 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer"
     android:fitsSystemWindows="true"
-    android:background="#cccccc"
+    android:background="#999999"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <include
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        layout="@layout/layout_toolbar"/>
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/layout_toolbar">
-        </include>
-
-        <Button
-            android:id="@+id/btnMasuk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Masuk"
-            android:layout_below="@id/toolbar"/>
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Daftar"
-            android:layout_toRightOf="@id/btnMasuk"
-            android:layout_below="@id/toolbar"/>
-
-    </RelativeLayout>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/content_main"/>
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/navigationView"
-        app:menu="@menu/item_navigasi_1"
-        app:headerLayout="@layout/header"
         android:layout_gravity="start"
-        app:itemTextColor="#000000"
-        android:background="#cccccc"/>
+        app:menu="@menu/item_navigasi_1"
+        app:headerLayout="@layout/layout_header"
+        android:background="#999999"
+        android:fitsSystemWindows="true"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,190 +1,105 @@
 package com.begin.diana.inkainternship;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.res.Configuration;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
+import android.widget.TextView;
 
-import com.begin.diana.inkainternship.Adapter.CustomExpandableListAdapter;
-import com.begin.diana.inkainternship.Helper.FragmentNavigationManager;
-import com.begin.diana.inkainternship.Interface.NavigationManager;
+import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-public class Main2Activity extends AppCompatActivity {
-
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private String mActivityTitle;
-    private String[] items;
-
-    private ExpandableListView expandableListView;
-    private ExpandableListAdapter adapter;
-    private List<String> lstTitle;
-    private HashMap<String, List<String>> lstChild;
-    private NavigationManager navigationManager;
+    DrawerLayout drawerLayout2;
+    ActionBarDrawerToggle actionBarDrawerToggle2;
+    Toolbar toolbar2;
+    NavigationView navigationView2;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        title = findViewById(R.id.toolbarTitle2);
 
-        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer2);
-        mActivityTitle = getTitle().toString();
-        expandableListView = (ExpandableListView)findViewById(R.id.navList);
-        navigationManager = FragmentNavigationManager.getmInstance(this);
+        toolbar2 = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar2);
+        drawerLayout2 = findViewById(R.id.drawer2);
+        navigationView2 = findViewById(R.id.navigationView2);
+        navigationView2.setNavigationItemSelectedListener(this);
 
-        initItems();
+        actionBarDrawerToggle2 = new ActionBarDrawerToggle(this, drawerLayout2, toolbar2, R.string.openDrawer, R.string.closeDrawer);
+        drawerLayout2.addDrawerListener(actionBarDrawerToggle2);
+        actionBarDrawerToggle2.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle2.syncState();
 
-        View listHeaderView = getLayoutInflater().inflate(R.layout.nav_header, null, false);
-        expandableListView.addHeaderView(listHeaderView);
-
-        genData();
-
-        addDrawersItem();
-        setupDrawer();
-
-        if(savedInstanceState == null) {
-            selectFirstItemAsDefault();
-        }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("INKA");
-    }
-
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    private void selectFirstItemAsDefault() {
-        if(navigationManager != null){
-            String firstItem = lstTitle.get(0);
-            navigationManager.showFragment(firstItem);
-            getSupportActionBar().setTitle(firstItem);
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new FragmentBeranda()).commit();
+            navigationView2.setCheckedItem(R.id.nav_beranda2);
+            title.setText("Beranda");
         }
     }
 
-    private void setupDrawer() {
-        mDrawerToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close){
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-//                getSupportActionBar().setTitle("INKA");
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-//                getSupportActionBar().setTitle(mActivityTitle);
-                invalidateOptionsMenu();
-            }
-        };
-
-        mDrawerToggle.setDrawerIndicatorEnabled(true);
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-    }
-
-    private void addDrawersItem() {
-        adapter = new CustomExpandableListAdapter(this,lstTitle,lstChild);
-
-        expandableListView.setAdapter(adapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                getSupportActionBar().setTitle(lstTitle.get(groupPosition).toString());
-
-            }
-        });
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                getSupportActionBar().setTitle("INKA INTERSHIP");
-            }
-        });
-
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long l) {
-                String selectedItem = ((List)(lstChild.get(lstTitle.get(groupPosition))))
-                        .get(childPosition).toString();
-                getSupportActionBar().setTitle(selectedItem);
-
-                if(items[0].equals(lstTitle.get(groupPosition)))
-                    navigationManager.showFragment(selectedItem);
-                else
-                    throw new IllegalArgumentException("Not Supported Fragment");
-
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-                return false;
-            }
-        });
-    }
-
-    private void genData() {
-//        List<String> title = Arrays.asList("Beranda","Pendaftaran PKL","Alur Pendafataran");
-//        List<String> menu = Arrays.asList("Beranda","Pendaftaran PKL","Alur Pendaftaran","Persyaratan Umum");
-        lstTitle = new ArrayList<String>();
-        String[] array = new String[]{"Beranda","Pendaftaran PKL","Alur Pendaftaran","Persyaratan Umum"};
-        lstTitle = Arrays.asList(array);
-        List<String> childitem = Arrays.asList("Daftar Awal","Daftar Ulang","Dokumen & Berkas","Informasi Peserta");
-        lstChild = new HashMap<>();
-//        lstChild.put(menu.get(0),childitem);
-//        lstChild.put(menu.get(1),childitem);
-//        lstChild.put(menu.get(2),childitem);
-//        lstChild.put(menu.get(3),childitem);
-//        lstTitle = new ArrayList<>(lstChild.keySet());
-
-//        lstTitle = new ArrayList<String>();
-//        String[] array = new String[]{"Beranda","Pendaftaran PKL","Alur Pendaftaran","Persyaratan Umum"};
-//        lstTitle = Arrays.asList(array);
-//        lstChild = new HashMap<String, List<String>>();
-        lstChild.put(lstTitle.get(0),childitem);
-        lstChild.put(lstTitle.get(1),childitem);
-        lstChild.put(lstTitle.get(2),childitem);
-        lstChild.put(lstTitle.get(3),childitem);
-//        lstTitle = new ArrayList<>(lstChild.keySet());
-    }
-
-    private void initItems() {
-        items = new String[]{"Beranda","Pendaftaran PKL","Alur Pendaftaran","Persyaratan Umum"};
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout2.isDrawerOpen(GravityCompat.START)){
+            drawerLayout2.closeDrawer(GravityCompat.START);
+        }else{
+            Intent back = new Intent(Main2Activity.this, activityCobaCoba.class);
+            finish();
+            startActivity(back);
+            super.onBackPressed();
+        }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+            case R.id.nav_beranda2:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentBeranda()).commit();
+                title.setText("Beranda");
+                break;
+            case R.id.nav_daftarAwal:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentDaftarAwal()).commit();
+                title.setText("Daftar Awal");
+            case R.id.nav_daftarUlang:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentDaftarUlang()).commit();
+                title.setText("Daftar Ulang");
+            case R.id.nav_dokumenBerkas:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentDokumenBerkas()).commit();
+                title.setText("Dokumen dan Berkas");
+            case R.id.nav_infoPeserta:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentInformasiPeserta()).commit();
+                title.setText("Informasi Peserta");
+            case R.id.nav_alur2:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentAlur()).commit();
+                title.setText("Alur Informasi");
+                break;
+            case R.id.nav_syarat2:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentPersyaratan()).commit();
+                title.setText("Persyaratan Umum");
+                break;
+            case R.id.nav_pengaturan2:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentPengaturan()).commit();
+                title.setText("Pengaturan");
+                break;
+        }
+        drawerLayout2.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if(mDrawerToggle.onOptionsItemSelected(item))
-            return true;
-
-        return super.onOptionsItemSelected(item);
     }
 }
