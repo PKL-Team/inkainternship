@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/INKA INTERNSHIP.iml" filepath="$PROJECT_DIR$/INKA INTERNSHIP.iml" group="INKA INTERNSHIP" />
+      <module fileurl="file://$PROJECT_DIR$/app/INKAINTERNSHIP-app.iml" filepath="$PROJECT_DIR$/app/INKAINTERNSHIP-app.iml" group="INKA INTERNSHIP/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="INKA INTERNSHIP/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/inkainternship-app.iml" filepath="$PROJECT_DIR$/app/inkainternship-app.iml" group="INKA INTERNSHIP/app" />
     </modules>
   </component>
 </project>

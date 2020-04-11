@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                Intent home = new Intent(SplashActivity.this, Main2Activity.class);
+                Intent home = new Intent(SplashActivity.this, activityCobaCoba.class);
                 startActivity(home);
                 finish();
             }

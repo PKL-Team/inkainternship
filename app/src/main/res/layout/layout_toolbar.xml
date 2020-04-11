@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#999999"
-    android:theme="@style/ThemeOverlay.AppCompat">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:src="@drawable/icon_profile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:padding="5dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp" />
-        <TextView
-            android:id="@+id/jdlMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_centerVertical="true"
-            android:textSize="20sp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#7f7f7f"
+        android:id="@+id/toolbar">
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INKA INTERNSHIP"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:src="@drawable/ic_account_circle_white_24dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp" />
 
-</androidx.appcompat.widget.Toolbar>
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+</LinearLayout>
