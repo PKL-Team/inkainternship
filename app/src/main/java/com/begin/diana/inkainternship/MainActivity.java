@@ -48,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
-//                finish();
-//                startActivity(menu);
-//            }
-//        });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
+                finish();
+                startActivity(menu);
+            }
+        });
 
 //        btnSignup.setOnClickListener(new View.OnClickListener() {
 //            @Override

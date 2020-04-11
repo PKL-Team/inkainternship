@@ -9,16 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
+
         <activity android:name=".Main2Activity"/>
         <activity android:name=".PersyaratanActivity" />
-=======
-
         <activity android:name=".PengaturanActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".DaftarActivity"></activity>
-        <activity android:name=".PersyaratanActivity"></activity>
->>>>>>> 74d6b0cc3130cd4359fa214c86cdc068d1b83595
         <activity android:name=".AlurActivity" />
 
         <activity
