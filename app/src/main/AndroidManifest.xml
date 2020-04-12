@@ -9,8 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+
+        <activity android:name=".Main2Activity"/>
+        <activity android:name=".PersyaratanActivity" />
+        <activity android:name=".PengaturanActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".DaftarActivity"></activity>
+        <activity android:name=".AlurActivity" />
+
+=======
         <activity android:name=".activityCobaCoba"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
         <activity
             android:name=".Main2Activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

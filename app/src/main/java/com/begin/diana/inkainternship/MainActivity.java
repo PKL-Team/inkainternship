@@ -36,10 +36,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
+<<<<<<< HEAD
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menu = new Intent(MainActivity.this, Main2Activity.class);
+                finish();
+                startActivity(menu);
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
+                finish();
+                startActivity(menu);
+            }
+        });
+=======
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,

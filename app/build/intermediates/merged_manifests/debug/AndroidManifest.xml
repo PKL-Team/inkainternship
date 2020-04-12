@@ -18,6 +18,14 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+<<<<<<< HEAD
+        <activity android:name="com.begin.diana.inkainternship.Main2Activity" />
+        <activity android:name="com.begin.diana.inkainternship.PersyaratanActivity" />
+        <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
+        <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
+        <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
+        <activity android:name="com.begin.diana.inkainternship.AlurActivity" />
+=======
         <activity
             android:name="com.begin.diana.inkainternship.activityCobaCoba"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -27,6 +35,7 @@
         <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
         <activity android:name="com.begin.diana.inkainternship.LoginActivity" />
         <activity android:name="com.begin.diana.inkainternship.DaftarActivity" />
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
         <activity android:name="com.begin.diana.inkainternship.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

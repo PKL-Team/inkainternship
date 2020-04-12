@@ -1,5 +1,9 @@
 [
     {
+<<<<<<< HEAD
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\menu_item_navigasi_1.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\menu\\item_navigasi_1.xml"
+=======
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_alur.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\fragment_alur.xml"
     },
@@ -10,14 +14,24 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_daftar_awal.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\fragment_daftar_awal.xml"
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+<<<<<<< HEAD
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_username.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-mdpi\\username.png"
+=======
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_main.xml"
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\font_coming_soon.xml.flat",
@@ -28,6 +42,178 @@
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+<<<<<<< HEAD
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_alur.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_alur.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\font_coming_soon.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\font\\coming_soon.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main2.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_main2.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_account_circle_white_24dp.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\ic_account_circle_white_24dp.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_beranda.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\beranda.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_persyaratan.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_persyaratan.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_foto_profile.jpg.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\foto_profile.jpg"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_group.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\list_group.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_password.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-xxhdpi\\password.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_password.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-mdpi\\password.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_fragment_content.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\fragment_fragment_content.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_main_header_selector.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\main_header_selector.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_username.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-xxhdpi\\username.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_keluar.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\ic_keluar.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_user_icon.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-xxhdpi\\user_icon.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\menu_main_menu.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\menu\\main_menu.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\nav_header.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_daftar.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_daftar.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\menu_dropdown_menu.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\menu\\dropdown_menu.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_username.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-anydpi\\username.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_username.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-xhdpi\\username.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_pengaturan.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\ic_pengaturan.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_username.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-hdpi\\username.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_user_icon.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-anydpi\\user_icon.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_alur.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\alur.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_alur.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\ic_alur.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_user_icon.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-hdpi\\user_icon.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_profile.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\icon_profile.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_pengaturan.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\activity_pengaturan.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\header.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_password.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-xhdpi\\password.png"
+=======
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
@@ -154,12 +340,21 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
+<<<<<<< HEAD
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_password.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-hdpi\\password.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_password.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-anydpi\\password.xml"
+=======
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_toolbar.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\layout_toolbar.xml"
     },
@@ -174,6 +369,7 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
     },
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_dokumen_berkas.xml.flat",
@@ -192,6 +388,22 @@
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_main2.xml"
     },
     {
+<<<<<<< HEAD
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_user_icon.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-xhdpi\\user_icon.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_user_icon.png.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable-mdpi\\user_icon.png"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_profile.xml.flat",
+        "source": "D:\\PKL 2020\\inkainternship\\app\\src\\main\\res\\drawable\\background_profile.xml"
+=======
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_daftar_ulang.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\fragment_daftar_ulang.xml"
     },
@@ -202,5 +414,6 @@
     {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_pengaturan.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_pengaturan.xml"
+>>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
     }
 ]
