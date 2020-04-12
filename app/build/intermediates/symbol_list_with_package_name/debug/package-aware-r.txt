@@ -48,6 +48,7 @@ animator mtrl_fab_transformation_sheet_expand_spec
 array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
+array jenis
 array preloaded_fonts
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1367,15 +1368,12 @@ drawable foto_profile
 drawable ic_account_circle_white_24dp
 drawable ic_alur_24dp
 drawable ic_beranda
-<<<<<<< HEAD
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
-drawable ic_edit_black_24dp
-=======
 drawable ic_daftar
 drawable ic_dokumenberkas
+drawable ic_edit_black_24dp
 drawable ic_informasipeserta_24dp
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
 drawable ic_keluar
 drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
@@ -1494,16 +1492,11 @@ id barrier
 id beginning
 id blocking
 id bottom
-<<<<<<< HEAD
-id btnDaftar
-=======
 id btnDenganLogin
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
 id btnLogin
 id btnRegister
 id btnSignup
 id btnTanpaLogin
-id button2
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1543,17 +1536,9 @@ id direct
 id disableHome
 id drawer
 id drawer2
-<<<<<<< HEAD
-id drawerAlur
-id drawerPersyaratan
 id dropdown_menu
-=======
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
 id dropdown_menu1
 id dropdown_menu2
-id editText
-id editText2
-id editText3
 id edit_query
 id end
 id end_padder
@@ -1594,6 +1579,7 @@ id largeLabel
 id left
 id line1
 id line3
+id listItem
 id listMode
 id list_item
 id login_title
@@ -1737,11 +1723,6 @@ id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView2
-id textView3
-id textView4
-id textView5
-id textView9
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter
@@ -1841,13 +1822,8 @@ layout activity_main
 layout activity_main2
 layout activity_pengaturan
 layout activity_splash
-<<<<<<< HEAD
-layout alur
-layout beranda
-layout custom_dialog
-=======
 layout content_main
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
+layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1861,14 +1837,20 @@ layout design_navigation_item_separator
 layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
-<<<<<<< HEAD
 layout design_text_input_end_icon
 layout design_text_input_start_icon
-layout fragment_fragment_content
-layout header
+layout fragment_alur
+layout fragment_beranda
+layout fragment_daftar_awal
+layout fragment_daftar_ulang
+layout fragment_dokumen_berkas
+layout fragment_informasi_peserta
+layout fragment_pengaturan
+layout fragment_persyaratan
+layout layout_header
+layout layout_header2
 layout layout_toolbar
-layout list_group
-layout list_item
+layout layout_toolbar2
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1897,24 +1879,6 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
-layout nav_header
-=======
-layout design_text_input_password_icon
-layout fragment_alur
-layout fragment_beranda
-layout fragment_daftar_awal
-layout fragment_daftar_ulang
-layout fragment_dokumen_berkas
-layout fragment_informasi_peserta
-layout fragment_pengaturan
-layout fragment_persyaratan
-layout layout_header
-layout layout_header2
-layout layout_toolbar
-layout layout_toolbar2
-layout mtrl_layout_snackbar
-layout mtrl_layout_snackbar_include
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action

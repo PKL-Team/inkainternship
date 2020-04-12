@@ -18,7 +18,7 @@ public class DaftarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-        button = findViewById(R.id.btnRegister);
+//        button = findViewById(R.id.btnRegister);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +37,7 @@ public class DaftarActivity extends AppCompatActivity {
         });
     }
 
-    public boolean onMenuItemClick(MenuItem item) {
-        return false;
-    }
+//    public boolean onMenuItemClick(MenuItem item) {
+//        return false;
+//    }
 }

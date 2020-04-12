@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\ea88890b09526096266c9c16859169ae\\appcompat-1.1.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
-=======
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\9442e2deaa13c1c57ceecb67bd85baf8\\appcompat-1.0.2\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -17,4 +17,13 @@
         android:layout_height="wrap_content"
         android:text="Dengan Login"
         android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/btnTanpaLogin"
+        android:text="Coba Login" />
+
 </RelativeLayout>
