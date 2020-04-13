@@ -1546,7 +1546,10 @@ id barrier
 id beginning
 id blocking
 id bottom
+<<<<<<< HEAD
 id btnDaftar
+=======
+>>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
 id btnDenganLogin
 id btnLogin
 id btnSignup
@@ -1923,8 +1926,11 @@ layout fragment_dokumen_berkas
 layout fragment_informasi_peserta
 layout fragment_pengaturan
 layout fragment_persyaratan
+<<<<<<< HEAD
 layout fragment_slider_item
 layout indicator_layout
+=======
+>>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
 layout layout_header
 layout layout_header2
 layout layout_toolbar

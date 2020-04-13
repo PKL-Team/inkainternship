@@ -20,9 +20,9 @@ public class LoginActivity extends AppCompatActivity {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menu = new Intent(LoginActivity.this, DaftarActivity.class);
+                Intent daftar = new Intent(LoginActivity.this, DaftarActivity.class);
                 finish();
-                startActivity(menu);
+                startActivity(daftar);
             }
         });
     }

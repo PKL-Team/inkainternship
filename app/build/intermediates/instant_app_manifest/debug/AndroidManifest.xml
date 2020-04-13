@@ -7,7 +7,7 @@
 
     <uses-sdk
         android:minSdkVersion="21"
-        android:targetSdkVersion="28" />
+        android:targetSdkVersion="29" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -23,9 +23,25 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+<<<<<<< HEAD
         <activity
             android:name="com.begin.diana.inkainternship.activityCobaCoba"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+=======
+        <activity android:name="com.begin.diana.inkainternship.PengaturanActivity" />
+        <activity
+            android:name="com.begin.diana.inkainternship.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.begin.diana.inkainternship.DaftarActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.begin.diana.inkainternship.activityCobaCoba"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.begin.diana.inkainternship.Main2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+>>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
         <activity android:name="com.begin.diana.inkainternship.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

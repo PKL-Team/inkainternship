@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class activityCobaCoba extends AppCompatActivity {
 
-    Button btnTanpa, btnDengan;
+    Button btnTanpa, btnDengan, btnCoba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class activityCobaCoba extends AppCompatActivity {
 
         btnTanpa = findViewById(R.id.btnTanpaLogin);
         btnDengan = findViewById(R.id.btnDenganLogin);
+        btnCoba = findViewById(R.id.btnLogin);
 
         btnTanpa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +35,15 @@ public class activityCobaCoba extends AppCompatActivity {
                 Intent open = new Intent(activityCobaCoba.this, Main2Activity.class);
                 finish();
                 startActivity(open);
+            }
+        });
+
+        btnCoba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent coba = new Intent(activityCobaCoba.this, LoginActivity.class);
+                finish();
+                startActivity(coba);
             }
         });
 

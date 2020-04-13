@@ -1,10 +1,24 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\eaf17b24d60dc773c7680b20ac141638\\material-1.1.0\\res\\values-land\\values-land.xml",
+=======
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\ea88890b09526096266c9c16859169ae\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\eaf17b24d60dc773c7680b20ac141638\\material-1.1.0\\res\\values-land\\values-land.xml",
+>>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,24,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

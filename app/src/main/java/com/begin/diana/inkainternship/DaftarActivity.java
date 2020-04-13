@@ -18,6 +18,10 @@ public class DaftarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
+<<<<<<< HEAD
+=======
+//        button = findViewById(R.id.btnRegister);
+>>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +40,7 @@ public class DaftarActivity extends AppCompatActivity {
         });
     }
 
-    public boolean onMenuItemClick(MenuItem item) {
-        return false;
-    }
+//    public boolean onMenuItemClick(MenuItem item) {
+//        return false;
+//    }
 }
