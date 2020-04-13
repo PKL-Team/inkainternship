@@ -4,8 +4,7 @@
             "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\eaf17b24d60dc773c7680b20ac141638\\material-1.1.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\eaf17b24d60dc773c7680b20ac141638\\material-1.1.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -15,10 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\ea88890b09526096266c9c16859169ae\\appcompat-1.1.0\\res\\values-v28\\values-v28.xml",
-=======
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\9442e2deaa13c1c57ceecb67bd85baf8\\appcompat-1.0.2\\res\\values-v28\\values-v28.xml",
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\ea88890b09526096266c9c16859169ae\\appcompat-1.1.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

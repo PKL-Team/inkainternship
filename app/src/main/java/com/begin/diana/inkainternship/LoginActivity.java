@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnDaftar = findViewById(R.id.btnRegister);
+        btnDaftar = findViewById(R.id.btnDaftar);
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,14 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Button btnLogin, btnSignup;
     TextView title;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,30 +45,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
-<<<<<<< HEAD
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, Main2Activity.class);
-                finish();
-                startActivity(menu);
-            }
-        });
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
-                finish();
-                startActivity(menu);
-            }
-        });
-=======
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         actionBarDrawerToggle.syncState();
->>>>>>> 9e3ff53aebe7a087342eae0649e3ae0d13bec19b
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
@@ -67,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_beranda);
             title.setText("Beranda");
         }
+
     }
 
 
