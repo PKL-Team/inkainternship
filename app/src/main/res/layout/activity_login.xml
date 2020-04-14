@@ -34,6 +34,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/username"
                     android:hint="Email"
+                    android:textColor="#000000"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -47,6 +48,7 @@
                     android:layout_marginTop="16dp"
                     android:drawableLeft="@drawable/password"
                     android:hint="Password"
+                    android:textColor="#000000"
                     android:inputType="numberPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:paddingTop="5dp"
+                android:textColor="#000000"
                 android:text="Keep me sign-in" />
 
 
@@ -73,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingTop="5dp"
+                android:textColor="#000000"
                 android:text="Belum memiliki akun ?"/>
 
             <Button

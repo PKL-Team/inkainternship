@@ -7,37 +7,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class DaftarActivity extends AppCompatActivity {
 
-    Button button;
+//    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-//        button = findViewById(R.id.btnRegister);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), button);
-                dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
-                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+        final Spinner List = findViewById(R.id.listItem);
 
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        return true;
-                    }
-                });
-                dropDownMenu.show();
-            }
-        });
+
     }
 
-//    public boolean onMenuItemClick(MenuItem item) {
-//        return false;
-//    }
 }
