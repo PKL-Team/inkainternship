@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -21,6 +22,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar2;
     NavigationView navigationView2;
     TextView title;
+    ImageView imageUserHeader, imageUserToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,14 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_main2);
         title = findViewById(R.id.toolbarTitle2);
 
+//        imageUserHeader = findViewById(R.id.profilePic2);
+//        imageUserToolbar = findViewById(R.id.iconProfileToolbar2);
+//        imageUserHeader.setImageResource(R.drawable.foto_profile);
+//        imageUserToolbar.setImageResource(R.drawable.foto_profile);
+
         toolbar2 = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar2);
+
         drawerLayout2 = findViewById(R.id.drawer2);
         navigationView2 = findViewById(R.id.navigationView2);
         navigationView2.setNavigationItemSelectedListener(this);
@@ -94,8 +102,9 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 title.setText("Persyaratan Umum");
                 break;
             case R.id.nav_pengaturan2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                        new FragmentPengaturan()).commit();
+                Intent open = new Intent(Main2Activity.this, PengaturanActivity.class);
+                finish();
+                startActivity(open);
                 title.setText("Pengaturan");
                 break;
         }

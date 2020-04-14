@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
+            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCA\\values-fr-rCA.xml",
             "map": [
                 {
-<<<<<<< HEAD
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\da95e0dd41fd0c634661df2a0f122634\\core-1.1.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
-=======
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\da95e0dd41fd0c634661df2a0f122634\\core-1.1.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
->>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

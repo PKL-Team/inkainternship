@@ -1417,7 +1417,6 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_pengaturan
 drawable ic_persyaratan
 drawable icon_profile
-drawable image_prakerin
 drawable indicator_corner_bg
 drawable inka_1
 drawable inka_2
@@ -1448,9 +1447,6 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable password
-drawable roti1
-drawable roti2
-drawable roti3
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1546,14 +1542,13 @@ id barrier
 id beginning
 id blocking
 id bottom
-<<<<<<< HEAD
-id btnDaftar
-=======
->>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
 id btnDenganLogin
+id btnKelolaAkun
 id btnLogin
+id btnRegister
 id btnSignup
 id btnTanpaLogin
+id btnTentangAplikasi
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1627,6 +1622,10 @@ id filter_chip
 id fitToContents
 id fixed
 id forever
+id fp0
+id fp1
+id fp2
+id fp3
 id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
@@ -1637,7 +1636,7 @@ id hideable
 id home
 id homeAsUp
 id icon
-id iconProfileToolbar
+id iconProfileToolbar2
 id icon_group
 id idTool
 id idTool2
@@ -1924,13 +1923,12 @@ layout fragment_daftar_awal
 layout fragment_daftar_ulang
 layout fragment_dokumen_berkas
 layout fragment_informasi_peserta
+layout fragment_kelola_akun
 layout fragment_pengaturan
 layout fragment_persyaratan
-<<<<<<< HEAD
 layout fragment_slider_item
+layout fragment_tentang_aplikasi
 layout indicator_layout
-=======
->>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
 layout layout_header
 layout layout_header2
 layout layout_toolbar

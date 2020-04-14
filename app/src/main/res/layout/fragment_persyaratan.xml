@@ -4,10 +4,93 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/fp0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Persyaratan Umum"
-        android:textSize="25sp"
-        android:layout_centerInParent="true"/>
+        android:text="     Persyaratan umum yang harus dipenuhi oleh calon peserta kegiatan PRAKERIN atau PKL adalah sebagai berikut : "
+        android:gravity="left"
+        android:padding="10dp"/>
+    <FrameLayout
+        android:id="@+id/fp1"
+        android:layout_below="@id/fp0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_secondary_variant"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Untuk Siswa SMK"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/fp2"
+        android:layout_below="@id/fp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Warga Negara Indonesia (WNI)"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Masih berstatus siswa SMK aktif " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Copy raport sampai semester terakhir, nilai rata-rata minimal 7"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fp3"
+        android:layout_below="@id/fp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_secondary_variant"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Untuk Mahasiswa"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/fp3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Warga Negara Indonesia (WNI)"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Masih berstatus mahasiswa aktif"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Nilai IPK sampai semester terakhir minimal 3"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Berasal dari perguruan tinggi dengan akreditasi minimal B"/>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

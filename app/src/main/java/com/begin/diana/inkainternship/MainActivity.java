@@ -37,35 +37,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        title = findViewById(R.id.toolbarTitle);
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        title = findViewById(R.id.toolbarTitle);
 
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
-<<<<<<< HEAD
-=======
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, Main2Activity.class);
-                finish();
-                startActivity(menu);
-            }
-        });
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent menu = new Intent(MainActivity.this, Main2Activity.class);
+//                finish();
+//                startActivity(menu);
+//            }
+//        });
+//
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
+//                finish();
+//                startActivity(menu);
+//            }
+//        });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
-                finish();
-                startActivity(menu);
-            }
-        });
-
->>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -112,8 +110,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 title.setText("Persyaratan Umum");
                 break;
             case R.id.nav_pengaturan:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                        new FragmentPengaturan()).commit();
+                Intent open = new Intent(MainActivity.this, PengaturanActivity.class);
+                finish();
+                startActivity(open);
                 title.setText("Pengaturan");
                 break;
         }
