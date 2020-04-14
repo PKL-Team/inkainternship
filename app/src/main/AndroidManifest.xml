@@ -10,40 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<<<<<<< HEAD
         <activity android:name=".activityCobaCoba"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-=======
-
-        <activity android:name=".PengaturanActivity"></activity>
-        <activity android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".DaftarActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".activityCobaCoba"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Main2Activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
->>>>>>> 1ecf23e954df95acc10f3dee5ac0747fe63b4081
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".PengaturanActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".Main2Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-        <activity android:name=".PengaturanActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".DaftarActivity" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
