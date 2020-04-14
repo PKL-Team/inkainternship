@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 #Tue Apr 14 19:57:32 ICT 2020
 base.0=D\:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+=======
+#Tue Apr 14 19:39:07 ICT 2020
+base.0=G\:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+>>>>>>> e7b1a40c4d231415c8d5af555a052a329e39e7e1
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=G\:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex

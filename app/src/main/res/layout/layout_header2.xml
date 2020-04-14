@@ -14,7 +14,7 @@
         android:layout_height="87dp"
         android:layout_gravity="center"
         android:elevation="8dp"
-        android:src="@drawable/foto_profile"/>
+        android:src="@drawable/ic_account_circle_white_24dp"/>
 
     <TextView
         android:id="@+id/namaUser"

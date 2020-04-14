@@ -50,6 +50,8 @@ array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
 array jenis
 array preloaded_fonts
+attr PagerIndicatorStyle
+attr SliderStyle
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -102,6 +104,7 @@ attr autoSizeMinTextSize
 attr autoSizePresetSizes
 attr autoSizeStepGranularity
 attr autoSizeTextType
+attr auto_cycle
 attr background
 attr backgroundColor
 attr backgroundInsetBottom
@@ -383,6 +386,7 @@ attr iconTintMode
 attr iconifiedByDefault
 attr imageButtonStyle
 attr indeterminateProgressStyle
+attr indicator_visibility
 attr initialActivityCount
 attr insetForeground
 attr isLightTheme
@@ -536,6 +540,12 @@ attr paddingBottomNoButtons
 attr paddingEnd
 attr paddingStart
 attr paddingTopNoTitle
+attr padding_bottom
+attr padding_left
+attr padding_right
+attr padding_top
+attr pager_animation
+attr pager_animation_span
 attr panelBackground
 attr panelMenuListTheme
 attr panelMenuListWidth
@@ -571,6 +581,15 @@ attr searchViewStyle
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr selected_color
+attr selected_drawable
+attr selected_height
+attr selected_padding_bottom
+attr selected_padding_left
+attr selected_padding_right
+attr selected_padding_top
+attr selected_width
+attr shape
 attr shapeAppearance
 attr shapeAppearanceLargeComponent
 attr shapeAppearanceMediumComponent
@@ -708,9 +727,18 @@ attr track
 attr trackTint
 attr trackTintMode
 attr ttcIndex
+attr unselected_color
+attr unselected_drawable
+attr unselected_height
+attr unselected_padding_bottom
+attr unselected_padding_left
+attr unselected_padding_right
+attr unselected_padding_top
+attr unselected_width
 attr useCompatPadding
 attr useMaterialThemeColors
 attr viewInflaterClass
+attr visibility
 attr voiceIcon
 attr windowActionBar
 attr windowActionBarOverlay
@@ -1350,6 +1378,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable background_profile
+drawable bg_indicator
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1388,6 +1417,11 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_pengaturan
 drawable ic_persyaratan
 drawable icon_profile
+drawable indicator_corner_bg
+drawable inka_1
+drawable inka_2
+drawable inka_3
+drawable inka_4
 drawable logo
 drawable main_header_selector
 drawable mtrl_dialog_background
@@ -1421,15 +1455,31 @@ drawable user_icon
 drawable username
 font coming_soon
 id ALT
+id Accordion
 id BOTTOM_END
 id BOTTOM_START
+id Background2Foreground
 id CTRL
+id CubeIn
+id Default
+id DepthPage
 id FUNCTION
+id Fade
+id FlipHorizontal
+id FlipPage
+id Foreground2Background
 id META
+id RotateDown
+id RotateUp
 id SHIFT
 id SYM
+id Stack
 id TOP_END
 id TOP_START
+id Tablet
+id ZoomIn
+id ZoomOut
+id ZoomOutSlide
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1494,10 +1544,12 @@ id beginning
 id blocking
 id bottom
 id btnDenganLogin
+id btnKelolaAkun
 id btnLogin
 id btnRegister
 id btnSignup
 id btnTanpaLogin
+id btnTentangAplikasi
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1523,9 +1575,20 @@ id coordinator
 id custom
 id customPanel
 id cut
+id daimajia_indicator_wrapper
+id daimajia_slider_image
+id daimajia_slider_viewpager
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
+id default_bottom_left_indicator
+id default_bottom_right_indicator
+id default_center_bottom_indicator
+id default_center_top_indicator
+id default_center_top_left_indicator
+id default_center_top_right_indicator
+id description
+id description_layout
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1549,6 +1612,9 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id fb1n
+id fb2n
+id fb3n
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1557,8 +1623,13 @@ id filter_chip
 id fitToContents
 id fixed
 id forever
+id fp0
+id fp1
+id fp2
+id fp3
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id group_divider
 id groups
@@ -1566,8 +1637,10 @@ id hideable
 id home
 id homeAsUp
 id icon
-id iconProfileToolbar
+id iconProfileToolbar2
 id icon_group
+id idTool
+id idTool2
 id ifRoom
 id image
 id imageView
@@ -1584,6 +1657,7 @@ id line3
 id listItem
 id listMode
 id list_item
+id loading_bar
 id login_title
 id masked
 id media_actions
@@ -1643,6 +1717,7 @@ id notification_main_column_container
 id off
 id on
 id outline
+id oval
 id packed
 id parallax
 id parent
@@ -1656,6 +1731,7 @@ id profilePic2
 id progress_circular
 id progress_horizontal
 id radio
+id rect
 id relativeLayout
 id relativeLayout1
 id relativeLayout2
@@ -1695,6 +1771,7 @@ id showHome
 id showTitle
 id skipCollapsed
 id slide
+id slider
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1856,8 +1933,12 @@ layout fragment_daftar_awal
 layout fragment_daftar_ulang
 layout fragment_dokumen_berkas
 layout fragment_informasi_peserta
+layout fragment_kelola_akun
 layout fragment_pengaturan
 layout fragment_persyaratan
+layout fragment_slider_item
+layout fragment_tentang_aplikasi
+layout indicator_layout
 layout layout_header
 layout layout_header2
 layout layout_toolbar
@@ -1906,9 +1987,12 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout render_type_default
+layout render_type_text
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout slider_layout
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_design_checkbox
@@ -2017,6 +2101,9 @@ string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
+style AndroidImageSlider_Attractive_Rect_Blue
+style AndroidImageSlider_Corner_Oval_Orange
+style AndroidImageSlider_Magnifier_Oval_Black
 style Animation_AppCompat_Dialog
 style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
@@ -2760,6 +2847,7 @@ styleable MenuGroup android_enabled android_id android_visible android_menuCateg
 styleable MenuItem android_icon android_enabled android_id android_checked android_visible android_menuCategory android_orderInCategory android_title android_titleCondensed android_alphabeticShortcut android_numericShortcut android_checkable android_onClick actionLayout actionProviderClass actionViewClass alphabeticModifiers contentDescription iconTint iconTintMode numericModifiers showAsAction tooltipText
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconSize itemIconTint itemMaxLines itemShapeAppearance itemShapeAppearanceOverlay itemShapeFillColor itemShapeInsetBottom itemShapeInsetEnd itemShapeInsetStart itemShapeInsetTop itemTextAppearance itemTextColor menu
+styleable PagerIndicator padding_bottom padding_left padding_right padding_top selected_color selected_drawable selected_height selected_padding_bottom selected_padding_left selected_padding_right selected_padding_top selected_width shape unselected_color unselected_drawable unselected_height unselected_padding_bottom unselected_padding_left unselected_padding_right unselected_padding_top unselected_width visibility
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
@@ -2768,6 +2856,7 @@ styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable ShapeAppearance cornerFamily cornerFamilyBottomLeft cornerFamilyBottomRight cornerFamilyTopLeft cornerFamilyTopRight cornerSize cornerSizeBottomLeft cornerSizeBottomRight cornerSizeTopLeft cornerSizeTopRight
+styleable SliderLayout auto_cycle indicator_visibility pager_animation pager_animation_span
 styleable Snackbar snackbarButtonStyle snackbarStyle
 styleable SnackbarLayout android_maxWidth actionTextColorAlpha animationMode backgroundOverlayColorAlpha elevation maxActionInlineWidth
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
@@ -2780,6 +2869,7 @@ styleable TabLayout tabBackground tabContentStart tabGravity tabIconTint tabIcon
 styleable TextAppearance android_textSize android_typeface android_textStyle android_textColor android_textColorHint android_textColorLink android_shadowColor android_shadowDx android_shadowDy android_shadowRadius android_fontFamily android_textFontWeight fontFamily fontVariationSettings textAllCaps textLocale
 styleable TextInputLayout android_textColorHint android_hint boxBackgroundColor boxBackgroundMode boxCollapsedPaddingTop boxCornerRadiusBottomEnd boxCornerRadiusBottomStart boxCornerRadiusTopEnd boxCornerRadiusTopStart boxStrokeColor boxStrokeWidth boxStrokeWidthFocused counterEnabled counterMaxLength counterOverflowTextAppearance counterOverflowTextColor counterTextAppearance counterTextColor endIconCheckable endIconContentDescription endIconDrawable endIconMode endIconTint endIconTintMode errorEnabled errorIconDrawable errorIconTint errorIconTintMode errorTextAppearance errorTextColor helperText helperTextEnabled helperTextTextAppearance helperTextTextColor hintAnimationEnabled hintEnabled hintTextAppearance hintTextColor passwordToggleContentDescription passwordToggleDrawable passwordToggleEnabled passwordToggleTint passwordToggleTintMode shapeAppearance shapeAppearanceOverlay startIconCheckable startIconContentDescription startIconDrawable startIconTint startIconTintMode
 styleable ThemeEnforcement android_textAppearance enforceMaterialTheme enforceTextAppearance
+styleable Themes PagerIndicatorStyle SliderStyle
 styleable Toolbar android_gravity android_minHeight buttonGravity collapseContentDescription collapseIcon contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation logo logoDescription maxButtonHeight menu navigationContentDescription navigationIcon popupTheme subtitle subtitleTextAppearance subtitleTextColor title titleMargin titleMarginBottom titleMarginEnd titleMarginStart titleMarginTop titleMargins titleTextAppearance titleTextColor
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode

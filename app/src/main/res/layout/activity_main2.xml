@@ -10,15 +10,21 @@
     android:background="#999999"
     tools:context=".Main2Activity">
 
-    <include
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/layout_toolbar2"/>
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/idTool2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/layout_toolbar2"/>
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/content_main"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/content_main"
+            android:layout_below="@id/idTool2"/>
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView2"
