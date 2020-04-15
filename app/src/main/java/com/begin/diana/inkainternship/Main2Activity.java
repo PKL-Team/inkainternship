@@ -51,7 +51,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new FragmentBeranda()).commit();
             navigationView2.setCheckedItem(R.id.nav_beranda2);
-            title.setText("Beranda 2");
+            title.setText("Beranda");
         }
     }
 
@@ -73,7 +73,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             case R.id.nav_beranda2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentBeranda()).commit();
-                title.setText("Beranda 2");
+                title.setText("Beranda");
                 break;
             case R.id.nav_daftarAwal:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
@@ -98,18 +98,18 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             case R.id.nav_alur2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentAlur()).commit();
-                title.setText("Alur Informasi 2");
+                title.setText("Alur Informasi");
                 break;
             case R.id.nav_syarat2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentPersyaratan()).commit();
-                title.setText("Persyaratan Umum 2");
+                title.setText("Persyaratan Umum");
                 break;
             case R.id.nav_pengaturan2:
                 Intent open = new Intent(Main2Activity.this, PengaturanActivity.class);
                 finish();
                 startActivity(open);
-                title.setText("Pengaturan 2");
+                title.setText("Pengaturan");
                 break;
         }
         drawerLayout2.closeDrawer(GravityCompat.START);
