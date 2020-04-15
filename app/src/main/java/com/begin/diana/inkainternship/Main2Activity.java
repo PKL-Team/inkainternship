@@ -51,7 +51,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new FragmentBeranda()).commit();
             navigationView2.setCheckedItem(R.id.nav_beranda2);
-            title.setText("Beranda");
+            title.setText("Beranda 2");
         }
     }
 
@@ -73,39 +73,43 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             case R.id.nav_beranda2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentBeranda()).commit();
-                title.setText("Beranda");
+                title.setText("Beranda 2");
                 break;
             case R.id.nav_daftarAwal:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDaftarAwal()).commit();
                 title.setText("Daftar Awal");
+                break;
             case R.id.nav_daftarUlang:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDaftarUlang()).commit();
                 title.setText("Daftar Ulang");
+                break;
             case R.id.nav_dokumenBerkas:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDokumenBerkas()).commit();
                 title.setText("Dokumen dan Berkas");
+                break;
             case R.id.nav_infoPeserta:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentInformasiPeserta()).commit();
                 title.setText("Informasi Peserta");
+                break;
             case R.id.nav_alur2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentAlur()).commit();
-                title.setText("Alur Informasi");
+                title.setText("Alur Informasi 2");
                 break;
             case R.id.nav_syarat2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentPersyaratan()).commit();
-                title.setText("Persyaratan Umum");
+                title.setText("Persyaratan Umum 2");
                 break;
             case R.id.nav_pengaturan2:
                 Intent open = new Intent(Main2Activity.this, PengaturanActivity.class);
                 finish();
                 startActivity(open);
-                title.setText("Pengaturan");
+                title.setText("Pengaturan 2");
                 break;
         }
         drawerLayout2.closeDrawer(GravityCompat.START);

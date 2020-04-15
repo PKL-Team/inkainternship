@@ -12,18 +12,15 @@ import android.widget.Toast;
 
 public class DaftarActivity extends AppCompatActivity {
 
-//    Button button;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-<<<<<<< HEAD
         final Spinner List = findViewById(R.id.listItem);
-
-
-=======
+        button = findViewById(R.id.btnRegister);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +38,8 @@ public class DaftarActivity extends AppCompatActivity {
                 dropDownMenu.show();
             }
         });
->>>>>>> e7b1a40c4d231415c8d5af555a052a329e39e7e1
+
+
     }
 
 }

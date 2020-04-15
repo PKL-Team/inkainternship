@@ -24,7 +24,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".PengaturanActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

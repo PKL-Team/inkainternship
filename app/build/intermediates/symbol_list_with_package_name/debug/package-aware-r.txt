@@ -1544,7 +1544,10 @@ id beginning
 id blocking
 id bottom
 id btnDenganLogin
+id btnGoRegister
 id btnKelolaAkun
+id btnLanjutkanDA
+id btnLihatDA
 id btnLogin
 id btnRegister
 id btnSignup
@@ -1777,6 +1780,11 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id spJurusan
+id spKabupaten
+id spNamaSekolah
+id spPeriode
+id spProvinsi
 id spacer
 id splashText1
 id splashText2
@@ -1930,6 +1938,7 @@ layout design_text_input_start_icon
 layout fragment_alur
 layout fragment_beranda
 layout fragment_daftar_awal
+layout fragment_daftar_awal_2
 layout fragment_daftar_ulang
 layout fragment_dokumen_berkas
 layout fragment_informasi_peserta
