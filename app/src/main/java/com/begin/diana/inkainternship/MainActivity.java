@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_alur:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentAlur()).commit();
+//                Intent alur = new Intent(MainActivity.this, AlurActivity.class);
+//                finish();
+//                startActivity(alur);
                 title.setText("Alur Informasi");
                 break;
             case R.id.nav_syarat:
