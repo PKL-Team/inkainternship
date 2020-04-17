@@ -1,13 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Informasi Peserta"
-        android:textSize="25sp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp">
 
-</RelativeLayout>
+        <TableRow
+            android:layout_margin="5dp">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Nama Lengkap"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_margin="5dp">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="NIM/NIS"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_margin="5dp">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Nilai Raport / IPK"
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:textSize="15sp" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center_vertical|center"
+        android:background="@android:color/holo_blue_light"
+        android:text="Edit"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Pastikan kebenaran data Anda, untuk kepentingan pembuatan sertifikat"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:background="#AAAAAA"/>
+</LinearLayout>

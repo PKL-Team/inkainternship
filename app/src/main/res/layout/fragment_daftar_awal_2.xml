@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DATA DIRI"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp">
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Nama Lengkap"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="NIS"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Rata-rata Raport"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PERSYARATAN DOKUMEN"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="bold"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp">
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Scan Surat Pengajuan PRAKERIN"
+                    android:textSize="15sp" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="#8BC34A"
+                    android:text="Pilih File"
+                    android:textSize="13sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Scan Rapot / Rekap Nilai"
+                    android:textSize="15sp" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="#8BC34A"
+                    android:text="Pilih File"
+                    android:textSize="13sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Scan Kartu Asuransi"
+                    android:textSize="15sp" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="#8BC34A"
+                    android:text="Pilih File"
+                    android:textSize="13sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Scan Surat Pernyataan"
+                    android:textSize="15sp" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="#8BC34A"
+                    android:text="Pilih File"
+                    android:textSize="13sp" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ASAL SEKOLAH"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="bold"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp">
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Provinsi"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/spProvinsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Kabupaten"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/spKabupaten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Nama Sekolah"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/spNamaSekolah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <Button
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center_vertical|center"
+        android:background="@android:color/holo_blue_light"
+        android:text="Daftar"
+        android:layout_marginBottom="25dp"/>
+    </LinearLayout>
+</ScrollView>

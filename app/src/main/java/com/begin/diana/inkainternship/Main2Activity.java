@@ -79,18 +79,22 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDaftarAwal()).commit();
                 title.setText("Daftar Awal");
+                break;
             case R.id.nav_daftarUlang:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDaftarUlang()).commit();
                 title.setText("Daftar Ulang");
+                break;
             case R.id.nav_dokumenBerkas:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDokumenBerkas()).commit();
                 title.setText("Dokumen dan Berkas");
+                break;
             case R.id.nav_infoPeserta:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentInformasiPeserta()).commit();
                 title.setText("Informasi Peserta");
+                break;
             case R.id.nav_alur2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentAlur()).commit();

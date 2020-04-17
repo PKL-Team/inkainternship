@@ -40,7 +40,9 @@
         <activity
             android:name="com.begin.diana.inkainternship.PengaturanActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name="com.begin.diana.inkainternship.SplashActivity" >
+        <activity
+            android:name="com.begin.diana.inkainternship.SplashActivity"
+            android:theme="@style/Theme.AppCompat" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
