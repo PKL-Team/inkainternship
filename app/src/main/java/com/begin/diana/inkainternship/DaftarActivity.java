@@ -20,7 +20,6 @@ public class DaftarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar);
 
         final Spinner List = findViewById(R.id.listItem);
-<<<<<<< HEAD
 
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -38,28 +37,9 @@ public class DaftarActivity extends AppCompatActivity {
 //                dropDownMenu.show();
 //            }
 //        });
-=======
+
         button = findViewById(R.id.btnRegister);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), button);
-                dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
-                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                        return true;
-                    }
-                });
-                dropDownMenu.show();
-            }
-        });
-
-
->>>>>>> 12c462eb535d75d42a384dfed98d0d521306e854
     }
 
 }
