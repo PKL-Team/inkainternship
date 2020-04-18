@@ -33,8 +33,34 @@ public class DaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
-        list = findViewById(R.id.listItemDaftar);
+<<<<<<< HEAD
 
+        final Spinner List = findViewById(R.id.listItem);
+=======
+        list = findViewById(R.id.listItemDaftar);
+>>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
+
+<<<<<<< HEAD
+=======
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), button);
+//                dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
+//                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//
+//                    @Override
+//                    public boolean onMenuItemClick(MenuItem menuItem) {
+//                        Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                        return true;
+//                    }
+//                });
+//                dropDownMenu.show();
+//            }
+//        });
+<<<<<<< HEAD
+=======
+>>>>>>> cdd861f8bb429824719e2b23c4412f8bdf18ca76
         button = findViewById(R.id.btnRegister);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);
@@ -105,7 +131,9 @@ public class DaftarActivity extends AppCompatActivity {
                 });
             }
         });
+>>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
 
+        button = findViewById(R.id.btnRegister);
 
     }
 

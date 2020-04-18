@@ -27,6 +27,7 @@
     <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"اس کے ساتھ اشتراک کریں"</string>
     <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> کے ساتھ اشتراک کریں"</string>
     <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"سکیڑیں"</string>
+<<<<<<< HEAD
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"فعال کریں"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"‏جب تک آپ Google Play سروسز فعال نہیں کر لیتے، <ns1:g id="APP_NAME">%1$s</ns1:g> کام نہیں کرے گی۔"</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"‏Google Play سروسز فعال کریں"</string>
@@ -45,6 +46,8 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"فون پر کھولیں"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"سائن ان کریں"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"‏Google کے ساتھ سائن ان کریں"</string>
+=======
+>>>>>>> cdd861f8bb429824719e2b23c4412f8bdf18ca76
     <string msgid="730395136688082741" name="search_menu_title">"تلاش کریں"</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"+999"</string>
 </resources>
