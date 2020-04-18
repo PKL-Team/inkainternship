@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "29696035694",
+    "firebase_url": "https://inka-internship.firebaseio.com",
+    "project_id": "inka-internship",
+    "storage_bucket": "inka-internship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29696035694:android:1425bec8538e3311b5cf7f",
+        "android_client_info": {
+          "package_name": "com.begin.diana.inkainternship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29696035694-bh3dg51f3gjuue84si6entdfja128a84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP7Hdh_UmJQdVEhYfGgzU7yeBqDUG-yFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29696035694-bh3dg51f3gjuue84si6entdfja128a84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
