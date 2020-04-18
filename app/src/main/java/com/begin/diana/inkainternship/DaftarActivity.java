@@ -35,22 +35,6 @@ public class DaftarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daftar);
         list = findViewById(R.id.listItemDaftar);
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), button);
-//                dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
-//                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem menuItem) {
-//                        Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
-//                        return true;
-//                    }
-//                });
-//                dropDownMenu.show();
-//            }
-//        });
         button = findViewById(R.id.btnRegister);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);
