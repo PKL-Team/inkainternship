@@ -19,11 +19,19 @@
             android:layout_height="wrap_content"
             layout="@layout/layout_toolbar2"/>
 
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOGOUT"
+            android:layout_below="@id/idTool2"
+            android:onClick="logout"/>
+
         <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             layout="@layout/content_main"
-            android:layout_below="@id/idTool2"/>
+            android:layout_below="@id/btnLogout" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

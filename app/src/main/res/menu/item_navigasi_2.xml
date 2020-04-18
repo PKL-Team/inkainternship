@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_beranda"
         android:title="Beranda" />
 
-    <item android:title="Pendaftaran">
+    <item android:title="Pendaftaran PRAKERIN">
         <menu>
             <item
                 android:id="@+id/nav_daftarAwal"
