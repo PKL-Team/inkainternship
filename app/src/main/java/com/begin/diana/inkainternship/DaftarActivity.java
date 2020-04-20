@@ -33,34 +33,8 @@ public class DaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
-<<<<<<< HEAD
-
-        final Spinner List = findViewById(R.id.listItem);
-=======
         list = findViewById(R.id.listItemDaftar);
->>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
 
-<<<<<<< HEAD
-=======
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), button);
-//                dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
-//                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem menuItem) {
-//                        Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
-//                        return true;
-//                    }
-//                });
-//                dropDownMenu.show();
-//            }
-//        });
-<<<<<<< HEAD
-=======
->>>>>>> cdd861f8bb429824719e2b23c4412f8bdf18ca76
         button = findViewById(R.id.btnRegister);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);
@@ -103,15 +77,19 @@ public class DaftarActivity extends AppCompatActivity {
                     txtPass2.setError("Re-Password belum diisi");
                     return;
                 }
-                if (sPass1.length() < 6 | sPass2.length() < 6){
+                if (sPass1.length() < 6 ){
                     txtPass1.setError("Password harus lebih dari 6 karakter");
+                    return;
+                }if (sPass2.length() < 6){
                     txtPass2.setError("Password harus lebih dari 6 karakter");
                     return;
                 }
-//                if (sPass1 != sPass2){
+                if (sPass1 == sPass2){
 //                    txtPass2.setError("Re-Password tidak sama dengan Password");
-//                    return;
-//                }
+                    txtPass1.setError(sPass1);
+                    txtPass2.setError(sPass2);
+                    return;
+                }
                 sItem = list.getSelectedItem().toString();
 
                 progressBar.setVisibility(View.VISIBLE);
@@ -131,10 +109,16 @@ public class DaftarActivity extends AppCompatActivity {
                 });
             }
         });
->>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
 
-        button = findViewById(R.id.btnRegister);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(this, Main2Activity.class));
+        }
     }
 
 }

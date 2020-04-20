@@ -8,7 +8,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +18,10 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+
+import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +31,14 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     NavigationView navigationView2;
     TextView title;
     ImageView imageUserHeader, imageUserToolbar;
+    TextView set1,set2,set3,set4;
+    FirebaseAuth mAuth;
+
+    //var database
+    private Map<String, String> userMap;
+    private String email;
+    private String userid;
+    private static final String USERS = "users";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +69,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             navigationView2.setCheckedItem(R.id.nav_beranda2);
             title.setText("Beranda");
         }
+
+
+        //receive data from login screen
+        Intent intent = getIntent();
+        email = intent.getStringExtra("email");
+        set1 = findViewById(R.id.set1);
+        set1.setText(email);
     }
 
     @Override
@@ -123,4 +144,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if (mAuth.getCurrentUser() == null) {
+//            finish();
+//            startActivity(new Intent(this, LoginActivity.class));
+//        }
+//    }
 }

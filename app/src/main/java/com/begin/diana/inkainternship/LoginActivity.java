@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnDaftar, btnMasuk;
@@ -46,12 +49,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-        if (mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-            finish();
-        }
-
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Berhasil Masuk", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+
                         }else {
                             Toast.makeText(LoginActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -80,5 +79,33 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            updateUI(currentUser);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            updateUI(currentUser);
+        }
+    }
+
+
+    public void updateUI(FirebaseUser currentUser) {
+        Intent profileIntent = new Intent(getApplicationContext(), Main2Activity.class);
+        profileIntent.putExtra("email", currentUser.getEmail());
+        Log.v("DATA", currentUser.getUid());
+        startActivity(profileIntent);
+        finish();
     }
 }

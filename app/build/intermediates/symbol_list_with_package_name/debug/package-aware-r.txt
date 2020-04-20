@@ -1696,8 +1696,10 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id konten
 id labeled
 id largeLabel
+id layoutcoba
 id left
 id light
 id line1
@@ -1815,6 +1817,10 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id set1
+id set2
+id set3
+id set4
 id shortcut
 id showCustom
 id showHome
