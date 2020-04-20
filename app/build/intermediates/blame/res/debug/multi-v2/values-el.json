@@ -1,9 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-el\\values-el.xml",
+            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-el\\values-el.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\8d306c96d5671c46c09e41df093ec68f\\jetified-play-services-base-17.1.0\\res\\values-el\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -11,6 +12,15 @@
                         "startOffsets": "245,354,572,702,811,1051,1174,1318,1448,1696,1802,2003,2130,2367,2538,2633,2721",
                         "endColumns": "108,217,129,108,239,122,143,129,247,105,200,126,236,170,94,87,107",
                         "endOffsets": "353,571,701,810,1050,1173,1317,1447,1695,1801,2002,2129,2366,2537,2632,2720,2828"
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-el\\values-el.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     },
                     "to": {
                         "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
@@ -53,6 +63,7 @@
                         "endColumns": "117,110,116,84,105,122,88,85,90,91,94,93,100,92,94,96,90,90,83,110,108,101,110,109,107,170,99,84",
                         "endOffsets": "218,329,446,531,637,760,849,935,1026,1118,1213,1307,1408,1501,1596,1693,1784,1875,1959,2070,2179,2281,2392,2502,2610,2781,2881,5821"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-el\\values-el.xml",
@@ -70,6 +81,8 @@
                         "endColumns": "100",
                         "endOffsets": "5922"
                     }
+=======
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                 }
             ]
         }

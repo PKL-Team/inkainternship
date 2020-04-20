@@ -1,10 +1,14 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-af\\values-af.xml",
+            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-af\\values-af.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-af\\values-af.xml",
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-af\\values-af.xml",
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -53,6 +57,7 @@
                         "endColumns": "201",
                         "endOffsets": "4126"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\b68153533db019fe57f60a8fd519f39e\\appcompat-1.1.0\\res\\values-af\\values-af.xml",
@@ -70,6 +75,8 @@
                         "endColumns": "107,95,105,84,102,117,76,76,90,91,94,93,99,92,94,98,94,93,79,106,104,96,107,102,101,153,97,79",
                         "endOffsets": "208,304,410,495,598,716,793,870,961,1053,1148,1242,1342,1435,1530,1629,1724,1818,1898,2005,2110,2207,2315,2418,2520,2674,2772,5537"
                     }
+=======
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                 }
             ]
         }

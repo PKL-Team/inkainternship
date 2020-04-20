@@ -1,10 +1,14 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ml\\values-ml.xml",
+            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ml\\values-ml.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\8d306c96d5671c46c09e41df093ec68f\\jetified-play-services-base-17.1.0\\res\\values-ml\\values.xml",
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\8d306c96d5671c46c09e41df093ec68f\\jetified-play-services-base-17.1.0\\res\\values-ml\\values.xml",
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +25,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-ml\\values-ml.xml",
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-ml\\values-ml.xml",
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -53,6 +61,7 @@
                         "endColumns": "218",
                         "endOffsets": "4284"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\b68153533db019fe57f60a8fd519f39e\\appcompat-1.1.0\\res\\values-ml\\values-ml.xml",
@@ -70,6 +79,8 @@
                         "endColumns": "106,105,110,90,104,121,77,75,90,91,100,93,100,93,94,98,90,90,80,108,103,98,111,111,120,164,100,81",
                         "endOffsets": "207,313,424,515,620,742,820,896,987,1079,1180,1274,1375,1469,1564,1663,1754,1845,1926,2035,2139,2238,2350,2462,2583,2748,2849,5781"
                     }
+=======
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                 }
             ]
         }

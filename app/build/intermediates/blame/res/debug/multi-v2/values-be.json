@@ -1,10 +1,14 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
+            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-be\\values-be.xml",
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-be\\values-be.xml",
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -53,6 +57,7 @@
                         "endColumns": "204",
                         "endOffsets": "4197"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\8d306c96d5671c46c09e41df093ec68f\\jetified-play-services-base-17.1.0\\res\\values-be\\values.xml",
@@ -70,6 +75,8 @@
                         "endColumns": "108,193,126,111,213,127,144,132,220,108,193,129,211,188,98,91,107",
                         "endOffsets": "2939,3133,3260,3372,3586,3714,3859,3992,4418,4527,4721,4851,5063,5252,5351,5443,5551"
                     }
+=======
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                 }
             ]
         }

@@ -94,7 +94,6 @@
                 android:entries="@array/jenis"
                 android:outlineSpotShadowColor="#000000"
                 android:padding="15dp">
-
             </Spinner>
 
             <Button

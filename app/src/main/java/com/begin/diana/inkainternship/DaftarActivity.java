@@ -38,6 +38,8 @@ public class DaftarActivity extends AppCompatActivity {
         list = findViewById(R.id.listItemDaftar);
 
 
+<<<<<<< HEAD
+=======
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -54,7 +56,13 @@ public class DaftarActivity extends AppCompatActivity {
 //                dropDownMenu.show();
 //            }
 //        });
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cdd861f8bb429824719e2b23c4412f8bdf18ca76
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
         button = findViewById(R.id.btnRegister);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);

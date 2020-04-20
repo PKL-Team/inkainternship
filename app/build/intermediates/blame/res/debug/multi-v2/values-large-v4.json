@@ -1,10 +1,14 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\b68153533db019fe57f60a8fd519f39e\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\b68153533db019fe57f60a8fd519f39e\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -14,7 +18,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\6bd54e831d7d39523628e6e86bbc2f7b\\material-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+=======
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\6bd54e831d7d39523628e6e86bbc2f7b\\material-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
