@@ -4,11 +4,7 @@
             "outputFile": "D:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\b68153533db019fe57f60a8fd519f39e\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
-=======
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\ea88890b09526096266c9c16859169ae\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
->>>>>>> 9822dc1ab82fe53edade4881e3bba56d1392e442
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\b68153533db019fe57f60a8fd519f39e\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -27,11 +23,7 @@
                     }
                 },
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-v16\\values-v16.xml",
-=======
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\da95e0dd41fd0c634661df2a0f122634\\core-1.1.0\\res\\values-v16\\values-v16.xml",
->>>>>>> 9822dc1ab82fe53edade4881e3bba56d1392e442
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-2\\files-2.1\\d8e6145ebd5f6e1099b739484795a4bd\\core-1.1.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

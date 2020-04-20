@@ -33,12 +33,10 @@ public class DaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
-<<<<<<< HEAD
 
-        final Spinner List = findViewById(R.id.listItem);
-=======
+        final Spinner List = findViewById(R.id.listItemDaftar );
         list = findViewById(R.id.listItemDaftar);
->>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
+
 
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -56,8 +54,7 @@ public class DaftarActivity extends AppCompatActivity {
 //                dropDownMenu.show();
 //            }
 //        });
-<<<<<<< HEAD
-=======
+
         button = findViewById(R.id.btnRegister);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);
@@ -128,7 +125,7 @@ public class DaftarActivity extends AppCompatActivity {
                 });
             }
         });
->>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
+
 
         button = findViewById(R.id.btnRegister);
 

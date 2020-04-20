@@ -70,6 +70,7 @@
         android:gravity="center_vertical|center"
         android:background="@android:color/holo_blue_light"
         android:text="Edit"
+        android:id="@+id/btnEditInfo"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"/>
     <TextView

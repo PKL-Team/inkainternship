@@ -1506,6 +1506,7 @@ id Fade
 id FlipHorizontal
 id FlipPage
 id Foreground2Background
+id Frame
 id META
 id RotateDown
 id RotateUp
@@ -1584,6 +1585,7 @@ id beginning
 id blocking
 id bottom
 id btnDenganLogin
+id btnEditInfo
 id btnGoRegister
 id btnKelolaAkun
 id btnLanjutkanDA
@@ -1624,6 +1626,7 @@ id daimajia_indicator_wrapper
 id daimajia_slider_image
 id daimajia_slider_viewpager
 id dark
+id dataAkun
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
@@ -1996,6 +1999,7 @@ layout fragment_daftar_awal
 layout fragment_daftar_awal_2
 layout fragment_daftar_ulang
 layout fragment_dokumen_berkas
+layout fragment_edit_informasi_peserta
 layout fragment_informasi_peserta
 layout fragment_kelola_akun
 layout fragment_pengaturan
