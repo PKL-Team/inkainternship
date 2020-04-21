@@ -33,8 +33,41 @@ public class DaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
+<<<<<<< HEAD
         list = findViewById(R.id.listItemDaftar);
 
+=======
+
+        final Spinner List = findViewById(R.id.listItemDaftar );
+        list = findViewById(R.id.listItemDaftar);
+
+
+<<<<<<< HEAD
+=======
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), button);
+//                dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
+//                dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//
+//                    @Override
+//                    public boolean onMenuItemClick(MenuItem menuItem) {
+//                        Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                        return true;
+//                    }
+//                });
+//                dropDownMenu.show();
+//            }
+//        });
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> cdd861f8bb429824719e2b23c4412f8bdf18ca76
+>>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
+>>>>>>> 20c77239b57d9fd5a86b339593b7f08d01e305b9
         button = findViewById(R.id.btnRegister);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);
@@ -109,6 +142,10 @@ public class DaftarActivity extends AppCompatActivity {
                 });
             }
         });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 20c77239b57d9fd5a86b339593b7f08d01e305b9
 
     }
 
