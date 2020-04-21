@@ -1,34 +1,5 @@
-<<<<<<< HEAD
-#Mon Apr 20 10:08:37 ICT 2020
+#Tue Apr 21 21:53:27 ICT 2020
 base.0=G\:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-=======
-<<<<<<< HEAD
-#Mon Apr 20 15:37:03 ICT 2020
-base.0=D\:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-=======
-<<<<<<< HEAD
-#Sat Apr 18 15:47:08 ICT 2020
-base.0=G\:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-=======
-<<<<<<< HEAD
-#Sat Apr 18 08:59:02 ICT 2020
-base.0=D\:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-=======
-<<<<<<< HEAD
-#Sat Apr 18 14:20:45 ICT 2020
-=======
-<<<<<<< HEAD
-#Fri Apr 17 17:22:38 ICT 2020
-base.0=D\:\\PKL 2020\\inkainternship\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
-=======
-#Wed Apr 15 17:29:23 ICT 2020
->>>>>>> 9822dc1ab82fe53edade4881e3bba56d1392e442
-base.0=G\:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
->>>>>>> 12c462eb535d75d42a384dfed98d0d521306e854
->>>>>>> abb150d7497f728ab4b2434d7445f21c93dda4e9
->>>>>>> cdd861f8bb429824719e2b23c4412f8bdf18ca76
->>>>>>> a613dd5798d4a180bc68b18aaf5e279e4f604753
->>>>>>> 20c77239b57d9fd5a86b339593b7f08d01e305b9
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex

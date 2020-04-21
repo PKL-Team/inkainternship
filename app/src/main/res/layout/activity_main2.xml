@@ -8,7 +8,7 @@
     android:id="@+id/drawer2"
     android:fitsSystemWindows="true"
     android:background="#999999"
-    tools:context=".Main2Activity">
+    tools:context=".Activities.Main2Activity">
 
     <ScrollView
         android:layout_width="match_parent"

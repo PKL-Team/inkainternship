@@ -8,7 +8,7 @@
     android:id="@+id/drawer"
     android:fitsSystemWindows="true"
     android:background="#999999"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
