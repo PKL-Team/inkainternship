@@ -1,15 +1,23 @@
 package com.begin.diana.inkainternship.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -25,21 +33,28 @@ public class DaftarActivity extends AppCompatActivity {
 
     Button button;
     Spinner list;
-    EditText txtEmail, txtPass1, txtPass2;
+    EditText txtNama, txtEmail, txtPass1, txtPass2;
     String sItem, sEmail, sPass1, sPass2;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
+
+    ImageView imageUser;
+    static int PReqCode = 1;
+    static int REQUESTCODE = 1;
+    Uri picImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-        list = findViewById(R.id.listItemDaftar);
-        button = findViewById(R.id.btnRegister);
+        imageUser = findViewById(R.id.imgUserPhoto);
+        txtNama = findViewById(R.id.txtNama);
         txtEmail = findViewById(R.id.txtEmailDaftar);
         txtPass1 = findViewById(R.id.txtPass1);
         txtPass2 = findViewById(R.id.txtPass2);
+        list = findViewById(R.id.listItemDaftar);
+        button = findViewById(R.id.btnRegister);
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
@@ -51,6 +66,17 @@ public class DaftarActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 Toast.makeText(getApplicationContext(), "You have clicked " + menuItem.getTitle(), Toast.LENGTH_LONG).show();
                 return true;
+            }
+        });
+
+        imageUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= 22){
+                    checkAndRequestPermission();
+                }else{
+                    openGallery();
+                }
             }
         });
 
@@ -107,6 +133,42 @@ public class DaftarActivity extends AppCompatActivity {
         });
     }
 
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, REQUESTCODE);
+
+
+    }
+
+    private void checkAndRequestPermission() {
+        if (ContextCompat.checkSelfPermission(DaftarActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    DaftarActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)){
+                Toast.makeText(DaftarActivity.this, "Please Accept for required permission",
+                        Toast.LENGTH_SHORT).show();
+            }else {
+                ActivityCompat.requestPermissions(DaftarActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        PReqCode);
+            }
+        }else {
+            openGallery();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == REQUESTCODE && data != null){
+            //user berhasil memilih gambar
+            //kita perlu menyimpan alamat image ke dalam variabel
+            picImageUrl = data.getData();
+            imageUser.setImageURI(picImageUrl);
+        }
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -119,5 +181,7 @@ public class DaftarActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }

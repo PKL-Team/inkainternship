@@ -1699,6 +1699,7 @@ id ifRoom
 id image
 id imageView
 id img
+id imgUserPhoto
 id info
 id invisible
 id italic
