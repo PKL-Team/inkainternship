@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.begin.diana.inkainternship.R;
+import com.begin.diana.inkainternship.activityCobaCoba;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -52,66 +53,52 @@ public class LoginActivity extends AppCompatActivity {
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                btnMasuk.setVisibility(View.INVISIBLE);
                 sEmail = txtEmail.getText().toString().trim();
                 sPass = txtPass.getText().toString().trim();
 
-                if (TextUtils.isEmpty(sEmail)){
-                    txtEmail.setError("Email belum diisi");
-                    return;
+                if (sEmail.isEmpty() || sPass.isEmpty()){
+                    showMessage("Pastikan semua field terisi");
+                }else {
+                    signIn(sEmail,sPass);
                 }
-                if (TextUtils.isEmpty(sPass)){
-                    txtPass.setError("Password belum diisi");
-                    return;
-                }
-                progressBar.setVisibility(View.VISIBLE);
-                mAuth.signInWithEmailAndPassword(sEmail, sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Berhasil Masuk", Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
 
-                        }else {
-                            Toast.makeText(LoginActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            updateUI(currentUser);
-        }
+    private void signIn(String sEmail, String sPass) {
+        mAuth.signInWithEmailAndPassword(sEmail, sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    progressBar.setVisibility(View.INVISIBLE);
+                    btnMasuk.setVisibility(View.VISIBLE);
+                    showMessage("Berhasil Masuk");
+                    updateUI();
+                }else {
+                    showMessage("Gagal Masuk " + task.getException().getMessage());
+                }
+            }
+        });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            updateUI(currentUser);
-        }
-    }
-
-
-    public void updateUI(FirebaseUser currentUser) {
-        Intent profileIntent = new Intent(getApplicationContext(), Main2Activity.class);
-        profileIntent.putExtra("email", currentUser.getEmail());
-
-        Log.v("DATA", currentUser.getUid());
-        startActivity(profileIntent);
+    public void updateUI() {
+        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
         finish();
+    }
+
+    private void showMessage(String message) {
+        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
+        startActivity(new Intent(this, activityCobaCoba.class));
     }
+
+
 }

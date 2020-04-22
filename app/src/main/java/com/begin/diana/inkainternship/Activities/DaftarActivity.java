@@ -25,16 +25,22 @@ import android.widget.Toast;
 
 import com.begin.diana.inkainternship.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class DaftarActivity extends AppCompatActivity {
 
-    Button button;
+    Button btnRegister;
     Spinner list;
     EditText txtNama, txtEmail, txtPass1, txtPass2;
-    String sItem, sEmail, sPass1, sPass2;
+    String sNama, sItem, sEmail, sPass1, sPass2;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
 
@@ -48,13 +54,13 @@ public class DaftarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-        imageUser = findViewById(R.id.imgUserPhoto);
-        txtNama = findViewById(R.id.txtNama);
-        txtEmail = findViewById(R.id.txtEmailDaftar);
-        txtPass1 = findViewById(R.id.txtPass1);
-        txtPass2 = findViewById(R.id.txtPass2);
+        imageUser = findViewById(R.id.regFoto);
+        txtNama = findViewById(R.id.regNama);
+        txtEmail = findViewById(R.id.regEmail);
+        txtPass1 = findViewById(R.id.regPass1);
+        txtPass2 = findViewById(R.id.regPass2);
         list = findViewById(R.id.listItemDaftar);
-        button = findViewById(R.id.btnRegister);
+        btnRegister = findViewById(R.id.btnRegister);
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
@@ -80,65 +86,86 @@ public class DaftarActivity extends AppCompatActivity {
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnRegister.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+                sNama = txtNama.getText().toString().trim();
                 sEmail = txtEmail.getText().toString().trim();
                 sPass1 = txtPass1.getText().toString().trim();
                 sPass2 = txtPass2.getText().toString().trim();
-
-                if (TextUtils.isEmpty(sEmail)){
-                    txtEmail.setError("Email belum diisi");
-                    return;
-                }
-                if (TextUtils.isEmpty(sPass1)){
-                    txtPass1.setError("Password belum diisi");
-                    return;
-                }
-                if (TextUtils.isEmpty(sPass2)){
-                    txtPass2.setError("Re-Password belum diisi");
-                    return;
-                }
-                if (sPass1.length() < 6 ){
-                    txtPass1.setError("Password harus lebih dari 6 karakter");
-                    return;
-                }if (sPass2.length() < 6){
-                    txtPass2.setError("Password harus lebih dari 6 karakter");
-                    return;
-                }
-                if (sPass1 == sPass2){
-//                    txtPass2.setError("Re-Password tidak sama dengan Password");
-                    txtPass1.setError(sPass1);
-                    txtPass2.setError(sPass2);
-                    return;
-                }
                 sItem = list.getSelectedItem().toString();
 
-                progressBar.setVisibility(View.VISIBLE);
+                if (sNama.isEmpty() || sEmail.isEmpty() || sPass1.isEmpty() || sPass2.isEmpty() || sItem.isEmpty() || !sPass1.equals(sPass2)){
+                    showMessage("Pastikan semua field terisi");
+                    btnRegister.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.INVISIBLE);
+                }else {
+                    CreateUserAccount(sEmail,sNama,sPass1);
+                }
+            }
+        });
+    }
 
-                mAuth.createUserWithEmailAndPassword(sEmail, sPass1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void CreateUserAccount(String sEmail, final String sNama, String sPass1) {
+        mAuth.createUserWithEmailAndPassword(sEmail, sPass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    showMessage("Pendaftaran Akun Berhasil");
+                    updateUserInfo(sNama,picImageUrl, mAuth.getCurrentUser());
+                }else {
+                    showMessage("Pendaftaran Akun Gagal"+task.getException().getMessage());
+                    btnRegister.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+    }
+
+    private void updateUserInfo(final String sNama,  Uri picImageUrl, final FirebaseUser currentUser) {
+        //upload foto ke firebase storage
+        StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("user_photos");
+        final StorageReference imageFilePath = mStorage.child(picImageUrl.getLastPathSegment());
+        imageFilePath.putFile(picImageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                //upload image sukses
+                imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(DaftarActivity.this, "Pendaftaran Akun Berhasil", Toast.LENGTH_SHORT).show();
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-                        }else {
-                            Toast.makeText(DaftarActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    public void onSuccess(Uri uri) {
+                        //alamat image (uri)
+                        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(sNama)
+                                .setPhotoUri(uri)
+                                .build();
+                        currentUser.updateProfile(profileUpdate)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            showMessage("Registrasi Complete");
+                                            updateUI();
+                                        }
 
-                        }
+                                    }
+                                });
                     }
                 });
             }
         });
     }
 
+    private void updateUI() {
+        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+        finish();
+    }
+
     private void openGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, REQUESTCODE);
-
-
     }
 
     private void checkAndRequestPermission() {
@@ -146,8 +173,7 @@ public class DaftarActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED){
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                     DaftarActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)){
-                Toast.makeText(DaftarActivity.this, "Please Accept for required permission",
-                        Toast.LENGTH_SHORT).show();
+                showMessage("Please Accept for required permission");
             }else {
                 ActivityCompat.requestPermissions(DaftarActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
@@ -170,18 +196,14 @@ public class DaftarActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (mAuth.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(this, Main2Activity.class));
-        }
-    }
-
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
         startActivity(new Intent(this, LoginActivity.class));
     }
+
+    private void showMessage(String message){
+        Toast.makeText(DaftarActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
 }
+

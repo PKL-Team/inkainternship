@@ -38,14 +38,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     TextView title;
     ImageView imageUserHeader, imageUserToolbar;
     TextView set1,set2,set3,set4;
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
-
-    //var database
-    private Map<String, String> userMap;
-    private String email;
-    private String userid;
-    private static final String USERS = "users";
+    FirebaseAuth mAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +47,27 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_main2);
         title = findViewById(R.id.toolbarTitle2);
 
+        set1 = findViewById(R.id.set1);
+        set2 = findViewById(R.id.set2);
+        set3 = findViewById(R.id.set3);
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        String url = user.getPhotoUrl().toString();
+        String nama = user.getDisplayName();
+        String email = user.getEmail();
+        set1.setText(url);
+        set2.setText(nama);
+        set3.setText(email);
 //        imageUserHeader = findViewById(R.id.profilePic2);
 //        imageUserToolbar = findViewById(R.id.iconProfileToolbar2);
 //        imageUserHeader.setImageResource(R.drawable.foto_mar);
 //        imageUserToolbar.setImageResource(R.drawable.foto_mar);
+
+
+
+
+
 
         toolbar2 = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar2);
@@ -146,12 +157,4 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         finish();
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        if (mAuth.getCurrentUser() == null) {
-//            finish();
-//            startActivity(new Intent(this, LoginActivity.class));
-//        }
-//    }
 }
