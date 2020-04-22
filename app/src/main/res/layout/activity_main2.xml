@@ -8,31 +8,63 @@
     android:id="@+id/drawer2"
     android:fitsSystemWindows="true"
     android:background="#999999"
-    tools:context=".Main2Activity">
+    tools:context=".Activities.Main2Activity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include
-            android:id="@+id/idTool2"
+        android:layout_height="wrap_content">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/layout_toolbar2"/>
+            android:layout_height="match_parent">
+            <include
+                android:id="@+id/idTool2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/layout_toolbar2"/>
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOGOUT"
-            android:layout_below="@id/idTool2"
-            android:onClick="logout"/>
+            <include
+                android:id="@+id/konten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/content_main"
+                android:layout_below="@id/idTool2" />
+            <LinearLayout
+                android:id="@+id/layoutcoba"
+                android:layout_below="@id/konten"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/set1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" "/>
+                <TextView
+                    android:id="@+id/set2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" "/>
+                <TextView
+                    android:id="@+id/set3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" "/>
+                <TextView
+                    android:id="@+id/set4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" "/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGOUT"
+                android:onClick="logout"
+                android:layout_below="@id/layoutcoba"/>
+        </RelativeLayout>
+    </ScrollView>
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/content_main"
-            android:layout_below="@id/btnLogout" />
-    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView2"
