@@ -46,9 +46,6 @@ public class DaftarActivity extends AppCompatActivity {
     private User user;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
-//    private FirebaseDatabase database;
-//    private DatabaseReference mDatabase;
-//    private static final String USERS = "users";
 
     ImageView imageUser;
     static int PReqCode = 1;
@@ -70,8 +67,6 @@ public class DaftarActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
-//        database = FirebaseDatabase.getInstance();
-//        mDatabase = database.getReference(USERS);
 
         PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), list);
         dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());

@@ -1,96 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/fp0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="     Persyaratan umum yang harus dipenuhi oleh calon peserta kegiatan PRAKERIN atau PKL adalah sebagai berikut : "
+        android:text="       Persyaratan umum yang harus dipenuhi oleh calon peserta kegiatan PRAKERIN atau PKL antara lain : "
         android:gravity="left"
-        android:padding="10dp"/>
-    <FrameLayout
-        android:id="@+id/fp1"
-        android:layout_below="@id/fp0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_secondary_variant"
-        android:padding="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Untuk Siswa SMK"
-            android:textColor="#fff"
-            android:textStyle="bold"/>
-    </FrameLayout>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"/>
 
     <LinearLayout
-        android:id="@+id/fp2"
-        android:layout_below="@id/fp1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_marginLeft="10dp"
         android:orientation="vertical">
-        <TextView
+        <FrameLayout
+            android:id="@+id/fp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1. Warga Negara Indonesia (WNI)"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:background="@color/design_default_color_secondary_variant"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Untuk Siswa SMK"
+                android:textColor="#fff"
+                android:textStyle="bold"/>
+        </FrameLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2. Masih berstatus siswa SMK aktif " />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3. Copy raport sampai semester terakhir, nilai rata-rata minimal 7"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp">
+
+            <TableRow android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="1. "
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Warga Negara Indonesia (WNI)"
+                    android:textSize="15sp" />
+            </TableRow>
+
+            <TableRow android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="2. "
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Masih berstatus siswa SMK aktif"
+                    android:textSize="15sp" />
+            </TableRow>
+
+            <TableRow android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="3. "
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Copy raport sampai semester terakhir, nilai rata-rata minimal 7"
+                    android:textSize="15sp" />
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fp3"
-        android:layout_below="@id/fp2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/design_default_color_secondary_variant"
-        android:padding="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Untuk Mahasiswa"
-            android:textColor="#fff"
-            android:textStyle="bold"/>
-    </FrameLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/fp3">
-        <TextView
+        android:orientation="vertical">
+        <FrameLayout
+            android:id="@+id/fp3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1. Warga Negara Indonesia (WNI)"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2. Masih berstatus mahasiswa aktif"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3. Nilai IPK sampai semester terakhir minimal 3"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4. Berasal dari perguruan tinggi dengan akreditasi minimal B"/>
+            android:background="@color/design_default_color_secondary_variant"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Untuk Mahasiswa"
+                android:textColor="#fff"
+                android:textStyle="bold"/>
+        </FrameLayout>
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp">
+
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="1. "
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Warga Negara Indonesia (WNI)"
+                    android:textSize="15sp" />
+            </TableRow>
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="2. "
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Masih berstatus mahasiswa aktif"
+                    android:textSize="15sp" />
+            </TableRow>
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="3. "
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Nilai IPK sampai semester terakhir minimal 3"
+                    android:textSize="15sp" />
+            </TableRow>
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="4. "
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Berasal dari perguruan tinggi dengan akreditasi minimal B"
+                    android:textSize="15sp" />
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 
-
-
-</RelativeLayout>
+</LinearLayout>

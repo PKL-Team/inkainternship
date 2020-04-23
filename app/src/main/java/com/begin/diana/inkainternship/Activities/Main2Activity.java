@@ -59,18 +59,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
-//        imageUserHeader = findViewById(R.id.profilePic2);
-//        imageUserToolbar = findViewById(R.id.iconProfileToolbar2);
-//        imageUserHeader.setImageResource(R.drawable.foto_mar);
-//        imageUserToolbar.setImageResource(R.drawable.foto_mar);
-
-
         toolbar2 = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar2);
 
         drawerLayout2 = findViewById(R.id.drawer2);
         navigationView2 = findViewById(R.id.navigationView2);
         navigationView2.setNavigationItemSelectedListener(this);
+
 
         updateHeader();
 

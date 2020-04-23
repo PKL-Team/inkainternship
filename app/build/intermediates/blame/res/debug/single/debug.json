@@ -292,6 +292,10 @@
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\fragment_kelola_akun.xml"
     },
     {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_drop_down_black_24dp.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\ic_arrow_drop_down_black_24dp.xml"
+    },
+    {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main2.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\activity_main2.xml"
     },

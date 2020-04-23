@@ -1436,6 +1436,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_account_circle_white_24dp
 drawable ic_alur_24dp
+drawable ic_arrow_drop_down_black_24dp
 drawable ic_beranda
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
@@ -1676,10 +1677,9 @@ id filter_chip
 id fitToContents
 id fixed
 id forever
-id fp0
 id fp1
-id fp2
 id fp3
+id frame1
 id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
@@ -1690,7 +1690,6 @@ id hideable
 id home
 id homeAsUp
 id icon
-id iconProfileToolbar2
 id icon_group
 id icon_only
 id idTool
@@ -1799,12 +1798,6 @@ id regPass1
 id regPass2
 id relativeLayout
 id relativeLayout1
-id relativeLayout2
-id relativeLayout3
-id relativeLayout4
-id relativeLayout5
-id relativeLayout6
-id relativeLayout7
 id right
 id right_icon
 id right_side
