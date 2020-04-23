@@ -9,7 +9,7 @@
     android:paddingBottom="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilePic2"
+        android:id="@+id/imageUser"
         android:layout_width="94dp"
         android:layout_height="87dp"
         android:layout_gravity="center"
@@ -23,8 +23,27 @@
         android:text="Nama Pengguna"
         android:textColor="#fff"
         android:textSize="18sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/emailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat Email"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
+    <TextView
+        android:id="@+id/jenisMagang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kegiatan Magang"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"/>
 
 

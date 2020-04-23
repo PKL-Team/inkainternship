@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -43,23 +44,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent menu = new Intent(MainActivity.this, Main2Activity.class);
-//                finish();
-//                startActivity(menu);
-//            }
-//        });
-//
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent menu = new Intent(MainActivity.this, LoginActivity.class);
-//                finish();
-//                startActivity(menu);
-//            }
-//        });
+        View headerView = navigationView.getHeaderView(0);
+        btnLogin = headerView.findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);

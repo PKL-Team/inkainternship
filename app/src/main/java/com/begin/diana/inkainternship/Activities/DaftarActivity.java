@@ -31,6 +31,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -41,8 +43,12 @@ public class DaftarActivity extends AppCompatActivity {
     Spinner list;
     EditText txtNama, txtEmail, txtPass1, txtPass2;
     String sNama, sItem, sEmail, sPass1, sPass2;
-    FirebaseAuth mAuth;
-    ProgressBar progressBar;
+    private User user;
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
+//    private FirebaseDatabase database;
+//    private DatabaseReference mDatabase;
+//    private static final String USERS = "users";
 
     ImageView imageUser;
     static int PReqCode = 1;
@@ -64,6 +70,8 @@ public class DaftarActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
+//        database = FirebaseDatabase.getInstance();
+//        mDatabase = database.getReference(USERS);
 
         PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), list);
         dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
@@ -108,12 +116,25 @@ public class DaftarActivity extends AppCompatActivity {
         });
     }
 
-    private void CreateUserAccount(String sEmail, final String sNama, String sPass1) {
+    private void CreateUserAccount(final String sEmail, final String sNama, String sPass1) {
         mAuth.createUserWithEmailAndPassword(sEmail, sPass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     showMessage("Pendaftaran Akun Berhasil");
+                    user = new User(sNama,sEmail,sItem);
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                showMessage("Input User Info Berhasil");
+                            }else {
+                                showMessage("Input User Info Gagal"+task.getException().getMessage());
+                            }
+                        }
+                    });
                     updateUserInfo(sNama,picImageUrl, mAuth.getCurrentUser());
                 }else {
                     showMessage("Pendaftaran Akun Gagal"+task.getException().getMessage());
@@ -200,6 +221,14 @@ public class DaftarActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
         startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser() != null){
+            //handle login
+        }
     }
 
     private void showMessage(String message){
