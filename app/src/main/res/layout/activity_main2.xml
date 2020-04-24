@@ -27,13 +27,7 @@
                 android:layout_height="wrap_content"
                 layout="@layout/content_main"
                 android:layout_below="@id/idTool2" />
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="LOGOUT"
-                android:onClick="logout"
-                android:layout_below="@id/konten"/>
+
         </RelativeLayout>
     </ScrollView>
 

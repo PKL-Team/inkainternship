@@ -66,7 +66,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         navigationView2 = findViewById(R.id.navigationView2);
         navigationView2.setNavigationItemSelectedListener(this);
 
-
         updateHeader();
 
         actionBarDrawerToggle2 = new ActionBarDrawerToggle(this, drawerLayout2, toolbar2, R.string.openDrawer, R.string.closeDrawer);
@@ -88,9 +87,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         if(drawerLayout2.isDrawerOpen(GravityCompat.START)){
             drawerLayout2.closeDrawer(GravityCompat.START);
         }else{
-            Intent back = new Intent(Main2Activity.this, activityCobaCoba.class);
-            finish();
-            startActivity(back);
             super.onBackPressed();
         }
     }
@@ -150,8 +146,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         final TextView namaUser = headerView.findViewById(R.id.namaUser);
         final TextView emailUser = headerView.findViewById(R.id.emailUser);
         final TextView magangUser = headerView.findViewById(R.id.jenisMagang);
-//        namaUser.setText(user.getDisplayName());
-//        emailUser.setText(user.getEmail());
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userRef = rootRef.child("Users");
@@ -187,10 +181,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
     }
 
-    public  void logout(View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        finish();
-    }
+
 
 }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.begin.diana.inkainternship.Fragments.FragmentAlur;
 import com.begin.diana.inkainternship.Fragments.FragmentBeranda;
 import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
+import com.begin.diana.inkainternship.Fragments.FragmentTentangAplikasi;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.activityCobaCoba;
 import com.google.android.material.navigation.NavigationView;
@@ -73,9 +74,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
-            Intent back = new Intent(MainActivity.this, activityCobaCoba.class);
-            finish();
-            startActivity(back);
             super.onBackPressed();
         }
     }
@@ -91,9 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_alur:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentAlur()).commit();
-//                Intent alur = new Intent(MainActivity.this, AlurActivity.class);
-//                finish();
-//                startActivity(alur);
                 title.setText("Alur Informasi");
                 break;
             case R.id.nav_syarat:
@@ -101,14 +96,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new FragmentPersyaratan()).commit();
                 title.setText("Persyaratan Umum");
                 break;
-            case R.id.nav_pengaturan:
-                Intent open = new Intent(MainActivity.this, PengaturanActivity.class);
-                finish();
-                startActivity(open);
-                title.setText("Pengaturan");
+            case R.id.nav_tentang:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentTentangAplikasi()).commit();
+                title.setText("Tentang Aplikasi");
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

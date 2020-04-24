@@ -1457,6 +1457,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_pengaturan
 drawable ic_persyaratan
+drawable ic_tentang
 drawable icon_profile
 drawable indicator_corner_bg
 drawable inka_1
@@ -1757,10 +1758,10 @@ id nav_daftarAwal
 id nav_daftarUlang
 id nav_dokumenBerkas
 id nav_infoPeserta
-id nav_pengaturan
 id nav_pengaturan2
 id nav_syarat
 id nav_syarat2
+id nav_tentang
 id navigationView
 id navigationView2
 id navigation_header_container
@@ -1856,6 +1857,7 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
+id tabelAkun
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
