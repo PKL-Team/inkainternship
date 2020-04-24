@@ -1581,6 +1581,10 @@ id activity_chooser_view_content
 id add
 id adjust_height
 id adjust_width
+id akunEmail
+id akunImageUser
+id akunMagang
+id akunNama
 id alertTitle
 id all
 id always
@@ -1658,7 +1662,6 @@ id dropdown_menu
 id dropdown_menu1
 id dropdown_menu2
 id edit_query
-id emailUser
 id end
 id end_padder
 id enterAlways
@@ -1704,7 +1707,6 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
-id jenisMagang
 id konten
 id labeled
 id largeLabel

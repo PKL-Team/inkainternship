@@ -43,12 +43,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar2;
     NavigationView navigationView2;
     TextView title;
-    ImageView imageUserHeader, imageUserToolbar;
     FirebaseAuth mAuth;
     FirebaseUser user;
-
-    private static final String USERS = "users";
-    private final String TAG = this.getClass().getName().toUpperCase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,36 +140,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         navigationView2 = findViewById(R.id.navigationView2);
         View headerView = navigationView2.getHeaderView(0);
         final TextView namaUser = headerView.findViewById(R.id.namaUser);
-        final TextView emailUser = headerView.findViewById(R.id.emailUser);
-        final TextView magangUser = headerView.findViewById(R.id.jenisMagang);
-
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference userRef = rootRef.child("Users");
-        Log.v("USERID", userRef.getKey());
-
-        userRef.addValueEventListener(new ValueEventListener() {
-            String email = user.getEmail();
-            String nama, jenisMagang;
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
-                    if (keyId.child("email").getValue().equals(email)) {
-                        nama = keyId.child("nama").getValue(String.class);
-                        jenisMagang = keyId.child("jenisMagang").getValue(String.class);
-                        break;
-                    }
-                }
-                namaUser.setText(nama);
-                emailUser.setText(email);
-                magangUser.setText(jenisMagang);
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-
+        namaUser.setText(user.getDisplayName());
 
         ImageView imageUser = headerView.findViewById(R.id.imageUser);
         //tampilkan image user dg Glide
