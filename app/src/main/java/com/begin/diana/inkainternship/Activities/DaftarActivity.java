@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -31,8 +32,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -45,7 +49,9 @@ public class DaftarActivity extends AppCompatActivity {
     String sNama, sItem, sEmail, sPass1, sPass2;
     private User user;
     private FirebaseAuth mAuth;
+    private FirebaseUser fUser;
     private ProgressBar progressBar;
+    private final String TAG = this.getClass().getName().toUpperCase();
 
     ImageView imageUser;
     static int PReqCode = 1;
@@ -174,8 +180,39 @@ public class DaftarActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-        finish();
+//        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+//        finish();
+        fUser = mAuth.getCurrentUser();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference userRef = rootRef.child("Users");
+        Log.v("USERID", userRef.getKey());
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            String email = fUser.getEmail();
+            String jenisMagang;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
+                    if (keyId.child("email").getValue().equals(email)) {
+                        jenisMagang = keyId.child("jenisMagang").getValue(String.class);
+                        if (jenisMagang.equals("Prakerin (SMK)")){
+                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                            finish();
+                        }else if (jenisMagang.equals("PKL (Mahasiswa)")){
+                            startActivity(new Intent(getApplicationContext(), Main3Activity.class));
+                            finish();
+                        }else {
+                        }
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 
     private void openGallery() {

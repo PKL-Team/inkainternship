@@ -20,13 +20,20 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnDaftar, btnMasuk;
     TextView txtEmail, txtPass;
     String sEmail, sPass;
     FirebaseAuth mAuth;
+    FirebaseUser user;
     ProgressBar progressBar;
+    private final String TAG = this.getClass().getName().toUpperCase();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         txtPass = findViewById(R.id.txtPassLogin);
         progressBar = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
-
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,8 +91,39 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void updateUI() {
-        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-        finish();
+//        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+//        finish();
+        user = mAuth.getCurrentUser();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference userRef = rootRef.child("Users");
+        Log.v("USERID", userRef.getKey());
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            String email = user.getEmail();
+            String jenisMagang;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
+                    if (keyId.child("email").getValue().equals(email)) {
+                        jenisMagang = keyId.child("jenisMagang").getValue(String.class);
+                        if (jenisMagang.equals("Prakerin (SMK)")){
+                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                            finish();
+                        }else if (jenisMagang.equals("PKL (Mahasiswa)")){
+                            startActivity(new Intent(getApplicationContext(), Main3Activity.class));
+                            finish();
+                        }else {
+                        }
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 
     private void showMessage(String message) {
@@ -97,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        startActivity(new Intent(this, activityCobaCoba.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 

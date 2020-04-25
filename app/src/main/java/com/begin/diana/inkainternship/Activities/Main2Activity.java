@@ -38,10 +38,10 @@ import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawerLayout2;
-    ActionBarDrawerToggle actionBarDrawerToggle2;
-    Toolbar toolbar2;
-    NavigationView navigationView2;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    Toolbar toolbar;
+    NavigationView navigationView;
     TextView title;
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -55,24 +55,24 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
-        toolbar2 = findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar2);
+        toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
 
-        drawerLayout2 = findViewById(R.id.drawer2);
-        navigationView2 = findViewById(R.id.navigationView2);
-        navigationView2.setNavigationItemSelectedListener(this);
+        drawerLayout = findViewById(R.id.drawer2);
+        navigationView = findViewById(R.id.navigationView2);
+        navigationView.setNavigationItemSelectedListener(this);
 
         updateHeader();
 
-        actionBarDrawerToggle2 = new ActionBarDrawerToggle(this, drawerLayout2, toolbar2, R.string.openDrawer, R.string.closeDrawer);
-        drawerLayout2.addDrawerListener(actionBarDrawerToggle2);
-        actionBarDrawerToggle2.setDrawerIndicatorEnabled(true);
-        actionBarDrawerToggle2.syncState();
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle.syncState();
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new FragmentBeranda()).commit();
-            navigationView2.setCheckedItem(R.id.nav_beranda2);
+            navigationView.setCheckedItem(R.id.nav_beranda2);
             title.setText("Beranda");
         }
 
@@ -80,8 +80,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout2.isDrawerOpen(GravityCompat.START)){
-            drawerLayout2.closeDrawer(GravityCompat.START);
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
         }else{
             super.onBackPressed();
         }
@@ -132,13 +132,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 title.setText("Pengaturan");
                 break;
         }
-        drawerLayout2.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
     public void updateHeader(){
-        navigationView2 = findViewById(R.id.navigationView2);
-        View headerView = navigationView2.getHeaderView(0);
+        navigationView = findViewById(R.id.navigationView2);
+        View headerView = navigationView.getHeaderView(0);
         final TextView namaUser = headerView.findViewById(R.id.namaUser);
         namaUser.setText(user.getDisplayName());
 

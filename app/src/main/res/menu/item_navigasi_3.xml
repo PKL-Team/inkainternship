@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    <group android:checkableBehavior="all">-->
+    <item
+        android:id="@+id/nav_beranda3"
+        android:checked="false"
+        android:icon="@drawable/ic_beranda"
+        android:title="Beranda" />
+
+    <item android:title="Pendaftaran PKL">
+        <menu>
+            <item
+                android:id="@+id/nav_daftarAwalPkl"
+                android:checked="false"
+                android:icon="@drawable/ic_daftar"
+                android:title="Daftar Awal"/>
+            <item
+                android:id="@+id/nav_daftarUlangPkl"
+                android:checked="false"
+                android:icon="@drawable/ic_daftar"
+                android:title="Daftar Ulang"/>
+            <item
+                android:id="@+id/nav_dokumenBerkasPkl"
+                android:checked="false"
+                android:icon="@drawable/ic_dokumenberkas"
+                android:title="Dokumen dan Berkas"/>
+            <item
+                android:id="@+id/nav_infoPesertaPkl"
+                android:checked="false"
+                android:icon="@drawable/ic_informasipeserta_24dp"
+                android:title="Informasi Peserta"/>
+        </menu>
+    </item>
+
+    <item android:title="Umum">
+        <menu>
+            <item
+                android:id="@+id/nav_alur3"
+                android:checked="false"
+                android:icon="@drawable/ic_alur_24dp"
+                android:title="Alur Pendaftaran" />
+            <item
+                android:id="@+id/nav_syarat3"
+                android:checked="false"
+                android:icon="@drawable/ic_persyaratan"
+                android:title="Persyaratan Umum" />
+            <item
+                android:id="@+id/nav_pengaturan3"
+                android:checked="false"
+                android:icon="@drawable/ic_pengaturan"
+                android:title="Pengaturan" />
+        </menu>
+    </item>
+
+    <!--    </group>-->
+</menu>

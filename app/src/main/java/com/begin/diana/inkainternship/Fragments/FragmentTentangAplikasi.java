@@ -40,6 +40,20 @@ public class FragmentTentangAplikasi extends Fragment {
                     return false;
                 }
             });
+        }else {
+            getView().setFocusableInTouchMode(true);
+            getView().requestFocus();
+            getView().setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                        getFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                                new FragmentBeranda()).commit();
+                        return true;
+                    }
+                    return false;
+                }
+            });
         }
 
     }
