@@ -57,9 +57,8 @@ public class FragmentPengaturan extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
-                    Intent back = new Intent(getActivity(), Main2Activity.class);
-                    getActivity().finish();
-                    startActivity(back);
+                    getFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                            new FragmentBeranda()).commit();
                     return true;
                 }
                 return false;

@@ -31,7 +31,6 @@ public class SplashActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
 
         new Handler().postDelayed(new Runnable() {
 
@@ -48,6 +47,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void jenisMagang() {
+        user = mAuth.getCurrentUser();
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userRef = rootRef.child("Users");
         Log.v("USERID", userRef.getKey());
@@ -55,6 +55,7 @@ public class SplashActivity extends AppCompatActivity {
         userRef.addValueEventListener(new ValueEventListener() {
             String email = user.getEmail();
             String jenisMagang;
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot keyId: dataSnapshot.getChildren()) {
@@ -67,6 +68,8 @@ public class SplashActivity extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), Main3Activity.class));
                             finish();
                         }else {
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish();
                         }
                         break;
                     }
