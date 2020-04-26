@@ -29,13 +29,12 @@ public class FragmentEditInformasiPeserta extends Fragment {
         getView().setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
-                    Intent back = new Intent(getActivity(), FragmentInformasiPeserta.class);
-                    getActivity().finish();
-                    startActivity(back);
-                    return true;
-                }
-                return false;
+            if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                getFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentInformasiPeserta()).commit();
+                return true;
+            }
+            return false;
             }
         });
     }

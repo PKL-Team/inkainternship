@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -41,8 +47,11 @@ public class DaftarActivity extends AppCompatActivity {
     Spinner list;
     EditText txtNama, txtEmail, txtPass1, txtPass2;
     String sNama, sItem, sEmail, sPass1, sPass2;
-    FirebaseAuth mAuth;
-    ProgressBar progressBar;
+    private User user;
+    private FirebaseAuth mAuth;
+    private FirebaseUser fUser;
+    private ProgressBar progressBar;
+    private final String TAG = this.getClass().getName().toUpperCase();
 
     ImageView imageUser;
     static int PReqCode = 1;
@@ -108,12 +117,25 @@ public class DaftarActivity extends AppCompatActivity {
         });
     }
 
-    private void CreateUserAccount(String sEmail, final String sNama, String sPass1) {
+    private void CreateUserAccount(final String sEmail, final String sNama, String sPass1) {
         mAuth.createUserWithEmailAndPassword(sEmail, sPass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     showMessage("Pendaftaran Akun Berhasil");
+                    user = new User(sNama,sEmail,sItem);
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                showMessage("Input User Info Berhasil");
+                            }else {
+                                showMessage("Input User Info Gagal"+task.getException().getMessage());
+                            }
+                        }
+                    });
                     updateUserInfo(sNama,picImageUrl, mAuth.getCurrentUser());
                 }else {
                     showMessage("Pendaftaran Akun Gagal"+task.getException().getMessage());
@@ -158,8 +180,39 @@ public class DaftarActivity extends AppCompatActivity {
     }
 
     private void updateUI() {
-        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-        finish();
+//        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+//        finish();
+        fUser = mAuth.getCurrentUser();
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference userRef = rootRef.child("Users");
+        Log.v("USERID", userRef.getKey());
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            String email = fUser.getEmail();
+            String jenisMagang;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
+                    if (keyId.child("email").getValue().equals(email)) {
+                        jenisMagang = keyId.child("jenisMagang").getValue(String.class);
+                        if (jenisMagang.equals("Prakerin (SMK)")){
+                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
+                            finish();
+                        }else if (jenisMagang.equals("PKL (Mahasiswa)")){
+                            startActivity(new Intent(getApplicationContext(), Main3Activity.class));
+                            finish();
+                        }else {
+                        }
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 
     private void openGallery() {
@@ -200,6 +253,14 @@ public class DaftarActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
         startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser() != null){
+            //handle login
+        }
     }
 
     private void showMessage(String message){

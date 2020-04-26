@@ -17,10 +17,10 @@
             android:icon="@drawable/ic_persyaratan"
             android:title="Persyaratan Umum" />
         <item
-            android:id="@+id/nav_pengaturan"
+            android:id="@+id/nav_tentang"
             android:checked="false"
-            android:icon="@drawable/ic_pengaturan"
-            android:title="Pengaturan" />
+            android:icon="@drawable/ic_tentang"
+            android:title="Tentang Aplikasi" />
 
 <!--    </group>-->
 </menu>

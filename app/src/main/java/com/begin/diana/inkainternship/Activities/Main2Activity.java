@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,21 +24,25 @@ import com.begin.diana.inkainternship.Fragments.FragmentInformasiPeserta;
 import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.activityCobaCoba;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawerLayout2;
-    ActionBarDrawerToggle actionBarDrawerToggle2;
-    Toolbar toolbar2;
-    NavigationView navigationView2;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    Toolbar toolbar;
+    NavigationView navigationView;
     TextView title;
-    ImageView imageUserHeader, imageUserToolbar;
-    TextView set1,set2,set3,set4;
     FirebaseAuth mAuth;
     FirebaseUser user;
 
@@ -47,44 +52,27 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_main2);
         title = findViewById(R.id.toolbarTitle2);
 
-        set1 = findViewById(R.id.set1);
-        set2 = findViewById(R.id.set2);
-        set3 = findViewById(R.id.set3);
-
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        String url = user.getPhotoUrl().toString();
-        String nama = user.getDisplayName();
-        String email = user.getEmail();
-        set1.setText(url);
-        set2.setText(nama);
-        set3.setText(email);
-//        imageUserHeader = findViewById(R.id.profilePic2);
-//        imageUserToolbar = findViewById(R.id.iconProfileToolbar2);
-//        imageUserHeader.setImageResource(R.drawable.foto_mar);
-//        imageUserToolbar.setImageResource(R.drawable.foto_mar);
 
+        toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
 
+        drawerLayout = findViewById(R.id.drawer2);
+        navigationView = findViewById(R.id.navigationView2);
+        navigationView.setNavigationItemSelectedListener(this);
 
+        updateHeader();
 
-
-
-        toolbar2 = findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar2);
-
-        drawerLayout2 = findViewById(R.id.drawer2);
-        navigationView2 = findViewById(R.id.navigationView2);
-        navigationView2.setNavigationItemSelectedListener(this);
-
-        actionBarDrawerToggle2 = new ActionBarDrawerToggle(this, drawerLayout2, toolbar2, R.string.openDrawer, R.string.closeDrawer);
-        drawerLayout2.addDrawerListener(actionBarDrawerToggle2);
-        actionBarDrawerToggle2.setDrawerIndicatorEnabled(true);
-        actionBarDrawerToggle2.syncState();
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle.syncState();
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new FragmentBeranda()).commit();
-            navigationView2.setCheckedItem(R.id.nav_beranda2);
+            navigationView.setCheckedItem(R.id.nav_beranda2);
             title.setText("Beranda");
         }
 
@@ -92,12 +80,9 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout2.isDrawerOpen(GravityCompat.START)){
-            drawerLayout2.closeDrawer(GravityCompat.START);
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
         }else{
-            Intent back = new Intent(Main2Activity.this, activityCobaCoba.class);
-            finish();
-            startActivity(back);
             super.onBackPressed();
         }
     }
@@ -147,14 +132,22 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
                 title.setText("Pengaturan");
                 break;
         }
-        drawerLayout2.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public  void logout(View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        finish();
+    public void updateHeader(){
+        navigationView = findViewById(R.id.navigationView2);
+        View headerView = navigationView.getHeaderView(0);
+        final TextView namaUser = headerView.findViewById(R.id.namaUser);
+        namaUser.setText(user.getDisplayName());
+
+        ImageView imageUser = headerView.findViewById(R.id.imageUser);
+        //tampilkan image user dg Glide
+        Glide.with(this).load(user.getPhotoUrl()).into(imageUser);
+
     }
+
+
 
 }

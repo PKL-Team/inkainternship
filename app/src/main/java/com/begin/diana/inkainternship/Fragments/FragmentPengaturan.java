@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.begin.diana.inkainternship.Activities.Main2Activity;
 import com.begin.diana.inkainternship.Activities.MainActivity;
 import com.begin.diana.inkainternship.R;
 
@@ -56,9 +57,8 @@ public class FragmentPengaturan extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
-                    Intent back = new Intent(getActivity(), MainActivity.class);
-                    getActivity().finish();
-                    startActivity(back);
+                    getFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                            new FragmentBeranda()).commit();
                     return true;
                 }
                 return false;

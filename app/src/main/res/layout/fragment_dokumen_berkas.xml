@@ -15,7 +15,7 @@
     <TableRow
         android:layout_margin="5dp">
         <TextView
-            android:layout_width="230dp"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="Dokumen Pernyataan"
@@ -27,7 +27,7 @@
             android:layout_height="28dp"
             android:layout_weight="1"
             android:background="#8BC34A"
-            android:text="Pilih File"
+            android:text="Download"
             android:textSize="13sp" />
     </TableRow>
     </TableLayout>

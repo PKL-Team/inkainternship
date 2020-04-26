@@ -5,8 +5,8 @@
     android:background="#7f7f7f"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="25dp"
-    android:paddingBottom="10dp">
+    android:paddingTop="35dp"
+    android:paddingBottom="20dp">
 
     <ImageView
         android:id="@+id/profilePic2"
@@ -31,22 +31,7 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="18sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:textColor="#fff"
-            android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btnSignup"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SignUp"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

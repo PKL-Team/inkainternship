@@ -41,11 +41,11 @@
             android:visibility="visible">
             <ImageView
                 android:id="@+id/regFoto"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="94dp"
+                android:layout_height="87dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_account_circle_white_24dp"/>
+                android:src="@drawable/ic_account_circle_white_24dp" />
             <EditText
                 android:id="@+id/regNama"
                 android:background="@drawable/edittext_style"

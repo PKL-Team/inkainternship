@@ -21,47 +21,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/layout_toolbar2"/>
-
             <include
                 android:id="@+id/konten"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/content_main"
                 android:layout_below="@id/idTool2" />
-            <LinearLayout
-                android:id="@+id/layoutcoba"
-                android:layout_below="@id/konten"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/set1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" "/>
-                <TextView
-                    android:id="@+id/set2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" "/>
-                <TextView
-                    android:id="@+id/set3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" "/>
-                <TextView
-                    android:id="@+id/set4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" "/>
-            </LinearLayout>
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="LOGOUT"
-                android:onClick="logout"
-                android:layout_below="@id/layoutcoba"/>
+
         </RelativeLayout>
     </ScrollView>
 
