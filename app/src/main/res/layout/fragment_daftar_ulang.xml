@@ -74,7 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="#8BC34A"
+                android:background="#AAAAAA"
+                android:textColor="#FF0000"
                 android:text="Pilih File"
                 android:textSize="13sp" />
         </TableRow>
@@ -88,7 +89,8 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:gravity="center_vertical|center"
-        android:background="@android:color/holo_blue_light"
+        android:background="#FFDAB9"
+        android:textColor="#000000"
         android:text="Daftar"
         android:layout_marginBottom="25dp"/>
 </LinearLayout>

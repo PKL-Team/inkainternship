@@ -6,7 +6,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="#B22222"
         android:id="@+id/Frame">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -102,7 +102,9 @@
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#696969"
         android:text="LOGOUT"
+        android:textColor="#fff"
         android:layout_below="@id/tabelAkun"/>
 
 </RelativeLayout>

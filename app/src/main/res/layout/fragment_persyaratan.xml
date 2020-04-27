@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="       Persyaratan umum yang harus dipenuhi oleh calon peserta kegiatan PRAKERIN atau PKL antara lain : "
         android:gravity="left"
+        android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="25dp"
@@ -22,7 +23,7 @@
             android:id="@+id/fp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_secondary_variant"
+            android:background="#B22222"
             android:padding="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp">
@@ -48,12 +49,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="1. "
+                    android:textColor="#fff"
                     android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="Warga Negara Indonesia (WNI)"
                     android:textSize="15sp" />
             </TableRow>
@@ -65,12 +68,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="2. "
+                    android:textColor="#fff"
                     android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="Masih berstatus siswa SMK aktif"
                     android:textSize="15sp" />
             </TableRow>
@@ -81,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="3. "
                     android:textSize="15sp" />
 
@@ -88,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="#fff"
                     android:text="Copy raport sampai semester terakhir, nilai rata-rata minimal 7"
                     android:textSize="15sp" />
             </TableRow>
@@ -102,7 +109,7 @@
             android:id="@+id/fp3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_secondary_variant"
+            android:background="#B22222"
             android:padding="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp">
@@ -129,11 +136,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="1. "
+                    android:textColor="#fff"
                     android:textSize="15sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="Warga Negara Indonesia (WNI)"
                     android:textSize="15sp" />
             </TableRow>
@@ -144,11 +153,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="2. "
+                    android:textColor="#fff"
                     android:textSize="15sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="Masih berstatus mahasiswa aktif"
                     android:textSize="15sp" />
             </TableRow>
@@ -158,12 +169,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="3. "
                     android:textSize="15sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="Nilai IPK sampai semester terakhir minimal 3"
                     android:textSize="15sp" />
             </TableRow>
@@ -173,12 +186,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:textColor="#fff"
                     android:text="4. "
                     android:textSize="15sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="#fff"
                     android:text="Berasal dari perguruan tinggi dengan akreditasi minimal B"
                     android:textSize="15sp" />
             </TableRow>

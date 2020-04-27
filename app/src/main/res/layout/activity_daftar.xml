@@ -10,7 +10,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFDAB9"
+    android:background="#B22222"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
@@ -24,7 +24,7 @@
         android:fontFamily="sans-serif-black"
         android:gravity="center_horizontal"
         android:text="DAFTAR "
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -38,6 +38,7 @@
             android:elevation="4dp"
             android:orientation="vertical"
             android:padding="20dp"
+            android:background="#FFDAB9"
             android:visibility="visible">
             <ImageView
                 android:id="@+id/regFoto"
@@ -45,7 +46,7 @@
                 android:layout_height="87dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_account_circle_white_24dp" />
+                android:src="@drawable/ic_account_circle_black_24dp" />
             <EditText
                 android:id="@+id/regNama"
                 android:background="@drawable/edittext_style"

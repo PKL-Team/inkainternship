@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer2"
     android:fitsSystemWindows="true"
-    android:background="#999999"
+    android:background="#696969"
     tools:context=".Activities.Main2Activity">
+<!--    android:background="#999999"-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -39,7 +40,7 @@
         android:layout_gravity="start"
         app:menu="@menu/item_navigasi_2"
         app:headerLayout="@layout/layout_header2"
-        android:background="#999999"
+        android:background="#696969"
         android:fitsSystemWindows="true"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

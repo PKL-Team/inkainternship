@@ -7,9 +7,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string-array name="jenis">
+    <string-array name="jenis"
+        color = "#000000">
         <item>Pilih Jenis Prakerin</item>
         <item>Prakerin (SMK)</item>
         <item>PKL (Mahasiswa)</item>
     </string-array>
+    <string name="underline"><u>Pilih File</u></string>
 </resources>
