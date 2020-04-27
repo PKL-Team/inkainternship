@@ -1433,6 +1433,7 @@ drawable design_snackbar_background
 drawable edittext_style
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_account_circle_black_24dp
 drawable ic_account_circle_white_24dp
 drawable ic_alur_24dp
 drawable ic_arrow_drop_down_black_24dp
@@ -2208,6 +2209,7 @@ string path_password_strike_through
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
+string underline
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidImageSlider_Attractive_Rect_Blue

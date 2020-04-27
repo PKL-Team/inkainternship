@@ -38,6 +38,7 @@
         android:textAlignment="center"
         android:text="INKA INTERNSHIP adalah aplikasi pendaftaran online bagi siswa atau mahasiswa yang berencana melaksanakan kegiatan Praktik Kerja Industri (Prakerin) atau Praktik Kerja Lapang (PKL) di PT. Industri Kereta Api (Persero) Madiun."
         android:textSize="16sp"
+        android:textColor="#fff"
         android:layout_marginTop="30dp"/>
 
     <TextView
@@ -45,5 +46,6 @@
         android:layout_height="wrap_content"
         android:text="Copyright 2020 | INKA INTERNSHIP"
         android:layout_marginTop="130dp"
+        android:textColor="#fff"
         android:layout_gravity="center_horizontal"/>
 </LinearLayout>

@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/slider"
         android:text="Selamat Datang di Aplikasi Pendaftaran"
+        android:textColor="#fff"
         android:textSize="13sp"
         android:layout_marginBottom="5dp"
         android:layout_centerHorizontal="true"/>
@@ -28,6 +29,7 @@
         android:layout_below="@id/fb1n"
         android:text="PRAKERIN DAN PKL PT. INKA MADIUN (PERSERO)"
         android:textSize="13sp"
+        android:textColor="#fff"
         android:layout_marginBottom="5dp"
         android:layout_centerHorizontal="true"/>
 
@@ -38,6 +40,7 @@
         android:layout_below="@id/fb2n"
         android:text="INKA INTERNSHIP"
         android:textSize="15sp"
+        android:textColor="#fff"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"/>
 

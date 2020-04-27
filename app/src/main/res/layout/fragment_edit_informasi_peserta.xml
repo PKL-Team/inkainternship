@@ -70,7 +70,8 @@
         android:layout_below="@+id/dataAkun"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="#FFDAB9"
+        android:textColor="#000000"
         android:text="Simpan" />
 
     <TextView
