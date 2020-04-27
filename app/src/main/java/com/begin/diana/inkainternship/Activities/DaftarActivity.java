@@ -123,6 +123,7 @@ public class DaftarActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     showMessage("Pendaftaran Akun Berhasil");
+                    //menyimpan nama, email dan jenis magang ke database dengan nama tabel Users
                     user = new User(sNama,sEmail,sItem);
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
