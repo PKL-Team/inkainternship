@@ -24,8 +24,6 @@ import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
 import com.begin.diana.inkainternship.R;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Main3Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -34,8 +32,6 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar;
     NavigationView navigationView;
     TextView title;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +39,12 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_main3);
         title = findViewById(R.id.toolbarTitle2);
 
-        mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
-
         toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer3);
         navigationView = findViewById(R.id.navigationView3);
         navigationView.setNavigationItemSelectedListener(this);
-
-        updateHeader();
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -124,18 +115,6 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void updateHeader(){
-        navigationView = findViewById(R.id.navigationView3);
-        View headerView = navigationView.getHeaderView(0);
-        final TextView namaUser = headerView.findViewById(R.id.namaUser);
-        namaUser.setText(user.getDisplayName());
-
-        ImageView imageUser = headerView.findViewById(R.id.imageUser);
-        //tampilkan image user dg Glide
-        Glide.with(this).load(user.getPhotoUrl()).into(imageUser);
-
     }
 
 }

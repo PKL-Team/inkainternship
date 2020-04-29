@@ -11,6 +11,7 @@
     android:layout_height="wrap_content"
     android:background="#B22222"
     android:orientation="vertical"
+    android:paddingBottom="50dp"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <TextView

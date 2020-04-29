@@ -2,7 +2,13 @@ package com.begin.diana.inkainternship.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -14,38 +20,36 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.begin.diana.inkainternship.R;
-import com.begin.diana.inkainternship.activityCobaCoba;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.begin.diana.inkainternship.apihelper.BaseApiService;
+import com.begin.diana.inkainternship.apihelper.UtilsApi;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnDaftar, btnMasuk;
     TextView txtEmail, txtPass;
     String sEmail, sPass;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
-    ProgressBar progressBar;
-    private final String TAG = this.getClass().getName().toUpperCase();
+
+    ProgressDialog loading;
+
+    Context mContext;
+    BaseApiService mApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mContext = this;
+        mApiService = UtilsApi.getAPIService();
+
         btnDaftar = findViewById(R.id.btnGoRegister);
         btnMasuk = findViewById(R.id.btnSignin);
         txtEmail = findViewById(R.id.txtEmailLogin);
         txtPass = findViewById(R.id.txtPassLogin);
-        progressBar = findViewById(R.id.progressBar2);
-        mAuth = FirebaseAuth.getInstance();
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,72 +63,52 @@ public class LoginActivity extends AppCompatActivity {
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
-                btnMasuk.setVisibility(View.INVISIBLE);
-                sEmail = txtEmail.getText().toString().trim();
-                sPass = txtPass.getText().toString().trim();
-
-                if (sEmail.isEmpty() || sPass.isEmpty()){
-                    showMessage("Pastikan semua field terisi");
-                }else {
-                    signIn(sEmail,sPass);
-                }
-
+                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                requestLogin();
             }
         });
     }
 
-    private void signIn(String sEmail, String sPass) {
-        mAuth.signInWithEmailAndPassword(sEmail, sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    progressBar.setVisibility(View.INVISIBLE);
-                    btnMasuk.setVisibility(View.VISIBLE);
-                    showMessage("Berhasil Masuk");
-                    updateUI();
-                }else {
-                    showMessage("Gagal Masuk " + task.getException().getMessage());
-                }
-            }
-        });
-    }
-
-    public void updateUI() {
-//        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-//        finish();
-        user = mAuth.getCurrentUser();
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference userRef = rootRef.child("Users");
-        Log.v("USERID", userRef.getKey());
-
-        userRef.addValueEventListener(new ValueEventListener() {
-            String email = user.getEmail();
-            String jenisMagang;
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
-                    if (keyId.child("email").getValue().equals(email)) {
-                        jenisMagang = keyId.child("jenisMagang").getValue(String.class);
-                        if (jenisMagang.equals("Prakerin (SMK)")){
-                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-                            finish();
-                        }else if (jenisMagang.equals("PKL (Mahasiswa)")){
-                            startActivity(new Intent(getApplicationContext(), Main3Activity.class));
-                            finish();
-                        }else {
+    private void requestLogin() {
+        mApiService.loginRequest(txtEmail.getText().toString(), txtPass.getText().toString())
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()){
+                            loading.dismiss();
+                            try {
+                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                if (jsonRESULTS.getString("error").equals("false")){
+                                    // Jika login berhasil maka data nama yang ada di response API
+                                    // akan diparsing ke activity selanjutnya.
+                                    Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
+                                    String nama = jsonRESULTS.getJSONObject("user").getString("nama");
+                                    Intent intent = new Intent(mContext, Main2Activity.class);
+                                    intent.putExtra("result_nama", nama);
+                                    startActivity(intent);
+                                } else {
+                                    // Jika login gagal
+                                    String error_message = jsonRESULTS.getString("error_msg");
+                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            loading.dismiss();
                         }
-                        break;
                     }
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.toString());
+                        loading.dismiss();
+                    }
+                });
     }
+
 
     private void showMessage(String message) {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();

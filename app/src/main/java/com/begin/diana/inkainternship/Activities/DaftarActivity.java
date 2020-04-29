@@ -5,10 +5,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,33 +33,24 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.begin.diana.inkainternship.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+import com.begin.diana.inkainternship.apihelper.BaseApiService;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class DaftarActivity extends AppCompatActivity {
 
     Button btnRegister;
     Spinner list;
-    EditText txtNama, txtEmail, txtPass1, txtPass2;
-    String sNama, sItem, sEmail, sPass1, sPass2;
-    private User user;
-    private FirebaseAuth mAuth;
-    private FirebaseUser fUser;
-    private ProgressBar progressBar;
-    private final String TAG = this.getClass().getName().toUpperCase();
+    EditText txtNama, txtEmail, txtPass1, txtPass2, txtTelp;
+    String sNama, sItem, sEmail, sPass1, sPass2, sTelp;
+
+    ProgressDialog loading;
+
+    Context mContext;
+    BaseApiService mApiService;
 
     ImageView imageUser;
     static int PReqCode = 1;
@@ -68,11 +67,9 @@ public class DaftarActivity extends AppCompatActivity {
         txtEmail = findViewById(R.id.regEmail);
         txtPass1 = findViewById(R.id.regPass1);
         txtPass2 = findViewById(R.id.regPass2);
+        txtTelp = findViewById(R.id.regTelp);
         list = findViewById(R.id.listItemDaftar);
         btnRegister = findViewById(R.id.btnRegister);
-        progressBar = findViewById(R.id.progressBar);
-
-        mAuth = FirebaseAuth.getInstance();
 
         PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), list);
         dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
@@ -98,123 +95,54 @@ public class DaftarActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnRegister.setVisibility(View.INVISIBLE);
-                progressBar.setVisibility(View.VISIBLE);
-                sNama = txtNama.getText().toString().trim();
-                sEmail = txtEmail.getText().toString().trim();
-                sPass1 = txtPass1.getText().toString().trim();
-                sPass2 = txtPass2.getText().toString().trim();
-                sItem = list.getSelectedItem().toString();
 
-                if (sNama.isEmpty() || sEmail.isEmpty() || sPass1.isEmpty() || sPass2.isEmpty() || sItem.isEmpty() || !sPass1.equals(sPass2)){
-                    showMessage("Pastikan semua field terisi");
-                    btnRegister.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.INVISIBLE);
-                }else {
-                    CreateUserAccount(sEmail,sNama,sPass1);
-                }
+                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                requestRegister();
+
             }
         });
     }
 
-    private void CreateUserAccount(final String sEmail, final String sNama, String sPass1) {
-        mAuth.createUserWithEmailAndPassword(sEmail, sPass1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    showMessage("Pendaftaran Akun Berhasil");
-                    //menyimpan nama, email dan jenis magang ke database dengan nama tabel Users
-                    user = new User(sNama,sEmail,sItem);
-                    FirebaseDatabase.getInstance().getReference("Users")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                showMessage("Input User Info Berhasil");
-                            }else {
-                                showMessage("Input User Info Gagal"+task.getException().getMessage());
-                            }
-                        }
-                    });
-                    updateUserInfo(sNama,picImageUrl, mAuth.getCurrentUser());
-                }else {
-                    showMessage("Pendaftaran Akun Gagal"+task.getException().getMessage());
-                    btnRegister.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-    }
-
-    private void updateUserInfo(final String sNama,  Uri picImageUrl, final FirebaseUser currentUser) {
-        //upload foto ke firebase storage
-        StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("user_photos");
-        final StorageReference imageFilePath = mStorage.child(picImageUrl.getLastPathSegment());
-        imageFilePath.putFile(picImageUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                //upload image sukses
-                imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+    private void requestRegister() {
+        mApiService.registerRequest(txtNama.getText().toString(),
+                txtEmail.getText().toString(),
+                txtPass1.getText().toString(),
+                txtTelp.getText().toString(),
+                list.getSelectedItem().toString())
+                .enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onSuccess(Uri uri) {
-                        //alamat image (uri)
-                        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(sNama)
-                                .setPhotoUri(uri)
-                                .build();
-                        currentUser.updateProfile(profileUpdate)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()){
-                                            showMessage("Registrasi Complete");
-                                            updateUI();
-                                        }
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()){
+                            Log.i("debug", "onResponse: BERHASIL");
+                            loading.dismiss();
+                            try {
+                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                if (jsonRESULTS.getString("error").equals("false")){
+                                    Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(mContext, LoginActivity.class));
+                                } else {
+                                    String error_message = jsonRESULTS.getString("error_msg");
+                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Log.i("debug", "onResponse: GA BERHASIL");
+                            loading.dismiss();
+                        }
+                    }
 
-                                    }
-                                });
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                        Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
                     }
                 });
-            }
-        });
     }
 
-    private void updateUI() {
-//        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-//        finish();
-        fUser = mAuth.getCurrentUser();
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference userRef = rootRef.child("Users");
-        Log.v("USERID", userRef.getKey());
-
-        userRef.addValueEventListener(new ValueEventListener() {
-            String email = fUser.getEmail();
-            String jenisMagang;
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot keyId: dataSnapshot.getChildren()) {
-                    if (keyId.child("email").getValue().equals(email)) {
-                        jenisMagang = keyId.child("jenisMagang").getValue(String.class);
-                        if (jenisMagang.equals("Prakerin (SMK)")){
-                            startActivity(new Intent(getApplicationContext(), Main2Activity.class));
-                            finish();
-                        }else if (jenisMagang.equals("PKL (Mahasiswa)")){
-                            startActivity(new Intent(getApplicationContext(), Main3Activity.class));
-                            finish();
-                        }else {
-                        }
-                        break;
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-    }
 
     private void openGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -249,6 +177,7 @@ public class DaftarActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -256,16 +185,12 @@ public class DaftarActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mAuth.getCurrentUser() != null){
-            //handle login
-        }
-    }
 
     private void showMessage(String message){
         Toast.makeText(DaftarActivity.this, message, Toast.LENGTH_SHORT).show();
     }
+
+
+
 }
 

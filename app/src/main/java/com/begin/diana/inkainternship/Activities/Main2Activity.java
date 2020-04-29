@@ -26,15 +26,7 @@ import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.activityCobaCoba;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,17 +35,13 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar;
     NavigationView navigationView;
     TextView title;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
+    String resultNama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         title = findViewById(R.id.toolbarTitle2);
-
-        mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
 
         toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
@@ -75,6 +63,18 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             navigationView.setCheckedItem(R.id.nav_beranda2);
             title.setText("Beranda");
         }
+
+
+    }
+
+    private void updateHeader() {
+        navigationView = findViewById(R.id.navigationView2);
+        View headerView = navigationView.getHeaderView(0);
+        final TextView namaUser = headerView.findViewById(R.id.namaUser);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            resultNama = extras.getString("result_nama");
+        namaUser.setText(resultNama);
 
     }
 
@@ -136,17 +136,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
-    public void updateHeader(){
-        navigationView = findViewById(R.id.navigationView2);
-        View headerView = navigationView.getHeaderView(0);
-        final TextView namaUser = headerView.findViewById(R.id.namaUser);
-        namaUser.setText(user.getDisplayName());
-
-        ImageView imageUser = headerView.findViewById(R.id.imageUser);
-        //tampilkan image user dg Glide
-        Glide.with(this).load(user.getPhotoUrl()).into(imageUser);
-
-    }
 
 
 
