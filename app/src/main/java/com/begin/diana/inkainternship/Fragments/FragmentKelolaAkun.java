@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.begin.diana.inkainternship.Activities.MainActivity;
 import com.begin.diana.inkainternship.R;
+import com.begin.diana.inkainternship.SharedPrefManager;
 import com.bumptech.glide.Glide;
 
 import androidx.annotation.NonNull;
@@ -23,19 +24,30 @@ public class FragmentKelolaAkun extends Fragment {
     Button btnLogout;
     TextView namaUser, emailUser, magangUser;
     ImageView imageUser;
-    private final String TAG = this.getClass().getName().toUpperCase();
+
+    SharedPrefManager sharedPrefManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_kelola_akun,container,false);
 
+        sharedPrefManager = new SharedPrefManager(getActivity());
         btnLogout = view.findViewById(R.id.btnLogout);
         namaUser = view.findViewById(R.id.akunNama);
         emailUser = view.findViewById(R.id.akunEmail);
         magangUser = view.findViewById(R.id.akunMagang);
         imageUser = view.findViewById(R.id.akunImageUser);
 
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+                startActivity(new Intent(getActivity(), MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                getActivity().finish();
+            }
+        });
         return view;
     }
 

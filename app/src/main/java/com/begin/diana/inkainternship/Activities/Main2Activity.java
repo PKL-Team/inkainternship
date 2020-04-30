@@ -23,6 +23,7 @@ import com.begin.diana.inkainternship.Fragments.FragmentDokumenBerkas;
 import com.begin.diana.inkainternship.Fragments.FragmentInformasiPeserta;
 import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
 import com.begin.diana.inkainternship.R;
+import com.begin.diana.inkainternship.SharedPrefManager;
 import com.begin.diana.inkainternship.activityCobaCoba;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
@@ -37,25 +38,16 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     TextView title;
     String resultNama;
 
+    SharedPrefManager sharedPrefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        title = findViewById(R.id.toolbarTitle2);
 
-        toolbar = findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
-
-        drawerLayout = findViewById(R.id.drawer2);
-        navigationView = findViewById(R.id.navigationView2);
-        navigationView.setNavigationItemSelectedListener(this);
+        initComponents();
 
         updateHeader();
-
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
-        actionBarDrawerToggle.syncState();
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
@@ -64,6 +56,20 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             title.setText("Beranda");
         }
 
+    }
+
+    private void initComponents() {
+        title = findViewById(R.id.toolbarTitle2);
+        toolbar = findViewById(R.id.toolbar2);
+        navigationView = findViewById(R.id.navigationView2);
+        drawerLayout = findViewById(R.id.drawer2);
+
+        setSupportActionBar(toolbar);
+        navigationView.setNavigationItemSelectedListener(this);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle.syncState();
 
     }
 
@@ -71,9 +77,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         navigationView = findViewById(R.id.navigationView2);
         View headerView = navigationView.getHeaderView(0);
         final TextView namaUser = headerView.findViewById(R.id.namaUser);
-        Bundle extras = getIntent().getExtras();
-        if (extras != null)
-            resultNama = extras.getString("result_nama");
+        sharedPrefManager = new SharedPrefManager(this);
+        resultNama = sharedPrefManager.getSPNama();
         namaUser.setText(resultNama);
 
     }

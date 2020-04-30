@@ -1754,8 +1754,6 @@ id peekHeight
 id percent
 id pin
 id profilePic2
-id progressBar
-id progressBar2
 id progress_circular
 id progress_horizontal
 id radio

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.begin.diana.inkainternship.R;
+import com.begin.diana.inkainternship.SharedPrefManager;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
 import com.begin.diana.inkainternship.apihelper.UtilsApi;
 
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     Context mContext;
     BaseApiService mApiService;
 
+    SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,19 @@ public class LoginActivity extends AppCompatActivity {
         btnMasuk = findViewById(R.id.btnSignin);
         txtEmail = findViewById(R.id.txtEmailLogin);
         txtPass = findViewById(R.id.txtPassLogin);
+
+        sharedPrefManager = new SharedPrefManager(this);
+        if (sharedPrefManager.getSPSudahLogin()){
+            if (sharedPrefManager.getSPLevel().equals("1")){
+                startActivity(new Intent(mContext, Main2Activity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+            }else if (sharedPrefManager.getSPLevel().equals("2")){
+                startActivity(new Intent(mContext, Main3Activity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+            }
+        }
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +98,24 @@ public class LoginActivity extends AppCompatActivity {
                                     // akan diparsing ke activity selanjutnya.
                                     Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-                                    Intent intent = new Intent(mContext, Main2Activity.class);
-                                    intent.putExtra("result_nama", nama);
-                                    startActivity(intent);
+                                    String level_user = jsonRESULTS.getJSONObject("user").getString("level_user");
+
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
+                                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+
+                                    if (level_user.equals("1")){
+                                        startActivity(new Intent(mContext, Main2Activity.class)
+                                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                        finish();
+                                    }else if (level_user.equals("2")){
+                                        startActivity(new Intent(mContext, Main3Activity.class)
+                                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                        finish();
+                                    }else {
+                                        startActivity(new Intent(mContext, MainActivity.class));
+                                        finish();
+                                    }
                                 } else {
                                     // Jika login gagal
                                     String error_message = jsonRESULTS.getString("error_msg");

@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
+import com.begin.diana.inkainternship.apihelper.UtilsApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,6 +62,9 @@ public class DaftarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
+
+        mContext = this;
+        mApiService = UtilsApi.getAPIService();
 
         imageUser = findViewById(R.id.regFoto);
         txtNama = findViewById(R.id.regNama);
@@ -108,7 +112,7 @@ public class DaftarActivity extends AppCompatActivity {
                 txtEmail.getText().toString(),
                 txtPass1.getText().toString(),
                 txtTelp.getText().toString(),
-                list.getSelectedItem().toString())
+                list.getSelectedItem().toString().trim())
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -120,6 +124,7 @@ public class DaftarActivity extends AppCompatActivity {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(mContext, LoginActivity.class));
+                                    finish();
                                 } else {
                                     String error_message = jsonRESULTS.getString("error_msg");
                                     Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
