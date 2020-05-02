@@ -21,5 +21,6 @@ public interface BaseApiService {
                                        @Field("email") String email,
                                        @Field("password") String password,
                                        @Field("no_telp") String no_telp,
-                                       @Field("jenis_kegiatan") String jenis_kegiatan);
+                                       @Field("jenis_kegiatan") String jenis_kegiatan,
+                                       @Field("foto_profile") String foto_profile);
 }

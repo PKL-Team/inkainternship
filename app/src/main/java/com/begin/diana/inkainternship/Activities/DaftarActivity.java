@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,7 +21,9 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +34,8 @@ import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.graphics.Bitmap;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
@@ -39,6 +44,7 @@ import com.begin.diana.inkainternship.apihelper.UtilsApi;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class DaftarActivity extends AppCompatActivity {
@@ -46,7 +52,6 @@ public class DaftarActivity extends AppCompatActivity {
     Button btnRegister;
     Spinner list;
     EditText txtNama, txtEmail, txtPass1, txtPass2, txtTelp;
-    String sNama, sItem, sEmail, sPass1, sPass2, sTelp;
 
     ProgressDialog loading;
 
@@ -58,6 +63,10 @@ public class DaftarActivity extends AppCompatActivity {
     static int REQUESTCODE = 1;
     Uri picImageUrl;
 
+    private CircleImageView mPicture;
+    FloatingActionButton mFab;
+    Bitmap bitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +75,7 @@ public class DaftarActivity extends AppCompatActivity {
         mContext = this;
         mApiService = UtilsApi.getAPIService();
 
-        imageUser = findViewById(R.id.regFoto);
+//        imageUser = findViewById(R.id.regFoto);
         txtNama = findViewById(R.id.regNama);
         txtEmail = findViewById(R.id.regEmail);
         txtPass1 = findViewById(R.id.regPass1);
@@ -74,6 +83,9 @@ public class DaftarActivity extends AppCompatActivity {
         txtTelp = findViewById(R.id.regTelp);
         list = findViewById(R.id.listItemDaftar);
         btnRegister = findViewById(R.id.btnRegister);
+
+        mPicture = findViewById(R.id.regFoto);
+        mFab = findViewById(R.id.fabChoosePic);
 
         PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), list);
         dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
@@ -85,34 +97,32 @@ public class DaftarActivity extends AppCompatActivity {
             }
         });
 
-        imageUser.setOnClickListener(new View.OnClickListener() {
+        mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= 22){
-                    checkAndRequestPermission();
-                }else{
-                    openGallery();
-                }
+                chooseFile();
             }
+
         });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                requestRegister();
+                String nama = txtNama.getText().toString().trim();
+                String email = txtEmail.getText().toString().trim();
+                String password = txtPass1.getText().toString().trim();
+                String no_telp = txtTelp.getText().toString().trim();
+                String jenis_kegiatan = list.getSelectedItem().toString().trim();
+                String foto_profile = getStringImage(bitmap);
+                requestRegister(nama,email,password,no_telp,jenis_kegiatan,foto_profile);
 
             }
         });
     }
 
-    private void requestRegister() {
-        mApiService.registerRequest(txtNama.getText().toString(),
-                txtEmail.getText().toString(),
-                txtPass1.getText().toString(),
-                txtTelp.getText().toString(),
-                list.getSelectedItem().toString().trim())
+    private void requestRegister(final String nama, final String email, final String password, final String no_telp, final String jenis_kegiatan, final String foto_profile) {
+        mApiService.registerRequest(nama,email,password,no_telp,jenis_kegiatan,foto_profile)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -149,10 +159,41 @@ public class DaftarActivity extends AppCompatActivity {
     }
 
 
+    public String getStringImage(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filePath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                mPicture.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
     private void openGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, REQUESTCODE);
+    }
+
+    private void chooseFile() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
     }
 
     private void checkAndRequestPermission() {
@@ -167,20 +208,21 @@ public class DaftarActivity extends AppCompatActivity {
                         PReqCode);
             }
         }else {
-            openGallery();
+            chooseFile();
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == REQUESTCODE && data != null){
-            //user berhasil memilih gambar
-            //kita perlu menyimpan alamat image ke dalam variabel
-            picImageUrl = data.getData();
-            imageUser.setImageURI(picImageUrl);
-        }
-    }
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK && requestCode == REQUESTCODE && data != null){
+//            //user berhasil memilih gambar
+//            //kita perlu menyimpan alamat image ke dalam variabel
+//            picImageUrl = data.getData();
+//            imageUser.setImageURI(picImageUrl);
+//        }
+//    }
 
 
     @Override

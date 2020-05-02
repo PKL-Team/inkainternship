@@ -6,13 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.begin.diana.inkainternship.Fragments.FragmentAlur;
@@ -24,8 +23,9 @@ import com.begin.diana.inkainternship.Fragments.FragmentInformasiPeserta;
 import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;
-import com.begin.diana.inkainternship.activityCobaCoba;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -36,7 +36,6 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     Toolbar toolbar;
     NavigationView navigationView;
     TextView title;
-    String resultNama;
 
     SharedPrefManager sharedPrefManager;
 
@@ -77,10 +76,23 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         navigationView = findViewById(R.id.navigationView2);
         View headerView = navigationView.getHeaderView(0);
         final TextView namaUser = headerView.findViewById(R.id.namaUser);
-        sharedPrefManager = new SharedPrefManager(this);
-        resultNama = sharedPrefManager.getSPNama();
-        namaUser.setText(resultNama);
+        final CircleImageView fotoUser = headerView.findViewById(R.id.imageUser);
 
+        sharedPrefManager = new SharedPrefManager(this);
+        String nama = sharedPrefManager.getSPNama();
+        namaUser.setText(nama);
+
+        String foto = sharedPrefManager.getSPFoto();
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.skipMemoryCache(true);
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+        requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
+        requestOptions.error(R.drawable.ic_account_circle_white_24dp);
+        Glide.with(Main2Activity.this)
+//                .load("http://192.168.43.36/inka/"+foto)
+                .load("http://inkainternship.000webhostapp.com/android/"+foto)
+                .apply(requestOptions)
+                .into(fotoUser);
     }
 
     @Override

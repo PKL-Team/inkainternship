@@ -99,7 +99,9 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String level_user = jsonRESULTS.getJSONObject("user").getString("level_user");
+                                    String foto = jsonRESULTS.getJSONObject("user").getString("foto_profile");
 
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
                                     sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
