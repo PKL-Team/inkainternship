@@ -7,6 +7,7 @@ public class SharedPrefManager {
 
     public static final String SP_INKAINTERNSHIP_APP = "spInkaApp";
 
+    public static final String SP_ID = "spId";
     public static final String SP_NAMA = "spNama";
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_LEVEL = "spLevel";
@@ -51,6 +52,10 @@ public class SharedPrefManager {
 
     public String getSPFoto(){
         return sp.getString(SP_FOTO, "");
+    }
+
+    public String getSPId(){
+        return sp.getString(SP_ID, "");
     }
 
     public Boolean getSPSudahLogin(){

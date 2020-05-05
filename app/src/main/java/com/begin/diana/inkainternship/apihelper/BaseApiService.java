@@ -23,4 +23,9 @@ public interface BaseApiService {
                                        @Field("no_telp") String no_telp,
                                        @Field("jenis_kegiatan") String jenis_kegiatan,
                                        @Field("foto_profile") String foto_profile);
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/tampilAkun.php
+    @FormUrlEncoded
+    @POST("tampilAkun.php")
+    Call<ResponseBody> tampilAkunRequest(@Field("id") String id);
 }

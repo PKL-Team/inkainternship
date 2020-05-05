@@ -1545,6 +1545,7 @@ id akunEmail
 id akunImageUser
 id akunMagang
 id akunNama
+id akunTelp
 id alertTitle
 id all
 id always

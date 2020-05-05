@@ -1,28 +1,18 @@
 package com.begin.diana.inkainternship.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
@@ -31,7 +21,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.graphics.Bitmap;
@@ -58,11 +47,6 @@ public class DaftarActivity extends AppCompatActivity {
     Context mContext;
     BaseApiService mApiService;
 
-    ImageView imageUser;
-    static int PReqCode = 1;
-    static int REQUESTCODE = 1;
-    Uri picImageUrl;
-
     private CircleImageView mPicture;
     FloatingActionButton mFab;
     Bitmap bitmap;
@@ -72,10 +56,16 @@ public class DaftarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
+        inItComponents();
+        spinner();
+        buttonClick();
+
+    }
+
+    private void inItComponents() {
         mContext = this;
         mApiService = UtilsApi.getAPIService();
 
-//        imageUser = findViewById(R.id.regFoto);
         txtNama = findViewById(R.id.regNama);
         txtEmail = findViewById(R.id.regEmail);
         txtPass1 = findViewById(R.id.regPass1);
@@ -87,6 +77,9 @@ public class DaftarActivity extends AppCompatActivity {
         mPicture = findViewById(R.id.regFoto);
         mFab = findViewById(R.id.fabChoosePic);
 
+    }
+
+    private void spinner() {
         PopupMenu dropDownMenu = new PopupMenu(getApplicationContext(), list);
         dropDownMenu.getMenuInflater().inflate(R.menu.dropdown_menu, dropDownMenu.getMenu());
         dropDownMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -96,7 +89,9 @@ public class DaftarActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
 
+    private void buttonClick() {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,12 +127,12 @@ public class DaftarActivity extends AppCompatActivity {
                             try {
                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
                                 if (jsonRESULTS.getString("error").equals("false")){
-                                    Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
+                                    showMessage("BERHASIL REGISTRASI");
                                     startActivity(new Intent(mContext, LoginActivity.class));
                                     finish();
                                 } else {
                                     String error_message = jsonRESULTS.getString("error_msg");
-                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                    showMessage(error_message);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -153,7 +148,7 @@ public class DaftarActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
                         Log.e("debug", "onFailure: ERROR > " + t.getMessage());
-                        Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
+                        showMessage("Koneksi Internet Bermasalah");
                     }
                 });
     }
@@ -182,48 +177,12 @@ public class DaftarActivity extends AppCompatActivity {
 
     }
 
-
-    private void openGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, REQUESTCODE);
-    }
-
     private void chooseFile() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
     }
-
-    private void checkAndRequestPermission() {
-        if (ContextCompat.checkSelfPermission(DaftarActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED){
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    DaftarActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)){
-                showMessage("Please Accept for required permission");
-            }else {
-                ActivityCompat.requestPermissions(DaftarActivity.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        PReqCode);
-            }
-        }else {
-            chooseFile();
-        }
-    }
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode == RESULT_OK && requestCode == REQUESTCODE && data != null){
-//            //user berhasil memilih gambar
-//            //kita perlu menyimpan alamat image ke dalam variabel
-//            picImageUrl = data.getData();
-//            imageUser.setImageURI(picImageUrl);
-//        }
-//    }
-
 
     @Override
     public void onBackPressed() {
@@ -232,9 +191,8 @@ public class DaftarActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-
     private void showMessage(String message){
-        Toast.makeText(DaftarActivity.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
     }
 
 

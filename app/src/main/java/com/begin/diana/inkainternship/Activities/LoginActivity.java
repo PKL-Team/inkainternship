@@ -45,6 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        inItComponents();
+
+        buttonClick();
+
+    }
+
+    private void inItComponents() {
         mContext = this;
         mApiService = UtilsApi.getAPIService();
 
@@ -54,18 +61,9 @@ public class LoginActivity extends AppCompatActivity {
         txtPass = findViewById(R.id.txtPassLogin);
 
         sharedPrefManager = new SharedPrefManager(this);
-        if (sharedPrefManager.getSPSudahLogin()){
-            if (sharedPrefManager.getSPLevel().equals("1")){
-                startActivity(new Intent(mContext, Main2Activity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                finish();
-            }else if (sharedPrefManager.getSPLevel().equals("2")){
-                startActivity(new Intent(mContext, Main3Activity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                finish();
-            }
-        }
+    }
 
+    private void buttonClick() {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,14 +76,16 @@ public class LoginActivity extends AppCompatActivity {
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = txtEmail.getText().toString();
+                String password =  txtPass.getText().toString();
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                requestLogin();
+                requestLogin(email,password);
             }
         });
     }
 
-    private void requestLogin() {
-        mApiService.loginRequest(txtEmail.getText().toString(), txtPass.getText().toString())
+    private void requestLogin(final String email, final String password) {
+        mApiService.loginRequest(email,password)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -96,11 +96,13 @@ public class LoginActivity extends AppCompatActivity {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     // Jika login berhasil maka data nama yang ada di response API
                                     // akan diparsing ke activity selanjutnya.
-                                    Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
+                                    showMessage("BERHASIL LOGIN");
+                                    String id = jsonRESULTS.getJSONObject("user").getString("id");
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String level_user = jsonRESULTS.getJSONObject("user").getString("level_user");
                                     String foto = jsonRESULTS.getJSONObject("user").getString("foto_profile");
 
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, id);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
@@ -121,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
                                     // Jika login gagal
                                     String error_message = jsonRESULTS.getString("error_msg");
-                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                    showMessage(error_message);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -141,9 +143,8 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-
     private void showMessage(String message) {
-        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override

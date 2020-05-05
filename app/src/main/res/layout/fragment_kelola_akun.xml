@@ -36,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Nama Lengkap"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff"/>
 
             <TextView
                 android:id="@+id/akunNama"
@@ -44,7 +45,8 @@
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:textSize="15sp"
-                android:text="Nama Pengguna"/>
+                android:text=" "
+                android:textColor="#fff"/>
         </TableRow>
         <TableRow
             android:layout_margin="5dp">
@@ -53,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Email"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <TextView
                 android:id="@+id/akunEmail"
@@ -61,7 +64,8 @@
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:textSize="15sp"
-                android:text="www@gmail.com"/>
+                android:text=" "
+                android:textColor="#fff"/>
         </TableRow>
         <TableRow
             android:layout_margin="5dp">
@@ -70,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Jenis Magang"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <TextView
                 android:id="@+id/akunMagang"
@@ -78,7 +83,8 @@
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:textSize="15sp"
-                android:text="Jenis Magang"/>
+                android:text=" "
+                android:textColor="#fff"/>
         </TableRow>
         <TableRow
             android:layout_margin="5dp">
@@ -87,14 +93,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Nomor Telepon"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <TextView
+                android:id="@+id/akunTelp"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:textSize="15sp"
-                android:text="081234567890"/>
+                android:text=" "
+                android:textColor="#fff"/>
         </TableRow>
     </TableLayout>
 
