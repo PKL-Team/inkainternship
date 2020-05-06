@@ -88,8 +88,8 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
         requestOptions.error(R.drawable.ic_account_circle_white_24dp);
         Glide.with(Main3Activity.this)
-//                .load("http://192.168.43.36/inka/"+foto)
-                .load("http://inkainternship.000webhostapp.com/android/"+foto)
+                .load("http://192.168.43.36/inka/"+foto)
+//                .load("http://inkainternship.000webhostapp.com/android/"+foto)
                 .apply(requestOptions)
                 .into(fotoUser);
 

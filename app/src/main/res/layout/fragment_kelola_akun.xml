@@ -23,14 +23,15 @@
         android:id="@+id/tabelAkun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_marginBottom="10dp"
+        android:padding="5dp"
         android:layout_below="@id/Frame">
 
         <TableRow
-            android:layout_margin="5dp">
+            android:layout_marginBottom="15dp">
             <TextView
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
@@ -38,18 +39,25 @@
                 android:text="Nama Lengkap"
                 android:textSize="15sp"
                 android:textColor="#fff"/>
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text=" : "
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"
+                android:textColor="#fff"/>
             <TextView
                 android:id="@+id/akunNama"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:text=" "
                 android:textColor="#fff"/>
         </TableRow>
         <TableRow
-            android:layout_margin="5dp">
+            android:layout_marginBottom="15dp">
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
@@ -57,18 +65,25 @@
                 android:text="Email"
                 android:textSize="15sp"
                 android:textColor="#fff" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text=" : "
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"
+                android:textColor="#fff"/>
             <TextView
                 android:id="@+id/akunEmail"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:text=" "
                 android:textColor="#fff"/>
         </TableRow>
         <TableRow
-            android:layout_margin="5dp">
+            android:layout_marginBottom="15dp">
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
@@ -76,18 +91,25 @@
                 android:text="Jenis Magang"
                 android:textSize="15sp"
                 android:textColor="#fff" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text=" : "
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"
+                android:textColor="#fff"/>
             <TextView
                 android:id="@+id/akunMagang"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:text=" "
                 android:textColor="#fff"/>
         </TableRow>
         <TableRow
-            android:layout_margin="5dp">
+            android:layout_marginBottom="15dp">
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
@@ -95,11 +117,18 @@
                 android:text="Nomor Telepon"
                 android:textSize="15sp"
                 android:textColor="#fff" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text=" : "
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"
+                android:textColor="#fff"/>
             <TextView
                 android:id="@+id/akunTelp"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:text=" "
@@ -111,9 +140,10 @@
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tabelAkun"
+        android:layout_marginTop="60dp"
         android:background="#696969"
         android:text="LOGOUT"
-        android:textColor="#fff"
-        android:layout_below="@id/tabelAkun"/>
+        android:textColor="#fff" />
 
 </RelativeLayout>

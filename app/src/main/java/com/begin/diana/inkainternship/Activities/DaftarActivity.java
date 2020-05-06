@@ -17,6 +17,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -51,6 +52,7 @@ public class DaftarActivity extends AppCompatActivity {
     FloatingActionButton mFab;
     Bitmap bitmap;
 
+    private String[] listKegiatan = {"Pilih Kegiatan", "Prakerin (SMK)", "PKL (Mahasiswa)"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +111,7 @@ public class DaftarActivity extends AppCompatActivity {
                 String password = txtPass1.getText().toString().trim();
                 String no_telp = txtTelp.getText().toString().trim();
                 String jenis_kegiatan = list.getSelectedItem().toString().trim();
-                String foto_profile = getStringImage(bitmap);
+                String foto_profile = getStringImage(bitmap).trim();
                 requestRegister(nama,email,password,no_telp,jenis_kegiatan,foto_profile);
 
             }

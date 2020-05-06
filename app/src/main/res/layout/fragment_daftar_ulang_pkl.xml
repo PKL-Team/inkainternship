@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginRight="25dp">
 
         <TableRow
             android:layout_margin="5dp">
@@ -19,11 +18,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Nama Lengkap"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp" />
         </TableRow>
@@ -35,11 +35,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Asal Perguruan Tinggi"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp" />
         </TableRow>
@@ -51,14 +52,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Penempatan Divisi"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp" />
         </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp">
 
         <TableRow
             android:layout_margin="5dp">
@@ -67,21 +78,20 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Scan Surat Penugasan"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff"/>
 
             <Button
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="#AAAAAA"
                 android:textColor="#FF0000"
                 android:text="Pilih File"
                 android:textSize="13sp" />
         </TableRow>
-
     </TableLayout>
-
     <Button
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"

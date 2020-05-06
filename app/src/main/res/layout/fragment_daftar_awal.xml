@@ -15,11 +15,12 @@
         <TableRow
             android:layout_margin="5dp">
             <TextView
-                android:layout_width="150dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Jurusan"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <Spinner
                 android:id="@+id/spJurusan"
@@ -27,24 +28,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:textSize="15sp"
-                />
+                android:textColor="#fff" />
         </TableRow>
 
         <TableRow
             android:layout_margin="5dp">
             <TextView
-                android:layout_width="150dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Periode"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <Spinner
                 android:id="@+id/spPeriode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
         </TableRow>
 
     </TableLayout>
@@ -73,14 +76,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Tahun "
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:textColor="#fff"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="..."
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:textColor="#fff"/>
         </TableRow>
 
         <TableRow
@@ -90,14 +95,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:text="Kuota Tersedia "
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="... orang"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:textColor="#fff"/>
         </TableRow>
 
     </TableLayout>

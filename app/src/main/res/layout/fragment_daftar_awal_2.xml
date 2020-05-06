@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,8 +19,8 @@
             android:text="DATA DIRI"
             android:textSize="15sp"
             android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#fff"/>
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,13 +36,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Nama Lengkap"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -51,13 +54,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="NIS"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
             </TableRow>
 
             <TableRow
@@ -67,13 +72,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Rata-rata Raport"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <EditText
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
@@ -81,14 +88,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PERSYARATAN DOKUMEN"
             android:textSize="15sp"
             android:gravity="center"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#fff"/>
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,12 +113,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Scan Surat Pengajuan PRAKERIN"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="#AAAAAA"
                     android:text="Pilih File"
@@ -124,12 +134,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Scan Rapot / Rekap Nilai"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="#AAAAAA"
                     android:textColor="#FF0000"
@@ -144,12 +155,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Scan Kartu Asuransi"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="#AAAAAA"
                     android:textColor="#FF0000"
@@ -164,12 +176,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Scan Surat Pernyataan"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="35dp"
                     android:layout_weight="1"
                     android:background="#AAAAAA"
                     android:textColor="#FF0000"
@@ -183,14 +196,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ASAL SEKOLAH"
             android:textSize="15sp"
             android:gravity="center"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="#fff"/>
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -201,11 +216,12 @@
             <TableRow
                 android:layout_margin="5dp">
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Provinsi"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Spinner
                     android:id="@+id/spProvinsi"
@@ -217,11 +233,12 @@
             <TableRow
                 android:layout_margin="5dp">
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Kabupaten"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Spinner
                     android:id="@+id/spKabupaten"
@@ -233,11 +250,12 @@
             <TableRow
                 android:layout_margin="5dp">
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Nama Sekolah"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
 
                 <Spinner
                     android:id="@+id/spNamaSekolah"
