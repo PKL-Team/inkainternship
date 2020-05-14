@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.begin.diana.inkainternship.R;
+import com.begin.diana.inkainternship.activityCobaCoba;
 
 public class SplashActivity extends AppCompatActivity {
     private static int splashInterval = 2000;
@@ -22,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), activityCobaCoba.class));
                 finish();
             }
         }, splashInterval);

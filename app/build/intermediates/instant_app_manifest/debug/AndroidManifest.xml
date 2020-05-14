@@ -42,11 +42,6 @@
         <activity
             android:name="com.begin.diana.inkainternship.Activities.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.begin.diana.inkainternship.Activities.PengaturanActivity"
@@ -54,11 +49,24 @@
         <activity
             android:name="com.begin.diana.inkainternship.Activities.SplashActivity"
             android:theme="@style/Theme.AppCompat" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name="com.karumi.dexter.DexterActivity"
+            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+        <activity
+            android:name="com.nbsp.materialfilepicker.ui.FilePickerActivity"
+            android:theme="@style/MFP_BaseTheme" >
+        </activity>
     </application>
 
 </manifest>
