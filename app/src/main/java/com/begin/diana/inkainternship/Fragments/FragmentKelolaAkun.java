@@ -14,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.begin.diana.inkainternship.Activities.Main2Activity;
-import com.begin.diana.inkainternship.Activities.Main3Activity;
 import com.begin.diana.inkainternship.Activities.MainActivity;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;

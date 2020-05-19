@@ -1689,6 +1689,7 @@ id beginning
 id blocking
 id bottom
 id btnDaftarAwal2
+id btnDaftarAwal2Pkl
 id btnDenganLogin
 id btnEditInfo
 id btnGoRegister
@@ -1699,6 +1700,7 @@ id btnLogin
 id btnLogout
 id btnRegister
 id btnSignin
+id btnSimpanInformasi
 id btnTanpaLogin
 id btnTentangAplikasi
 id buttonPanel
@@ -1727,7 +1729,12 @@ id coordinator
 id custom
 id customPanel
 id cut
-id da2Nama
+id daIpk
+id daNama
+id daNamaPkl
+id daNim
+id daNis
+id daRaport
 id daimajia_indicator_wrapper
 id daimajia_slider_image
 id daimajia_slider_viewpager
@@ -1760,7 +1767,16 @@ id drawer3
 id dropdown_menu
 id dropdown_menu1
 id dropdown_menu2
+id duDivisi
+id duDivisiPkl
+id duKampus
+id duNama
+id duNamaPkl
+id duSekolah
 id dynamic
+id editID
+id editNama
+id editNilai
 id edit_query
 id end
 id end_padder
@@ -1807,6 +1823,9 @@ id imageUser
 id imageView
 id info
 id invisible
+id ipID
+id ipNama
+id ipNilai
 id italic
 id item_file_image
 id item_file_subtitle
@@ -1940,7 +1959,10 @@ id scan1
 id scan2
 id scan3
 id scan4
+id scan5
 id scanFile
+id scanSuratTugas
+id scanSuratTugasPkl
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1973,6 +1995,7 @@ id snap
 id snapMargins
 id spJurusan
 id spKabupaten
+id spNamaKampus
 id spNamaSekolah
 id spPeriode
 id spProvinsi

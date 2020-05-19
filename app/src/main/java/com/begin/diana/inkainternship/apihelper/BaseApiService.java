@@ -33,13 +33,45 @@ public interface BaseApiService {
     @POST("tampilAkun.php")
     Call<ResponseBody> tampilAkunRequest(@Field("id") String id);
 
-    String IMAGEURL = "http://192.168.43.36/inka/";
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarAwalPrakerin.php
     @Multipart
-    @POST("upload_file_prakerin.php")
-    Call<String> uploadPdf(
+    @POST("daftarAwalPrakerin.php")
+    Call<ResponseBody> daftarAwalPrakerin(
             @Part MultipartBody.Part file, @Part("filename1") RequestBody name,
             @Part MultipartBody.Part file2, @Part("filename2") RequestBody name2,
             @Part MultipartBody.Part file3, @Part("filename3") RequestBody name3,
-            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4
-    );
+            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4,
+            @Part("id") String id,
+            @Part("nama") String nama,
+            @Part("nis") String nis,
+            @Part("raport") String raport,
+            @Part("sekolah") String sekolah);
+
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarAwalPkl.php
+    @Multipart
+    @POST("daftarAwalPkl.php")
+    Call<ResponseBody> daftarAwalPkl(
+            @Part MultipartBody.Part file, @Part("filename1") RequestBody name,
+            @Part MultipartBody.Part file2, @Part("filename2") RequestBody name2,
+            @Part MultipartBody.Part file3, @Part("filename3") RequestBody name3,
+            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4,
+            @Part MultipartBody.Part file5, @Part("filename5") RequestBody name5,
+            @Part("id") String id,
+            @Part("nama") String nama,
+            @Part("nim") String nim,
+            @Part("ipk") String ipk,
+            @Part("kampus") String kampus);
+
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/tampilPendaftarPrakerin.php
+    @FormUrlEncoded
+    @POST("tampilPendaftarPrakerin.php")
+    Call<ResponseBody> tampilPendaftarPrakerin(@Field("id") String id);
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/tampilPendaftarPkl.php
+    @FormUrlEncoded
+    @POST("tampilPendaftarPkl.php")
+    Call<ResponseBody> tampilPendaftarPkl(@Field("id") String id);
+
 }

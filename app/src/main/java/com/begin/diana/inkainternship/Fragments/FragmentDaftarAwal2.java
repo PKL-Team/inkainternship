@@ -1,8 +1,10 @@
 package com.begin.diana.inkainternship.Fragments;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,8 +21,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.begin.diana.inkainternship.Activities.LoginActivity;
 import com.begin.diana.inkainternship.Activities.Main2Activity;
+import com.begin.diana.inkainternship.Activities.Main3Activity;
+import com.begin.diana.inkainternship.Activities.MainActivity;
 import com.begin.diana.inkainternship.R;
+import com.begin.diana.inkainternship.SharedPrefManager;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
 import com.begin.diana.inkainternship.apihelper.UtilsApi;
 import com.karumi.dexter.Dexter;
@@ -50,7 +56,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -65,7 +74,7 @@ public class FragmentDaftarAwal2 extends Fragment {
     private String[] listProv = {"Pilih Provinsi", "bla", "bla"};
     private String[] listKab = {"Pilih Kab.", "bla", "bla"};
     private String[] listSekolah = {"Pilih Sekolah", "bla", "bla"};
-
+    EditText inputNama,inputNis, inputRaport;
     TextView scan1, scan2, scan3, scan4;
     private String url = "";
     private String path1 = "";
@@ -77,6 +86,10 @@ public class FragmentDaftarAwal2 extends Fragment {
     private static final String IMAGE_DIRECTORY = "/inka";
 
     Button btnDaftarAwal;
+
+    SharedPrefManager sharedPrefManager;
+
+    ProgressDialog loading;
 
     @Nullable
     @Override
@@ -91,14 +104,36 @@ public class FragmentDaftarAwal2 extends Fragment {
         btnDaftarAwal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (path1.isEmpty() || path2.isEmpty() || path3.isEmpty() || path4.isEmpty()){
-                    showMessage("Tidak ada file yang dipilih");
+                sharedPrefManager = new SharedPrefManager(getActivity());
+                String id = sharedPrefManager.getSPId();
+                String nama = inputNama.getText().toString();
+                String nis =  inputNis.getText().toString();
+                String raport = inputRaport.getText().toString();
+                String sekolah = spinnerSekolah.getSelectedItem().toString();
+
+                if (id.isEmpty() || nama.isEmpty() || nis.isEmpty() || raport.isEmpty()){
+                    showMessage("Mohon lengkapi semua field masukan");
+                }
+                else if (path1.isEmpty() || path2.isEmpty() || path3.isEmpty() || path4.isEmpty()){
+                    showMessage("Beberapa/Semua File Scan belum dipilih");
                 }else {
-                    uploadPDF(path1,path2,path3,path4);
+                    loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
+                    uploadPDF(path1,path2,path3,path4,id,nama,nis,raport,sekolah);
                 }
             }
         });
         return view;
+    }
+
+    private void inItComponents(View view) {
+        scan1 = view.findViewById(R.id.scan1);
+        scan2 = view.findViewById(R.id.scan2);
+        scan3 = view.findViewById(R.id.scan3);
+        scan4 = view.findViewById(R.id.scan4);
+        btnDaftarAwal = view.findViewById(R.id.btnDaftarAwal2);
+        inputNama = view.findViewById(R.id.daNama);
+        inputNis = view.findViewById(R.id.daNis);
+        inputRaport = view.findViewById(R.id.daRaport);
     }
 
     private void scanClick() {
@@ -138,14 +173,6 @@ public class FragmentDaftarAwal2 extends Fragment {
                 startActivityForResult(intent,4);
             }
         });
-    }
-
-    private void inItComponents(View view) {
-        scan1 = view.findViewById(R.id.scan1);
-        scan2 = view.findViewById(R.id.scan2);
-        scan3 = view.findViewById(R.id.scan3);
-        scan4 = view.findViewById(R.id.scan4);
-        btnDaftarAwal = view.findViewById(R.id.btnDaftarAwal2);
     }
 
     private void spinner(View view) {
@@ -239,13 +266,10 @@ public class FragmentDaftarAwal2 extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void uploadPDF(String path1, String path2, String path3, String path4){
-        String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
+    private void uploadPDF(String path1, String path2, String path3, String path4,
+                           final String id,final String nama,final String nis,final String raport, final String sekolah){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UtilsApi.BASE_URL_API)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
         //Create a file object using file path
         File file1 = new File(path1);
@@ -268,40 +292,58 @@ public class FragmentDaftarAwal2 extends Fragment {
         MultipartBody.Part fileToUpload4 = MultipartBody.Part.createFormData("filename4", file4.getName(), requestBody4);
         RequestBody filename4 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
 
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UtilsApi.BASE_URL_API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+
         BaseApiService getResponse = retrofit.create(BaseApiService.class);
-        Call<String> call = getResponse.uploadPdf(
+        Call<ResponseBody> call = getResponse.daftarAwalPrakerin(
                 fileToUpload1, filename1,
                 fileToUpload2, filename2,
                 fileToUpload3, filename3,
-                fileToUpload4, filename4);
+                fileToUpload4, filename4,
+                id, nama, nis, raport,sekolah);
         Log.d("assss","asss");
-
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.d("mullllll", response.body().toString());
-                try {
-                    JSONObject jsonObject = new JSONObject(response.body().toString());
-                    Toast.makeText(getActivity(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-
-                    jsonObject.toString().replace("\\\\","");
-
-                    if (jsonObject.getString("status").equals("true")) {
-
-                        JSONArray dataArray = jsonObject.getJSONArray("user");
-
-                        for (int i = 0; i < dataArray.length(); i++) {
-                            JSONObject dataobj = dataArray.getJSONObject(i);
-                            url = dataobj.optString("url");
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    Log.i("debug", "onResponse: BERHASIL");
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            showMessage("BERHASIL DAFTAR");
+                            String id = jsonRESULTS.getJSONObject("user").getString("id");
+                            if (id != null){
+                                startActivity(new Intent(getActivity(), Main2Activity.class));
+                                getActivity().finish();
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } else {
+                    Log.i("debug", "onResponse: GA BERHASIL");
+                    loading.dismiss();
                 }
             }
+
             @Override
-            public void onFailure(Call call, Throwable t) {
-                Log.d("gttt", call.toString());
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                showMessage("Koneksi Internet Bermasalah");
             }
         });
     }
@@ -319,7 +361,6 @@ public class FragmentDaftarAwal2 extends Fragment {
         if (!TextUtils.isEmpty(fileName)) {
             File copyFile = new File(wallpaperDirectory + File.separator + fileName);
             // create folder if not exists
-
             copy(context, contentUri, copyFile);
             return copyFile.getAbsolutePath();
         }

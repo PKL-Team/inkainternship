@@ -23,6 +23,7 @@
                 android:textColor="#fff"/>
 
             <EditText
+                android:id="@+id/editNama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -40,6 +41,7 @@
                 android:textColor="#fff" />
 
             <EditText
+                android:id="@+id/editID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -57,6 +59,7 @@
                 android:textColor="#fff" />
 
             <EditText
+                android:id="@+id/editNilai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -67,6 +70,7 @@
     </TableLayout>
 
     <Button
+        android:id="@+id/btnSimpanInformasi"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="40dp"
