@@ -74,4 +74,35 @@ public interface BaseApiService {
     @POST("tampilPendaftarPkl.php")
     Call<ResponseBody> tampilPendaftarPkl(@Field("id") String id);
 
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarUlangPrakerin.php
+    @Multipart
+    @POST("daftarUlangPrakerin.php")
+    Call<ResponseBody> daftarUlangPrakerin(
+            @Part MultipartBody.Part file, @Part("filename") RequestBody name,
+            @Part("id") String id);
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarUlangPkl.php
+    @Multipart
+    @POST("daftarUlangPkl.php")
+    Call<ResponseBody> daftarUlangPkl(
+            @Part MultipartBody.Part file, @Part("filename") RequestBody name,
+            @Part("id") String id);
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/editInformasiPrakerin.php
+    @FormUrlEncoded
+    @POST("editInformasiPrakerin.php")
+    Call<ResponseBody> editInformasiPrakerin(@Field("id") String id,
+                                             @Field("nama") String nama,
+                                             @Field("nis") String nis,
+                                             @Field("raport") String raport);
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/editInformasiPkl.php
+    @FormUrlEncoded
+    @POST("editInformasiPkl.php")
+    Call<ResponseBody> editInformasiPkl(@Field("id") String id,
+                                        @Field("nama") String nama,
+                                        @Field("nim") String nim,
+                                        @Field("ipk") String ipk);
+
+
 }

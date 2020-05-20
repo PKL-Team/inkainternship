@@ -1690,6 +1690,8 @@ id blocking
 id bottom
 id btnDaftarAwal2
 id btnDaftarAwal2Pkl
+id btnDaftarUlang
+id btnDaftarUlangPkl
 id btnDenganLogin
 id btnEditInfo
 id btnGoRegister

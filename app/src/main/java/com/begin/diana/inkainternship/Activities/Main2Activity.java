@@ -23,6 +23,7 @@ import com.begin.diana.inkainternship.Fragments.FragmentInformasiPeserta;
 import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;
+import com.begin.diana.inkainternship.apihelper.UtilsApi;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -89,8 +90,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
         requestOptions.error(R.drawable.ic_account_circle_white_24dp);
         Glide.with(Main2Activity.this)
-                .load("http://192.168.43.36/inka/"+foto)
-//                .load("http://inkainternship.000webhostapp.com/android/"+foto)
+                .load(UtilsApi.BASE_URL_API+foto)
                 .apply(requestOptions)
                 .into(fotoUser);
     }

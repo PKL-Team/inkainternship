@@ -52,7 +52,6 @@ public class DaftarActivity extends AppCompatActivity {
     FloatingActionButton mFab;
     Bitmap bitmap;
 
-    private String[] listKegiatan = {"Pilih Kegiatan", "Prakerin (SMK)", "PKL (Mahasiswa)"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

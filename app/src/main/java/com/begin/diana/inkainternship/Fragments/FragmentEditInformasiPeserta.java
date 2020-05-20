@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.begin.diana.inkainternship.Activities.LoginActivity;
+import com.begin.diana.inkainternship.Activities.Main2Activity;
+import com.begin.diana.inkainternship.Activities.Main3Activity;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
@@ -48,17 +51,14 @@ public class FragmentEditInformasiPeserta extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit_informasi_peserta,container,false);
 
         inItComponents(view);
+        tampilData();
 
-        sharedPrefManager = new SharedPrefManager(getActivity());
-        String level_user = sharedPrefManager.getSPLevel();
-        String id = sharedPrefManager.getSPId();
-        if (level_user.equals("1")){
-            loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-            tampilDataPrakerin(id);
-        }else if (level_user.equals("2")){
-            loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-            tampilDataPkl(id);
-        }
+        btnSimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateData();
+            }
+        });
 
         return view;
     }
@@ -71,6 +71,19 @@ public class FragmentEditInformasiPeserta extends Fragment {
         eId = view.findViewById(R.id.editID);
         eNilai = view.findViewById(R.id.editNilai);
         btnSimpan = view.findViewById(R.id.btnSimpanInformasi);
+    }
+
+    private void tampilData() {
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        String level_user = sharedPrefManager.getSPLevel();
+        String id = sharedPrefManager.getSPId();
+        if (level_user.equals("1")){
+            loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+            tampilDataPrakerin(id);
+        }else if (level_user.equals("2")){
+            loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+            tampilDataPkl(id);
+        }
     }
 
     private void tampilDataPrakerin(String id) {
@@ -152,6 +165,100 @@ public class FragmentEditInformasiPeserta extends Fragment {
                         loading.dismiss();
                     }
                 });
+    }
+
+    private void updateData() {
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        String level_user = sharedPrefManager.getSPLevel();
+        String id = sharedPrefManager.getSPId();
+        String nama = eNama.getText().toString();
+        String noinduk = eId.getText().toString();
+        String nilai = eNilai.getText().toString();
+        if (level_user.equals("1")){
+            loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+            updateDataPrakerin(id,nama,noinduk,nilai);
+        }else if (level_user.equals("2")){
+            loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+            updateDataPkl(id,nama,noinduk,nilai);
+        }
+    }
+
+    private void updateDataPrakerin(String id, String nama, String noinduk, String nilai) {
+        mApiService.editInformasiPrakerin(id,nama,noinduk,nilai)
+                .enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    Log.i("debug", "onResponse: BERHASIL");
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            showMessage("BERHASIL EDIT INFORMASI PESERTA");
+                            startActivity(new Intent(mContext, Main2Activity.class));
+                            getActivity().finish();
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.i("debug", "onResponse: GA BERHASIL");
+                    loading.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                showMessage("Koneksi Internet Bermasalah");
+            }
+        });
+    }
+
+    private void updateDataPkl(String id, String nama, String noinduk, String nilai) {
+        mApiService.editInformasiPkl(id,nama,noinduk,nilai)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()){
+                            Log.i("debug", "onResponse: BERHASIL");
+                            loading.dismiss();
+                            try {
+                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                if (jsonRESULTS.getString("error").equals("false")){
+                                    showMessage("BERHASIL EDIT INFORMASI PESERTA");
+                                    startActivity(new Intent(mContext, Main3Activity.class));
+                                    getActivity().finish();
+                                } else {
+                                    String error_message = jsonRESULTS.getString("error_msg");
+                                    showMessage(error_message);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Log.i("debug", "onResponse: GA BERHASIL");
+                            loading.dismiss();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                        showMessage("Koneksi Internet Bermasalah");
+                    }
+                });
+    }
+
+    private void showMessage(String message){
+        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
