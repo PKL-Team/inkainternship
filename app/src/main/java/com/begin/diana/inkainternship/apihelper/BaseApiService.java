@@ -105,4 +105,9 @@ public interface BaseApiService {
                                         @Field("ipk") String ipk);
 
 
+
+    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/cekPkl.php
+    @FormUrlEncoded
+    @POST("cekPkl.php")
+    Call<ResponseBody> cekPkl(@Field("id") String id);
 }

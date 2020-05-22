@@ -1836,6 +1836,8 @@ id item_touch_helper_previous_elevation
 id konten
 id labeled
 id largeLabel
+id layoutDaftarUlang
+id layoutDaftarUlangPkl
 id left
 id line1
 id line3
@@ -2012,6 +2014,8 @@ id src_in
 id src_over
 id standard
 id start
+id status
+id statusPkl
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
@@ -2165,6 +2169,7 @@ layout fragment_daftar_ulang
 layout fragment_daftar_ulang_pkl
 layout fragment_directory
 layout fragment_dokumen_berkas
+layout fragment_done
 layout fragment_edit_informasi_peserta
 layout fragment_informasi_peserta
 layout fragment_kelola_akun

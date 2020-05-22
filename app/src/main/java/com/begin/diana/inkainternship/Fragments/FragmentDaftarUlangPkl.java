@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,13 +59,16 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentDaftarUlangPkl extends Fragment {
     Button btnDaftar;
-    TextView tvNama, tvKampus, tvDivisi, scanSuratTugas;
+    LinearLayout layout;
+    TextView tvNama, tvKampus, tvDivisi, scanSuratTugas, status;
     ProgressDialog loading;
 
     private String url = "";
     private String path = "";
     private static final int BUFFER_SIZE = 1024 * 2;
     private static final String IMAGE_DIRECTORY = "/inka";
+
+    private String cekExisted;
 
     Context mContext;
     BaseApiService mApiService;
@@ -75,36 +79,9 @@ public class FragmentDaftarUlangPkl extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daftar_ulang_pkl,container,false);
         inItComponents(view);
-        sharedPrefManager = new SharedPrefManager(getActivity());
-        String id = sharedPrefManager.getSPId();
-        loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-        tampilData(id);
-
-        scanSuratTugas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("application/pdf");
-                startActivityForResult(intent,1);
-            }
-        });
-
-        btnDaftar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (path.isEmpty()){
-                    showMessage("File belum dipilih");
-                }else {
-                    sharedPrefManager = new SharedPrefManager(getActivity());
-                    String id = sharedPrefManager.getSPId();
-                    loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    daftarUlang(id,path);
-                }
-            }
-        });
-
+        toDoDaftarUlang();
         return view;
+
     }
 
     private void inItComponents(View view) {
@@ -116,6 +93,46 @@ public class FragmentDaftarUlangPkl extends Fragment {
         tvDivisi = view.findViewById(R.id.duDivisiPkl);
         scanSuratTugas = view.findViewById(R.id.scanSuratTugasPkl);
         btnDaftar = view.findViewById(R.id.btnDaftarUlangPkl);
+        status = view.findViewById(R.id.statusPkl);
+        layout  = view.findViewById(R.id.layoutDaftarUlangPkl);
+    }
+
+    private void cekPkl(String id) {
+        mApiService.cekPkl(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            cekExisted = jsonRESULTS.getString("result");
+                            if (cekExisted.equals("Yes")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status.setVisibility(View.VISIBLE);
+                            }else {
+                                layout.setVisibility(View.VISIBLE);
+                                status.setVisibility(View.INVISIBLE);
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
     }
 
     private void tampilData(String id) {
@@ -153,6 +170,38 @@ public class FragmentDaftarUlangPkl extends Fragment {
                         loading.dismiss();
                     }
                 });
+    }
+
+    private void toDoDaftarUlang() {
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        String id = sharedPrefManager.getSPId();
+        loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+        tampilData(id);
+        cekPkl(id);
+
+        scanSuratTugas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("application/pdf");
+                startActivityForResult(intent,1);
+            }
+        });
+
+        btnDaftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (path.isEmpty()){
+                    showMessage("File belum dipilih");
+                }else {
+                    sharedPrefManager = new SharedPrefManager(getActivity());
+                    String id = sharedPrefManager.getSPId();
+                    loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
+                    daftarUlang(id,path);
+                }
+            }
+        });
     }
 
     private void daftarUlang(String id, String path) {
