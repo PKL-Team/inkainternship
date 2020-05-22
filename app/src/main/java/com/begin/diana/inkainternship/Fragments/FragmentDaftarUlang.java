@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,9 +56,9 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentDaftarUlang extends Fragment {
     Button btnDaftar;
-    TextView tvNama, tvSekolah, tvDivisi, scanSuratTugas;
+    TextView tvNama, tvSekolah, tvDivisi, scanSuratTugas, status;
     ProgressDialog loading;
-
+    LinearLayout layout;
     Context mContext;
     BaseApiService mApiService;
 
@@ -114,6 +115,46 @@ public class FragmentDaftarUlang extends Fragment {
         tvDivisi = view.findViewById(R.id.duDivisi);
         scanSuratTugas = view.findViewById(R.id.scanSuratTugas);
         btnDaftar = view.findViewById(R.id.btnDaftarUlang);
+        status = view.findViewById(R.id.status);
+        layout = view.findViewById(R.id.layoutDaftarUlang);
+    }
+
+    private void cekPkl(String id) {
+        mApiService.cekPrakerin(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            String cekExisted = jsonRESULTS.getString("result");
+                            if (cekExisted.equals("Yes")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status.setVisibility(View.VISIBLE);
+                            }else {
+                                layout.setVisibility(View.VISIBLE);
+                                status.setVisibility(View.INVISIBLE);
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
     }
 
     private void tampilData(String id) {
