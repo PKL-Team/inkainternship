@@ -13,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,8 @@ import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
 import com.begin.diana.inkainternship.apihelper.UtilsApi;
+import com.begin.diana.inkainternship.spinner.AdapterSpinner;
+import com.begin.diana.inkainternship.spinner.PilihSpinnerModel;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -46,6 +49,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -70,10 +74,6 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
 
     Spinner spinnerProv, spinnerKab, spinnerKampus;
 
-    private String[] listProv = {"Pilih Provinsi", "bla", "bla"};
-    private String[] listKab = {"Pilih Kab.", "bla", "bla"};
-    private String[] listSekolah = {"Pilih Perguruan Tinggi", "bla", "bla"};
-
     EditText inputNama, inputNim, inputIpk;
     TextView scan1,scan2,scan3,scan4,scan5;
     private String url = "";
@@ -89,18 +89,24 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
     Button btnDaftarAwal;
 
     SharedPrefManager sharedPrefManager;
-
     ProgressDialog loading;
 
-    BaseApiService mApiService;
+    //===============spinner
+    Spinner spinnerJurusan, spinnerPeriode;
+    AdapterSpinner adapter1, adapter2, adapter3;
+    List<PilihSpinnerModel> listProv = new ArrayList<PilihSpinnerModel>();
+    List<PilihSpinnerModel> listKab = new ArrayList<PilihSpinnerModel>();
+    List<PilihSpinnerModel> listPt = new ArrayList<PilihSpinnerModel>();
+    String x, y, z, ids;
+    Context mContext;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daftar_awal_pkl_2,container,false);
-        spinner(view);
-
+        mContext = getActivity();
         inItComponents(view);
+        spinner(view);
         requestMultiplePermissions();
         scanClick();
 
@@ -133,19 +139,176 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
         spinnerProv = view.findViewById(R.id.spProvinsi);
         spinnerKab = view.findViewById(R.id.spKabupaten);
         spinnerKampus = view.findViewById(R.id.spNamaKampus);
+        spinnerProv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                x = listProv.get(position).getId();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+        spinnerKab.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                y = listKab.get(position).getId();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+        spinnerKampus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                z = listKab.get(position).getId();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
 
-        // inisialiasi Array Adapter dengan memasukkan string array di atas
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, listProv);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, listKab);
-        final ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, listSekolah);
-
-        // mengeset Array Adapter tersebut ke Spinner
-        spinnerProv.setAdapter(adapter);
+        loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+        adapter1 = new AdapterSpinner(getActivity(), listProv);
+        spinnerProv.setAdapter(adapter1);
+        callProv();
+        adapter2 = new AdapterSpinner(getActivity(), listKab);
         spinnerKab.setAdapter(adapter2);
+        callKab();
+        adapter3 = new AdapterSpinner(getActivity(), listPt);
         spinnerKampus.setAdapter(adapter3);
+        callPt();
+    }
+
+    private void callProv() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UtilsApi.BASE_URL_API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        BaseApiService getResponse = retrofit.create(BaseApiService.class);
+        Call<ResponseBody> call = getResponse.getProv();
+        Log.d("assss","asss");
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_prov"));
+                            item.setNama(dataobj.getString("nama_prov"));
+
+                            listProv.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter1.notifyDataSetChanged();
+                }else {
+                    loading.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+    }
+
+    private void callKab() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UtilsApi.BASE_URL_API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        BaseApiService getResponse = retrofit.create(BaseApiService.class);
+        Call<ResponseBody> call = getResponse.getKab();
+        Log.d("assss","asss");
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_kab"));
+                            item.setNama(dataobj.getString("nama_kab"));
+
+                            listKab.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter2.notifyDataSetChanged();
+                }else {
+                    loading.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+    }
+
+    private void callPt() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UtilsApi.BASE_URL_API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        BaseApiService getResponse = retrofit.create(BaseApiService.class);
+        Call<ResponseBody> call = getResponse.getPt();
+        Log.d("assss","asss");
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_pt"));
+                            item.setNama(dataobj.getString("nama_pt"));
+
+                            listPt.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter3.notifyDataSetChanged();
+                }else {
+                    loading.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
     }
 
     private void inItComponents(View view){

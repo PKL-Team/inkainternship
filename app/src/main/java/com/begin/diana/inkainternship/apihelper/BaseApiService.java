@@ -6,6 +6,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -113,4 +114,22 @@ public interface BaseApiService {
     @FormUrlEncoded
     @POST("cekPkl.php")
     Call<ResponseBody> cekPkl(@Field("id") String id);
+
+    @GET("tampiljson.php")
+    Call<ResponseBody> tampilJson();
+
+    @GET("getJur.php")
+    Call<ResponseBody> getJur();
+
+    @GET("getPeriode.php")
+    Call<ResponseBody> getPeriode();
+
+    @GET("getProv.php")
+    Call<ResponseBody> getProv();
+
+    @GET("getKab.php")
+    Call<ResponseBody> getKab();
+
+    @GET("getPt.php")
+    Call<ResponseBody> getPt();
 }
