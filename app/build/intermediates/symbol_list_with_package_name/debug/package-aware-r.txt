@@ -101,6 +101,7 @@ attr animationMode
 attr appBarLayoutStyle
 attr arrowHeadLength
 attr arrowShaftLength
+attr assetFileName
 attr autoCompleteTextViewStyle
 attr autoSizeMaxTextSize
 attr autoSizeMinTextSize
@@ -600,6 +601,7 @@ attr passwordToggleDrawable
 attr passwordToggleEnabled
 attr passwordToggleTint
 attr passwordToggleTintMode
+attr pdfUrl
 attr popupMenuBackground
 attr popupMenuStyle
 attr popupTheme
@@ -622,6 +624,7 @@ attr sb_handlerColor
 attr sb_horizontal
 attr sb_indicatorColor
 attr sb_indicatorTextColor
+attr scale
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -994,6 +997,10 @@ color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color pdfViewPager_ab_color
+color pdfViewPager_ab_color_darker
+color pdfViewPager_ab_color_lighter
+color pdfViewPager_background_color
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1497,6 +1504,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable flaticon_pdf_dummy
 drawable ic_account_circle_black_24dp
 drawable ic_account_circle_white_24dp
 drawable ic_alur_24dp
@@ -1530,6 +1538,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_music_box
 drawable ic_pdf_box
+drawable ic_pdfviewpager
 drawable ic_pengaturan
 drawable ic_persyaratan
 drawable ic_picture
@@ -1582,6 +1591,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable password
+drawable ripple_effect_raised
+drawable ripple_effect_raised_scan
 drawable spinner_style
 drawable style_btn
 drawable style_edittext
@@ -1696,8 +1707,9 @@ id btnDenganLogin
 id btnEditInfo
 id btnGoRegister
 id btnKelolaAkun
-id btnLanjutkanDA
-id btnLihatDA
+id btnLanjutkan
+id btnLanjutkanPkl
+id btnLihat
 id btnLihatPkl
 id btnLogin
 id btnLogout
@@ -1706,6 +1718,7 @@ id btnSignin
 id btnSimpanInformasi
 id btnTanpaLogin
 id btnTentangAplikasi
+id bukaFile
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1824,22 +1837,32 @@ id ifRoom
 id image
 id imageUser
 id imageView
+id imageViewZoom
 id info
 id invisible
+id ipDivisi
 id ipID
 id ipNama
 id ipNilai
+id ipSekolah
 id italic
 id item_file_image
 id item_file_subtitle
 id item_file_title
 id item_touch_helper_previous_elevation
 id konten
+id kuota
+id kuotaPkl
 id labeled
 id largeLabel
+id layoutDaftarAwal
+id layoutDaftarAwalPkl
 id layoutDaftarUlang
 id layoutDaftarUlangPkl
 id left
+id legacy_pdf_button
+id legacy_pdf_progressBar
+id legacy_pdf_textView
 id line1
 id line3
 id listItemDaftar
@@ -1937,6 +1960,7 @@ id parent
 id parentPanel
 id parent_matrix
 id password_toggle
+id pdf_page_container
 id peekHeight
 id percent
 id pilihLembaga
@@ -2017,6 +2041,8 @@ id src_over
 id standard
 id start
 id status
+id statusAwal
+id statusAwalPkl
 id statusPkl
 id status_bar_latest_event_content
 id stretch
@@ -2032,6 +2058,8 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tahun
+id tahunPkl
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id text
@@ -2171,7 +2199,6 @@ layout fragment_daftar_ulang
 layout fragment_daftar_ulang_pkl
 layout fragment_directory
 layout fragment_dokumen_berkas
-layout fragment_done
 layout fragment_edit_informasi_peserta
 layout fragment_informasi_peserta
 layout fragment_kelola_akun
@@ -2266,6 +2293,9 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout view_legacy_pdf
+layout view_pdf_page
+layout view_zoomable_pdf_page
 menu dropdown_menu
 menu item_navigasi_1
 menu item_navigasi_2
@@ -2362,6 +2392,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pdfvp_ready_to_download
 string search_menu_title
 string status_bar_notification_info_overflow
 string type_apk
@@ -3123,6 +3154,7 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable LegacyPDFView
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
@@ -3145,6 +3177,7 @@ styleable MenuGroup android_enabled android_id android_visible android_menuCateg
 styleable MenuItem android_icon android_enabled android_id android_checked android_visible android_menuCategory android_orderInCategory android_title android_titleCondensed android_alphabeticShortcut android_numericShortcut android_checkable android_onClick actionLayout actionProviderClass actionViewClass alphabeticModifiers contentDescription iconTint iconTintMode numericModifiers showAsAction tooltipText
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconSize itemIconTint itemMaxLines itemShapeAppearance itemShapeAppearanceOverlay itemShapeFillColor itemShapeInsetBottom itemShapeInsetEnd itemShapeInsetStart itemShapeInsetTop itemTextAppearance itemTextColor menu
+styleable PDFViewPager assetFileName pdfUrl scale
 styleable PagerIndicator padding_bottom padding_left padding_right padding_top selected_color selected_drawable selected_height selected_padding_bottom selected_padding_left selected_padding_right selected_padding_top selected_width shape unselected_color unselected_drawable unselected_height unselected_padding_bottom unselected_padding_left unselected_padding_right unselected_padding_top unselected_width visibility
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor

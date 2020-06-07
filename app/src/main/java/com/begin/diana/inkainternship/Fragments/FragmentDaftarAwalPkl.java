@@ -12,7 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.begin.diana.inkainternship.Activities.Main2Activity;
 import com.begin.diana.inkainternship.Activities.Main3Activity;
@@ -23,6 +26,9 @@ import com.begin.diana.inkainternship.apihelper.BaseApiService;
 import com.begin.diana.inkainternship.apihelper.UtilsApi;
 import com.begin.diana.inkainternship.spinner.AdapterSpinner;
 import com.begin.diana.inkainternship.spinner.PilihSpinnerModel;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,9 +50,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FragmentDaftarAwalPkl extends Fragment {
     Button btnLihat, btnLanjutkan;
+    TextView tvTahun, tvKuota, status;
+    LinearLayout layout;
+    private String cekExisted;
 
     SharedPrefManager sharedPrefManager;
-
 
     //===============spinner
     Spinner spinnerJurusan, spinnerPeriode;
@@ -54,67 +62,154 @@ public class FragmentDaftarAwalPkl extends Fragment {
     AdapterSpinner adapterJur, adapterPer;
     List<PilihSpinnerModel> listJur = new ArrayList<PilihSpinnerModel>();
     List<PilihSpinnerModel> listPer = new ArrayList<PilihSpinnerModel>();
-    String x, y, ids;
+    String id_jur, id_per, ids;
     Context mContext;
+    BaseApiService mApiService;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daftar_awal_pkl,container,false);
-        btnLihat = view.findViewById(R.id.btnLihatPkl);
-        btnLanjutkan = view.findViewById(R.id.btnLanjutkanDA);
-        mContext = getActivity();
+
+        inItComponents(view);
         spinner(view);
+        toDoDaftarAwal();
+        return view;
+    }
+
+    private void toDoDaftarAwal() {
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        String id = sharedPrefManager.getSPId();
+        cekPkl(id);
+
+        btnLihat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (id_jur.isEmpty() || id_per.isEmpty()){
+                    showMessage("Pilih Jurusan atau Periode untuk melihat");
+                }else {
+                    reqLihat(id_jur,id_per);
+                }
+            }
+        });
+
         btnLanjutkan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                        new FragmentDaftarAwalPkl2()).commit();
+                if (tvKuota.getText().toString().equals("...") || tvKuota.getText().toString().equals("0") || tvKuota.getText().toString().isEmpty() ){
+                    showMessage("Kuota tidak mencukupi untuk melakukan pendaftaran");
+                }else {
+                    if (id_jur.equals("2") || id_jur.equals("3") || id_jur.equals("4") || id_jur.equals("11")){
+                        String divisi = "Dukungan dan Infrastruktur Bisnis";
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
+                    }else if (id_jur.equals("7")){
+                        String divisi = "Perakitan";
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
+                    }else if (id_jur.equals("1") || id_jur.equals("9") || id_jur.equals("8")  || id_jur.equals("10")){
+                        String divisi = "Pengelasan";
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
+                    }else if (id_jur.equals("6")  || id_jur.equals("13")){
+                        String divisi = "Multimedia";
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
+                    }else if (id_jur.equals("5")  || id_jur.equals("12")){
+                        String divisi = "Human Capital";
+                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
+                    }
+                    getFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                            new FragmentDaftarAwalPkl2()).commit();
+                }
             }
         });
-        return view;
+
+
+
+    }
+
+    private void inItComponents(View view) {
+        mContext = getActivity();
+        mApiService = UtilsApi.getAPIService();
+
+        btnLihat = view.findViewById(R.id.btnLihatPkl);
+        btnLanjutkan = view.findViewById(R.id.btnLanjutkanPkl);
+        tvTahun = view.findViewById(R.id.tahunPkl);
+        tvKuota = view.findViewById(R.id.kuotaPkl);
+        status = view.findViewById(R.id.statusAwalPkl);
+        layout = view.findViewById(R.id.layoutDaftarAwalPkl);
     }
 
     private void spinner(View view) {
         spinnerJurusan = view.findViewById(R.id.spJurusan);
         spinnerPeriode = view.findViewById(R.id.spPeriode);
+
         spinnerJurusan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                x = listJur.get(position).getId();
+                id_jur = listJur.get(position).getId();
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
         spinnerPeriode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                y = listPer.get(position).getId();
+                id_per = listPer.get(position).getId();
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
         loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+
         adapterJur = new AdapterSpinner(getActivity(), listJur);
         spinnerJurusan.setAdapter(adapterJur);
         callJurusan();
+
         adapterPer = new AdapterSpinner(getActivity(), listPer);
         spinnerPeriode.setAdapter(adapterPer);
         callPeriode();
     }
 
-    private void callJurusan() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UtilsApi.BASE_URL_API)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    private void reqLihat(String id_jur, String id_per) {
+        mApiService.requestLihatPkl(id_jur,id_per)
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()){
+//                            loading.dismiss();
+                            try {
+                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                                if (jsonRESULTS.getString("error").equals("false")){
+                                    String tahun = jsonRESULTS.getJSONObject("user").getString("tahun");
+                                    String kuota = jsonRESULTS.getJSONObject("user").getString("kuota");
+                                    tvTahun.setText(tahun);
+                                    tvKuota.setText(kuota);
+                                } else {
+                                    String error_message = jsonRESULTS.getString("error_msg");
+                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+//                            loading.dismiss();
+                        }
+                    }
 
-        BaseApiService getResponse = retrofit.create(BaseApiService.class);
-        Call<ResponseBody> call = getResponse.getJur();
-        Log.d("assss","asss");
-        call.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.toString());
+//                        loading.dismiss();
+                    }
+                });
+    }
+
+    private void callJurusan() {
+        mApiService.getJur().enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){
@@ -151,15 +246,7 @@ public class FragmentDaftarAwalPkl extends Fragment {
     }
 
     private void callPeriode() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UtilsApi.BASE_URL_API)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        BaseApiService getResponse = retrofit.create(BaseApiService.class);
-        Call<ResponseBody> call = getResponse.getPeriode();
-        Log.d("assss","asss");
-        call.enqueue(new Callback<ResponseBody>() {
+        mApiService.getPeriode().enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){
@@ -193,6 +280,48 @@ public class FragmentDaftarAwalPkl extends Fragment {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
+    }
+
+    private void cekPkl(String id) {
+        mApiService.cekAwalPkl(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            cekExisted = jsonRESULTS.getString("result");
+                            if (cekExisted.equals("Yes")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status.setVisibility(View.VISIBLE);
+                            }else {
+                                layout.setVisibility(View.VISIBLE);
+                                status.setVisibility(View.INVISIBLE);
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
+    }
+
+    private void showMessage(String message){
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

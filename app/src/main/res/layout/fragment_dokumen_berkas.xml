@@ -23,6 +23,7 @@
             android:textColor="#fff" />
 
         <Button
+            android:id="@+id/bukaFile"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
@@ -41,5 +42,4 @@
         android:padding="5dp"
         android:textSize="15sp"
         android:background="#AAAAAA"/>
-
 </LinearLayout>

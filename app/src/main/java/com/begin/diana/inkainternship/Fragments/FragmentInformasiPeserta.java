@@ -37,7 +37,7 @@ import retrofit2.Response;
 public class FragmentInformasiPeserta extends Fragment {
     Button btnEdit;
 
-    TextView tvNama, tvId, tvNilai;
+    TextView tvNama, tvId, tvNilai, tvSekolah, tvDivisi;
     ProgressDialog loading;
 
     Context mContext;
@@ -81,6 +81,8 @@ public class FragmentInformasiPeserta extends Fragment {
         tvNama = view.findViewById(R.id.ipNama);
         tvId = view.findViewById(R.id.ipID);
         tvNilai = view.findViewById(R.id.ipNilai);
+        tvSekolah = view.findViewById(R.id.ipSekolah);
+        tvDivisi = view.findViewById(R.id.ipDivisi);
         btnEdit = view.findViewById(R.id.btnEditInfo);
     }
 
@@ -99,10 +101,14 @@ public class FragmentInformasiPeserta extends Fragment {
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String nis = jsonRESULTS.getJSONObject("user").getString("nis");
                                     String raport = jsonRESULTS.getJSONObject("user").getString("raport");
+                                    String sekolah = jsonRESULTS.getJSONObject("user").getString("sekolah");
+                                    String divisi = jsonRESULTS.getJSONObject("user").getString("divisi");
 
                                     tvNama.setText(nama);
                                     tvId.setText(nis);
                                     tvNilai.setText(raport);
+                                    tvSekolah.setText(sekolah);
+                                    tvDivisi.setText(divisi);
                                 } else {
                                     // Jika login gagal
                                     String error_message = jsonRESULTS.getString("error_msg");
@@ -139,9 +145,13 @@ public class FragmentInformasiPeserta extends Fragment {
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String nim = jsonRESULTS.getJSONObject("user").getString("nim");
                                     String ipk = jsonRESULTS.getJSONObject("user").getString("ipk");
+                                    String kampus = jsonRESULTS.getJSONObject("user").getString("kampus");
+                                    String divisi = jsonRESULTS.getJSONObject("user").getString("divisi");
                                     tvNama.setText(nama);
                                     tvId.setText(nim);
                                     tvNilai.setText(ipk);
+                                    tvSekolah.setText(kampus);
+                                    tvDivisi.setText(divisi);
 
                                 } else {
                                     String error_message = jsonRESULTS.getString("error_msg");

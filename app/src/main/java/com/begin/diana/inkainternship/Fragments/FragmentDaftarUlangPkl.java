@@ -98,7 +98,7 @@ public class FragmentDaftarUlangPkl extends Fragment {
     }
 
     private void cekPkl(String id) {
-        mApiService.cekPkl(id).enqueue(new Callback<ResponseBody>() {
+        mApiService.cekUlangPkl(id).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){

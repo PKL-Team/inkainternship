@@ -127,9 +127,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:background="#AAAAAA"
+                    android:background="@drawable/ripple_effect_raised_scan"
                     android:text="Pilih File"
-                    android:textColor="#FF0000"
+                    android:textColor="#FFDAB9"
                     android:textSize="13sp" />
             </TableRow>
 
@@ -151,9 +151,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:background="#AAAAAA"
-                    android:textColor="#FF0000"
+                    android:background="@drawable/ripple_effect_raised_scan"
                     android:text="Pilih File"
+                    android:textColor="#FFDAB9"
                     android:textSize="13sp" />
             </TableRow>
 
@@ -175,9 +175,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:background="#AAAAAA"
-                    android:textColor="#FF0000"
+                    android:background="@drawable/ripple_effect_raised_scan"
                     android:text="Pilih File"
+                    android:textColor="#FFDAB9"
                     android:textSize="13sp" />
             </TableRow>
 
@@ -199,9 +199,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    android:background="#AAAAAA"
-                    android:textColor="#FF0000"
+                    android:background="@drawable/ripple_effect_raised_scan"
                     android:text="Pilih File"
+                    android:textColor="#FFDAB9"
                     android:textSize="13sp" />
             </TableRow>
 
@@ -234,6 +234,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:layout_gravity="center_vertical"
                     android:text="Provinsi"
                     android:textSize="15sp"
                     android:textColor="#fff" />
@@ -251,6 +252,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:layout_gravity="center_vertical"
                     android:text="Kabupaten"
                     android:textSize="15sp"
                     android:textColor="#fff" />
@@ -268,6 +270,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
+                    android:layout_gravity="center_vertical"
                     android:text="Nama Sekolah"
                     android:textSize="15sp"
                     android:textColor="#fff" />
@@ -289,7 +292,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:gravity="center_vertical|center"
-        android:background="#FFDAB9"
+        android:background="@drawable/ripple_effect_raised"
         android:text="Daftar"
         android:textColor="#000000"
         android:layout_marginBottom="25dp"/>

@@ -111,7 +111,11 @@ public class DaftarActivity extends AppCompatActivity {
                 String no_telp = txtTelp.getText().toString().trim();
                 String jenis_kegiatan = list.getSelectedItem().toString().trim();
                 String foto_profile = getStringImage(bitmap).trim();
-                requestRegister(nama,email,password,no_telp,jenis_kegiatan,foto_profile);
+                if (nama.isEmpty() || email.isEmpty() || password.isEmpty() || no_telp.isEmpty() || jenis_kegiatan.isEmpty()|| foto_profile.isEmpty()){
+                    showMessage("Field belum terisi. Mohon lengkapi semua field isian diatas");
+                }else {
+                    requestRegister(nama,email,password,no_telp,jenis_kegiatan,foto_profile);
+                }
 
             }
         });

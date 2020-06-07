@@ -8,6 +8,7 @@ MERGED from [com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\
 MERGED from [com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:2:1-20:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6bd54e831d7d39523628e6e86bbc2f7b\material-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.5] C:\Users\user\.gradle\caches\transforms-2\files-2.1\077b731aa97e0d8091fed880e01e69c5\jetified-core-0.9.4.5\AndroidManifest.xml:2:1-15:12
+MERGED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:2:1-18:12
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\0dd6bdd8768f8e1e7c8491312fc2a51d\jetified-library-1.4.1\AndroidManifest.xml:6:1-16:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b68153533db019fe57f60a8fd519f39e\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\761c6c80b9f42c6b4d00cc74ba836625\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
@@ -15,6 +16,7 @@ MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\user\.gradle\caches\tr
 MERGED from [com.github.barteksc:android-pdf-viewer:2.8.2] C:\Users\user\.gradle\caches\transforms-2\files-2.1\24c7e66c1e01a0c8e98567abf7cecf19\jetified-android-pdf-viewer-2.8.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.barteksc:pdfium-android:1.7.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f920ff2e875a669962a45dc11ffe7dca\jetified-pdfium-android-1.7.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-v13:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\dc914ee715a55177539b4bdb7db7376c\legacy-support-v13-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.commit451:PhotoView:1.2.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\108010f966cc027c31c5e345dd73021f\jetified-PhotoView-1.2.4\AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\08fff7b6c33e78fc5483bdf67cf9dc53\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\5f74fbdf97d5eca2c83cef8651794ab8\jetified-glide-4.11.0\AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\32b7e8f439fe71ce9ed085b558ff2379\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -102,6 +104,8 @@ MERGED from [com.google.android.material:material:1.1.0] C:\Users\user\.gradle\c
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6bd54e831d7d39523628e6e86bbc2f7b\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.5] C:\Users\user\.gradle\caches\transforms-2\files-2.1\077b731aa97e0d8091fed880e01e69c5\jetified-core-0.9.4.5\AndroidManifest.xml:13:5-20
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.5] C:\Users\user\.gradle\caches\transforms-2\files-2.1\077b731aa97e0d8091fed880e01e69c5\jetified-core-0.9.4.5\AndroidManifest.xml:13:5-20
+MERGED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:11:5-16:19
+MERGED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:11:5-16:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\761c6c80b9f42c6b4d00cc74ba836625\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\761c6c80b9f42c6b4d00cc74ba836625\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.0.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b9a3d08a9b0ea0862554ce5d16316a8a\jetified-circleimageview-3.0.1\AndroidManifest.xml:9:5-20
@@ -204,6 +208,8 @@ MERGED from [com.google.android.material:material:1.1.0] C:\Users\user\.gradle\c
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6bd54e831d7d39523628e6e86bbc2f7b\material-1.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.5] C:\Users\user\.gradle\caches\transforms-2\files-2.1\077b731aa97e0d8091fed880e01e69c5\jetified-core-0.9.4.5\AndroidManifest.xml:8:5-11:75
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.5] C:\Users\user\.gradle\caches\transforms-2\files-2.1\077b731aa97e0d8091fed880e01e69c5\jetified-core-0.9.4.5\AndroidManifest.xml:8:5-11:75
+MERGED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:7:5-9:41
+MERGED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:7:5-9:41
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\0dd6bdd8768f8e1e7c8491312fc2a51d\jetified-library-1.4.1\AndroidManifest.xml:12:5-14:41
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\0dd6bdd8768f8e1e7c8491312fc2a51d\jetified-library-1.4.1\AndroidManifest.xml:12:5-14:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\b68153533db019fe57f60a8fd519f39e\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -218,6 +224,8 @@ MERGED from [com.github.barteksc:pdfium-android:1.7.1] C:\Users\user\.gradle\cac
 MERGED from [com.github.barteksc:pdfium-android:1.7.1] C:\Users\user\.gradle\caches\transforms-2\files-2.1\f920ff2e875a669962a45dc11ffe7dca\jetified-pdfium-android-1.7.1\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.legacy:legacy-support-v13:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\dc914ee715a55177539b4bdb7db7376c\legacy-support-v13-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v13:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\dc914ee715a55177539b4bdb7db7376c\legacy-support-v13-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.commit451:PhotoView:1.2.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\108010f966cc027c31c5e345dd73021f\jetified-PhotoView-1.2.4\AndroidManifest.xml:8:5-10:41
+MERGED from [com.commit451:PhotoView:1.2.4] C:\Users\user\.gradle\caches\transforms-2\files-2.1\108010f966cc027c31c5e345dd73021f\jetified-PhotoView-1.2.4\AndroidManifest.xml:8:5-10:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\08fff7b6c33e78fc5483bdf67cf9dc53\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\08fff7b6c33e78fc5483bdf67cf9dc53\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\5f74fbdf97d5eca2c83cef8651794ab8\jetified-glide-4.11.0\AndroidManifest.xml:6:5-8:41
@@ -318,3 +326,9 @@ ADDED from [com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\file
 		ADDED from [com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:16:13-49
 	android:name
 		ADDED from [com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:15:13-77
+service#es.voghdev.pdfviewpager.library.service.CopyAssetService
+ADDED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:12:9-15:19
+	android:exported
+		ADDED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:14:13-37
+	android:name
+		ADDED from [es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:13:13-84

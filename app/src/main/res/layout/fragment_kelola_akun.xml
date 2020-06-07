@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tabelAkun"
         android:layout_marginTop="60dp"
-        android:background="#696969"
+        android:background="@drawable/ripple_effect_raised_scan"
         android:text="LOGOUT"
         android:textColor="#fff" />
 

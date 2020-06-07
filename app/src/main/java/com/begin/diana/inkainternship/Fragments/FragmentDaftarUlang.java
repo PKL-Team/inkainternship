@@ -74,11 +74,17 @@ public class FragmentDaftarUlang extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daftar_ulang,container,false);
         inItComponents(view);
+        toDoDaftarUlang();
 
+        return view;
+    }
+
+    private void toDoDaftarUlang() {
         sharedPrefManager = new SharedPrefManager(getActivity());
         String id = sharedPrefManager.getSPId();
         loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
         tampilData(id);
+        cekPrakerin(id);
 
         scanSuratTugas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +109,6 @@ public class FragmentDaftarUlang extends Fragment {
                 }
             }
         });
-        return view;
     }
 
     private void inItComponents(View view) {
@@ -119,8 +124,8 @@ public class FragmentDaftarUlang extends Fragment {
         layout = view.findViewById(R.id.layoutDaftarUlang);
     }
 
-    private void cekPkl(String id) {
-        mApiService.cekPrakerin(id).enqueue(new Callback<ResponseBody>() {
+    private void cekPrakerin(String id) {
+        mApiService.cekUlangPrakerin(id).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){

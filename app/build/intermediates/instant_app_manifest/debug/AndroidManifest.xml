@@ -67,6 +67,11 @@
             android:name="com.nbsp.materialfilepicker.ui.FilePickerActivity"
             android:theme="@style/MFP_BaseTheme" >
         </activity>
+
+        <service
+            android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>

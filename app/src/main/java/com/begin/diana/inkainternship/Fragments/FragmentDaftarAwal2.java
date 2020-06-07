@@ -14,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,8 @@ import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;
 import com.begin.diana.inkainternship.apihelper.BaseApiService;
 import com.begin.diana.inkainternship.apihelper.UtilsApi;
+import com.begin.diana.inkainternship.spinner.AdapterSpinner;
+import com.begin.diana.inkainternship.spinner.PilihSpinnerModel;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -48,6 +51,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -71,9 +75,6 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentDaftarAwal2 extends Fragment {
 
     Spinner spinnerProv, spinnerKab, spinnerSekolah;
-    private String[] listProv = {"Pilih Provinsi", "bla", "bla"};
-    private String[] listKab = {"Pilih Kab.", "bla", "bla"};
-    private String[] listSekolah = {"Pilih Sekolah", "bla", "bla"};
     EditText inputNama,inputNis, inputRaport;
     TextView scan1, scan2, scan3, scan4;
     private String url = "";
@@ -81,23 +82,29 @@ public class FragmentDaftarAwal2 extends Fragment {
     private String path2 = "";
     private String path3 = "";
     private String path4 = "";
-
+    private String id, nama, nis, raport;
     private static final int BUFFER_SIZE = 1024 * 2;
     private static final String IMAGE_DIRECTORY = "/inka";
 
     Button btnDaftarAwal;
-
+    BaseApiService mApiService;
     SharedPrefManager sharedPrefManager;
-
     ProgressDialog loading;
+
+    //===============spinner
+    AdapterSpinner adapter1, adapter2, adapter3;
+    List<PilihSpinnerModel> listProv = new ArrayList<PilihSpinnerModel>();
+    List<PilihSpinnerModel> listKab = new ArrayList<PilihSpinnerModel>();
+    List<PilihSpinnerModel> listSekolah = new ArrayList<PilihSpinnerModel>();
+    String id_prov, id_kab, id_sekolah, sekolah, divisi;
+    Context mContext;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daftar_awal_2,container,false);
-        spinner(view);
-
         inItComponents(view);
+        spinner(view);
         requestMultiplePermissions();
         scanClick();
 
@@ -105,11 +112,11 @@ public class FragmentDaftarAwal2 extends Fragment {
             @Override
             public void onClick(View v) {
                 sharedPrefManager = new SharedPrefManager(getActivity());
-                String id = sharedPrefManager.getSPId();
-                String nama = inputNama.getText().toString();
-                String nis =  inputNis.getText().toString();
-                String raport = inputRaport.getText().toString();
-                String sekolah = spinnerSekolah.getSelectedItem().toString();
+                id = sharedPrefManager.getSPId();
+                nama = inputNama.getText().toString();
+                nis =  inputNis.getText().toString();
+                raport = inputRaport.getText().toString();
+                divisi = sharedPrefManager.getSpDivisi();
 
                 if (id.isEmpty() || nama.isEmpty() || nis.isEmpty() || raport.isEmpty()){
                     showMessage("Mohon lengkapi semua field masukan");
@@ -118,7 +125,7 @@ public class FragmentDaftarAwal2 extends Fragment {
                     showMessage("Beberapa/Semua File Scan belum dipilih");
                 }else {
                     loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    uploadPDF(path1,path2,path3,path4,id,nama,nis,raport,sekolah);
+                    uploadPDF(path1,path2,path3,path4,id,nama,nis,raport,sekolah,divisi);
                 }
             }
         });
@@ -126,6 +133,9 @@ public class FragmentDaftarAwal2 extends Fragment {
     }
 
     private void inItComponents(View view) {
+        mContext = getActivity();
+        mApiService = UtilsApi.getAPIService();
+
         scan1 = view.findViewById(R.id.scan1);
         scan2 = view.findViewById(R.id.scan2);
         scan3 = view.findViewById(R.id.scan3);
@@ -135,6 +145,156 @@ public class FragmentDaftarAwal2 extends Fragment {
         inputNis = view.findViewById(R.id.daNis);
         inputRaport = view.findViewById(R.id.daRaport);
     }
+
+    private void spinner(View view) {
+        spinnerProv = view.findViewById(R.id.spProvinsi);
+        spinnerKab = view.findViewById(R.id.spKabupaten);
+        spinnerSekolah = view.findViewById(R.id.spNamaSekolah);
+
+        callProv();
+        adapter1 = new AdapterSpinner(getActivity(), listProv);
+        spinnerProv.setAdapter(adapter1);
+
+        spinnerProv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                listKab.clear();
+                id_prov = listProv.get(position).getId();
+                callKab(id_prov);
+                adapter2 = new AdapterSpinner(getActivity(), listKab);
+                spinnerKab.setAdapter(adapter2);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+
+        spinnerKab.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                listSekolah.clear();
+                id_kab = listKab.get(position).getId();
+                callPt(id_kab);
+                adapter3 = new AdapterSpinner(getActivity(), listSekolah);
+                spinnerSekolah.setAdapter(adapter3);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+
+        spinnerSekolah.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                id_sekolah = listSekolah.get(position).getId();
+                sekolah = listSekolah.get(position).getNama();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+    }
+
+    private void callProv() {
+        mApiService.getProv().enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_prov"));
+                            item.setNama(dataobj.getString("nama_prov"));
+
+                            listProv.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter1.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+    }
+
+    private void callKab(String id) {
+        mApiService.getKab(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_kab"));
+                            item.setNama(dataobj.getString("nama_kab"));
+
+                            listKab.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter2.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+    }
+
+    private void callPt(String id) {
+        mApiService.getSekolah(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_sekolah"));
+                            item.setNama(dataobj.getString("nama_sekolah"));
+
+                            listSekolah.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter3.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+    }
+
+    //fungsi2 untuk mengambil dan upload file pdf
 
     private void scanClick() {
         scan1.setOnClickListener(new View.OnClickListener() {
@@ -175,40 +335,85 @@ public class FragmentDaftarAwal2 extends Fragment {
         });
     }
 
-    private void spinner(View view) {
+    private void uploadPDF(String path1, String path2, String path3, String path4,
+                           final String id,final String nama,final String nis,final String raport,
+                           final String sekolah, final String divisi){
 
-        spinnerProv = view.findViewById(R.id.spProvinsi);
-        spinnerKab = view.findViewById(R.id.spKabupaten);
-        spinnerSekolah = view.findViewById(R.id.spNamaSekolah);
+        String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
-        // inisialiasi Array Adapter dengan memasukkan string array di atas
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, listProv);
-        final ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, listKab);
-        final ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_spinner_item, listSekolah);
+        //Create a file object using file path
+        File file1 = new File(path1);
+        RequestBody requestBody1 = RequestBody.create(MediaType.parse("*/*"), file1);
+        MultipartBody.Part fileToUpload1 = MultipartBody.Part.createFormData("filename1", file1.getName(), requestBody1);
+        RequestBody filename1 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
 
-        // mengeset Array Adapter tersebut ke Spinner
-        spinnerProv.setAdapter(adapter);
-        spinnerKab.setAdapter(adapter2);
-        spinnerSekolah.setAdapter(adapter3);
-    }
+        File file2 = new File(path2);
+        RequestBody requestBody2 = RequestBody.create(MediaType.parse("*/*"), file2);
+        MultipartBody.Part fileToUpload2 = MultipartBody.Part.createFormData("filename2", file2.getName(), requestBody2);
+        RequestBody filename2 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        getView().setFocusableInTouchMode(true);
-        getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
+        File file3 = new File(path3);
+        RequestBody requestBody3 = RequestBody.create(MediaType.parse("*/*"), file3);
+        MultipartBody.Part fileToUpload3 = MultipartBody.Part.createFormData("filename3", file3.getName(), requestBody3);
+        RequestBody filename3 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
+
+        File file4 = new File(path4);
+        RequestBody requestBody4 = RequestBody.create(MediaType.parse("*/*"), file4);
+        MultipartBody.Part fileToUpload4 = MultipartBody.Part.createFormData("filename4", file4.getName(), requestBody4);
+        RequestBody filename4 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UtilsApi.BASE_URL_API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+
+        BaseApiService getResponse = retrofit.create(BaseApiService.class);
+        Call<ResponseBody> call = getResponse.daftarAwalPrakerin(
+                fileToUpload1, filename1,
+                fileToUpload2, filename2,
+                fileToUpload3, filename3,
+                fileToUpload4, filename4,
+                id, nama, nis, raport,sekolah,divisi);
+        Log.d("assss","asss");
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
-                    getFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                            new FragmentDaftarAwal()).commit();
-                    return true;
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    Log.i("debug", "onResponse: BERHASIL");
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            showMessage("BERHASIL DAFTAR");
+                            String id = jsonRESULTS.getJSONObject("user").getString("id");
+                            if (id != null){
+                                startActivity(new Intent(getActivity(), Main2Activity.class));
+                                getActivity().finish();
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.i("debug", "onResponse: GA BERHASIL");
+                    loading.dismiss();
                 }
-                return false;
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                showMessage("Koneksi Internet Bermasalah");
             }
         });
     }
@@ -265,89 +470,6 @@ public class FragmentDaftarAwal2 extends Fragment {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-    private void uploadPDF(String path1, String path2, String path3, String path4,
-                           final String id,final String nama,final String nis,final String raport, final String sekolah){
-
-        String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
-
-        //Create a file object using file path
-        File file1 = new File(path1);
-        RequestBody requestBody1 = RequestBody.create(MediaType.parse("*/*"), file1);
-        MultipartBody.Part fileToUpload1 = MultipartBody.Part.createFormData("filename1", file1.getName(), requestBody1);
-        RequestBody filename1 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
-
-        File file2 = new File(path2);
-        RequestBody requestBody2 = RequestBody.create(MediaType.parse("*/*"), file2);
-        MultipartBody.Part fileToUpload2 = MultipartBody.Part.createFormData("filename2", file2.getName(), requestBody2);
-        RequestBody filename2 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
-
-        File file3 = new File(path3);
-        RequestBody requestBody3 = RequestBody.create(MediaType.parse("*/*"), file3);
-        MultipartBody.Part fileToUpload3 = MultipartBody.Part.createFormData("filename3", file3.getName(), requestBody3);
-        RequestBody filename3 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
-
-        File file4 = new File(path4);
-        RequestBody requestBody4 = RequestBody.create(MediaType.parse("*/*"), file4);
-        MultipartBody.Part fileToUpload4 = MultipartBody.Part.createFormData("filename4", file4.getName(), requestBody4);
-        RequestBody filename4 = RequestBody.create(MediaType.parse("text/plain"), pdfname);
-
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UtilsApi.BASE_URL_API)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build();
-
-        BaseApiService getResponse = retrofit.create(BaseApiService.class);
-        Call<ResponseBody> call = getResponse.daftarAwalPrakerin(
-                fileToUpload1, filename1,
-                fileToUpload2, filename2,
-                fileToUpload3, filename3,
-                fileToUpload4, filename4,
-                id, nama, nis, raport,sekolah);
-        Log.d("assss","asss");
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
-                    Log.i("debug", "onResponse: BERHASIL");
-                    loading.dismiss();
-                    try {
-                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                        if (jsonRESULTS.getString("error").equals("false")){
-                            showMessage("BERHASIL DAFTAR");
-                            String id = jsonRESULTS.getJSONObject("user").getString("id");
-                            if (id != null){
-                                startActivity(new Intent(getActivity(), Main2Activity.class));
-                                getActivity().finish();
-                            }
-                        } else {
-                            String error_message = jsonRESULTS.getString("error_msg");
-                            showMessage(error_message);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Log.i("debug", "onResponse: GA BERHASIL");
-                    loading.dismiss();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
-                showMessage("Koneksi Internet Bermasalah");
-            }
-        });
-    }
-
 
     public static String getFilePathFromURI(Context context, Uri contentUri) {
         //copy file and send new file path
@@ -456,9 +578,26 @@ public class FragmentDaftarAwal2 extends Fragment {
                 .check();
     }
 
-
     private void showMessage(String message){
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+                    getFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                            new FragmentDaftarAwal()).commit();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
 }

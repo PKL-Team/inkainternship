@@ -56,6 +56,7 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.afollestad.material-dialogs:core:0.9.4.5'
     implementation 'com.nbsp:library:1.8'
+    implementation 'es.voghdev.pdfviewpager:library:1.0.3'
 
 
 

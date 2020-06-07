@@ -46,7 +46,8 @@ public interface BaseApiService {
             @Part("nama") String nama,
             @Part("nis") String nis,
             @Part("raport") String raport,
-            @Part("sekolah") String sekolah);
+            @Part("sekolah") String sekolah,
+            @Part("divisi") String divisi);
 
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarAwalPkl.php
@@ -62,7 +63,8 @@ public interface BaseApiService {
             @Part("nama") String nama,
             @Part("nim") String nim,
             @Part("ipk") String ipk,
-            @Part("kampus") String kampus);
+            @Part("kampus") String kampus,
+            @Part("divisi") String divisi);
 
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/tampilPendaftarPrakerin.php
@@ -105,18 +107,24 @@ public interface BaseApiService {
                                         @Field("nim") String nim,
                                         @Field("ipk") String ipk);
 
-    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/cekPkl.php
     @FormUrlEncoded
-    @POST("cekPrakerin.php")
-    Call<ResponseBody> cekPrakerin(@Field("id") String id);
+    @POST("cekAwalPrakerin.php")
+    Call<ResponseBody> cekAwalPrakerin(@Field("id") String id);
 
-    // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/cekPkl.php
     @FormUrlEncoded
-    @POST("cekPkl.php")
-    Call<ResponseBody> cekPkl(@Field("id") String id);
+    @POST("cekUlangPrakerin.php")
+    Call<ResponseBody> cekUlangPrakerin(@Field("id") String id);
 
-    @GET("tampiljson.php")
-    Call<ResponseBody> tampilJson();
+    @FormUrlEncoded
+    @POST("cekAwalPkl.php")
+    Call<ResponseBody> cekAwalPkl(@Field("id") String id);
+
+    @FormUrlEncoded
+    @POST("cekUlangPkl.php")
+    Call<ResponseBody> cekUlangPkl(@Field("id") String id);
+
+    @GET("getJurPrakerin.php")
+    Call<ResponseBody> getJurPrakerin();
 
     @GET("getJur.php")
     Call<ResponseBody> getJur();
@@ -127,9 +135,27 @@ public interface BaseApiService {
     @GET("getProv.php")
     Call<ResponseBody> getProv();
 
-    @GET("getKab.php")
-    Call<ResponseBody> getKab();
+    @FormUrlEncoded
+    @POST("getKab.php")
+    Call<ResponseBody> getKab(@Field("id") String id);
 
-    @GET("getPt.php")
-    Call<ResponseBody> getPt();
+    @FormUrlEncoded
+    @POST("getPt.php")
+    Call<ResponseBody> getPt(@Field("id") String id);
+
+    @FormUrlEncoded
+    @POST("getSekolah.php")
+    Call<ResponseBody> getSekolah(@Field("id") String id);
+
+    @FormUrlEncoded
+    @POST("reqLihatPkl.php")
+    Call<ResponseBody> requestLihatPkl(
+            @Field("id_jurusan") String id_jurusan,
+            @Field("id_periode") String id_periode);
+
+    @FormUrlEncoded
+    @POST("reqLihatPrakerin.php")
+    Call<ResponseBody> requestLihatPrakerin(
+            @Field("id_jurusan") String id_jurusan,
+            @Field("id_periode") String id_periode);
 }
