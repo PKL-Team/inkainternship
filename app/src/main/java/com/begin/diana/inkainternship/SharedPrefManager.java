@@ -12,7 +12,8 @@ public class SharedPrefManager {
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_LEVEL = "spLevel";
     public static final String SP_FOTO = "spFoto";
-    public static final String SP_DIVISI = "";
+    public static final String SP_DIVISI = "spDivisi";
+    public static final String SP_IDKUOTA = "spIDKuota";
 
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
@@ -29,8 +30,8 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
-    public void saveSPInt(String keySP, int value){
-        spEditor.putInt(keySP, value);
+    public void saveSPInt(int keySP, int value){
+        spEditor.putInt(String.valueOf(keySP), value);
         spEditor.commit();
     }
 
@@ -62,6 +63,11 @@ public class SharedPrefManager {
     public  String getSpDivisi(){
         return  sp.getString(SP_DIVISI, "");
     }
+
+    public  String getSpIDKuota(){
+        return  sp.getString(SP_IDKUOTA, "");
+    }
+
 
     public Boolean getSPSudahLogin(){
         return sp.getBoolean(SP_SUDAH_LOGIN, false);

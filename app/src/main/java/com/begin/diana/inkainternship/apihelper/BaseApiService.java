@@ -64,7 +64,8 @@ public interface BaseApiService {
             @Part("nim") String nim,
             @Part("ipk") String ipk,
             @Part("kampus") String kampus,
-            @Part("divisi") String divisi);
+            @Part("divisi") String divisi,
+            @Part("id_kuota") String id_kuota);
 
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/tampilPendaftarPrakerin.php

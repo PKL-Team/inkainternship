@@ -183,7 +183,11 @@ public class FragmentDaftarAwalPkl extends Fragment {
                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     String tahun = jsonRESULTS.getJSONObject("user").getString("tahun");
-                                    String kuota = jsonRESULTS.getJSONObject("user").getString("kuota");
+                                    int kuota = jsonRESULTS.getJSONObject("user").getInt("kuota");
+
+                                    String id_kuota = jsonRESULTS.getJSONObject("user").getString("id_kuota");
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_IDKUOTA, id_kuota);
+
                                     tvTahun.setText(tahun);
                                     tvKuota.setText(kuota);
                                 } else {

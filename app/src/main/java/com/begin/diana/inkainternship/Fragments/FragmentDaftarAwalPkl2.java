@@ -117,15 +117,16 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                 String nim =  inputNim.getText().toString();
                 String ipk = inputIpk.getText().toString();
                 divisi = sharedPrefManager.getSpDivisi();
+                String id_kuota = sharedPrefManager.getSpIDKuota();
 
-                if (id.isEmpty() || nama.isEmpty() || nim.isEmpty() || ipk.isEmpty()){
+                if (id.isEmpty() || nama.isEmpty() || nim.isEmpty() || ipk.isEmpty() || id_kuota.isEmpty()){
                     showMessage("Mohon lengkapi semua field masukan");
                 }
                 else if (path1.isEmpty() || path2.isEmpty() || path3.isEmpty() || path4.isEmpty()){
                     showMessage("Beberapa/Semua File Scan belum dipilih");
                 }else {
                     loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    uploadPDF(path1,path2,path3,path4,path5,id,nama,nim,ipk,kampus,divisi);
+                    uploadPDF(path1,path2,path3,path4,path5,id,nama,nim,ipk,kampus,divisi,id_kuota);
                 }
             }
         });
@@ -349,7 +350,7 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
 
     private void uploadPDF(String path1, String path2, String path3, String path4, String path5,
                            final String id,final String nama,final String nis,final String raport,
-                           final String kampus, final String divisi){
+                           final String kampus, final String divisi, final  String id_kuota){
 
         String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
@@ -396,7 +397,7 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                 fileToUpload3, filename3,
                 fileToUpload4, filename4,
                 fileToUpload5, filename5,
-                id, nama, nis, raport, kampus, divisi);
+                id, nama, nis, raport, kampus, divisi, id_kuota);
         Log.d("assss","asss");
         call.enqueue(new Callback<ResponseBody>() {
                     @Override
