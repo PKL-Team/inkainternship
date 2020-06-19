@@ -115,8 +115,8 @@ public class FragmentDaftarUlangPkl extends Fragment {
                                 status.setVisibility(View.INVISIBLE);
                             }
                         } else {
-                            String error_message = jsonRESULTS.getString("error_msg");
-                            showMessage(error_message);
+//                            String error_message = jsonRESULTS.getString("error_msg");
+//                            showMessage(error_message);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
