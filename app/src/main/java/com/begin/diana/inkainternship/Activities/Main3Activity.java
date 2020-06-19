@@ -79,19 +79,19 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         final CircleImageView fotoUser = headerView.findViewById(R.id.imageUser);
 
         sharedPrefManager = new SharedPrefManager(this);
-        String nama = sharedPrefManager.getSPNama();
-        namaUser.setText(nama);
+        String email = sharedPrefManager.getSPEmail();
+        namaUser.setText(email);
 
-        String foto = sharedPrefManager.getSPFoto();
-        RequestOptions requestOptions = new RequestOptions();
-        requestOptions.skipMemoryCache(true);
-        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
-        requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
-        requestOptions.error(R.drawable.ic_account_circle_white_24dp);
-        Glide.with(Main3Activity.this)
-                .load(UtilsApi.BASE_URL_API+foto)
-                .apply(requestOptions)
-                .into(fotoUser);
+//        String foto = sharedPrefManager.getSPFoto();
+//        RequestOptions requestOptions = new RequestOptions();
+//        requestOptions.skipMemoryCache(true);
+//        requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+//        requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
+//        requestOptions.error(R.drawable.ic_account_circle_white_24dp);
+//        Glide.with(Main3Activity.this)
+//                .load(UtilsApi.BASE_URL_API+foto)
+//                .apply(requestOptions)
+//                .into(fotoUser);
 
     }
 

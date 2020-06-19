@@ -98,21 +98,22 @@ public class LoginActivity extends AppCompatActivity {
                                     // akan diparsing ke activity selanjutnya.
                                     showMessage("BERHASIL LOGIN");
                                     String id = jsonRESULTS.getJSONObject("user").getString("id");
-                                    String nama = jsonRESULTS.getJSONObject("user").getString("nama");
+                                    String email = jsonRESULTS.getJSONObject("user").getString("email");
                                     String level_user = jsonRESULTS.getJSONObject("user").getString("level_user");
-                                    String foto = jsonRESULTS.getJSONObject("user").getString("foto_profile");
+//                                    String foto = jsonRESULTS.getJSONObject("user").getString("foto_profile");
 
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, id);
-                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
-                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
-                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
-                                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
+//                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
+//                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
+//                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
+//                                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
 
-                                    if (level_user.equals("1")){
+                                    if (level_user.equals("SISWA")){
                                         startActivity(new Intent(mContext, Main2Activity.class)
                                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                         finish();
-                                    }else if (level_user.equals("2")){
+                                    }else if (level_user.equals("MAHASISWA")){
                                         startActivity(new Intent(mContext, Main3Activity.class)
                                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                         finish();

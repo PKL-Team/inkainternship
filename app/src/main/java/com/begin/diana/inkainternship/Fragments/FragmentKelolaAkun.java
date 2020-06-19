@@ -103,26 +103,26 @@ public class FragmentKelolaAkun extends Fragment {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     // Jika login berhasil maka data nama yang ada di response API
                                     // akan diparsing ke activity selanjutnya.
-                                    String nama = jsonRESULTS.getJSONObject("user").getString("nama");
+//                                    String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String email = jsonRESULTS.getJSONObject("user").getString("email");
-                                    String jenis_kegiatan = jsonRESULTS.getJSONObject("user").getString("jenis_kegiatan");
-                                    String no_telp = jsonRESULTS.getJSONObject("user").getString("no_telp");
-                                    String foto = jsonRESULTS.getJSONObject("user").getString("foto_profile");
+//                                    String jenis_kegiatan = jsonRESULTS.getJSONObject("user").getString("jenis_kegiatan");
+//                                    String no_telp = jsonRESULTS.getJSONObject("user").getString("no_telp");
+//                                    String foto = jsonRESULTS.getJSONObject("user").getString("foto_profile");
 
-                                    namaUser.setText(nama);
+//                                    namaUser.setText(nama);
                                     emailUser.setText(email);
-                                    magangUser.setText(jenis_kegiatan);
-                                    telpUser.setText(no_telp);
+//                                    magangUser.setText(jenis_kegiatan);
+//                                    telpUser.setText(no_telp);
 
-                                    RequestOptions requestOptions = new RequestOptions();
-                                    requestOptions.skipMemoryCache(true);
-                                    requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
-                                    requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
-                                    requestOptions.error(R.drawable.ic_account_circle_white_24dp);
-                                    Glide.with(getActivity())
-                                            .load(UtilsApi.BASE_URL_API+foto)
-                                            .apply(requestOptions)
-                                            .into(imageUser);
+//                                    RequestOptions requestOptions = new RequestOptions();
+//                                    requestOptions.skipMemoryCache(true);
+//                                    requestOptions.diskCacheStrategy(DiskCacheStrategy.NONE);
+//                                    requestOptions.placeholder(R.drawable.ic_account_circle_white_24dp);
+//                                    requestOptions.error(R.drawable.ic_account_circle_white_24dp);
+//                                    Glide.with(getActivity())
+//                                            .load(UtilsApi.BASE_URL_API+foto)
+//                                            .apply(requestOptions)
+//                                            .into(imageUser);
 
                                 } else {
                                     // Jika login gagal
