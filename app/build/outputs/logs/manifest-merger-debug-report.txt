@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:17:1-32:12
 MERGED from [com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:2:1-20:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\6bd54e831d7d39523628e6e86bbc2f7b\material-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -55,20 +55,20 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\user\.gradle\caches\
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\e46d1f274ee2854845cc7fdb623ed9d5\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\29e8ae855d93b75add58e65b12d7a94d\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\3af4fd5d73989f30145e307cbcc328a3\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
-INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
 	package
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:3:5-45
 		INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
 		INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
 		INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-54:12
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:1-57:12
 		INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:2:11-69
@@ -95,7 +95,7 @@ MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\user\.gradle\caches\tra
 	android:name
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:10:5-52:19
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:10:5-55:19
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:26:5-30:19
 MERGED from [com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:26:5-30:19
 MERGED from [com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:13:5-18:19
@@ -144,58 +144,64 @@ ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:20:9-22:66
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:22:13-63
 	android:name
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:21:13-54
-activity#com.begin.diana.inkainternship.Activities.LoginActivity
+activity#com.begin.diana.inkainternship.Activities.Daftar2Activity
 ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:23:9-25:66
 	android:theme
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:25:13-63
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:13-53
-activity#com.begin.diana.inkainternship.Activities.Main3Activity
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:9-27:65
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:13-55
+activity#com.begin.diana.inkainternship.Activities.LoginActivity
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:9-28:66
 	android:theme
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:27:13-63
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:28:13-63
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:19-59
-activity#com.begin.diana.inkainternship.Activities.Main2Activity
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:28:9-30:66
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:27:13-53
+activity#com.begin.diana.inkainternship.Activities.Main3Activity
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:9-30:65
 	android:theme
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:30:13-63
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:13-53
-activity#com.begin.diana.inkainternship.Activities.MainActivity
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:31:9-34:20
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:19-59
+activity#com.begin.diana.inkainternship.Activities.Main2Activity
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:31:9-33:66
 	android:theme
 		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:33:13-63
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:32:13-52
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:32:13-53
+activity#com.begin.diana.inkainternship.Activities.MainActivity
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:34:9-37:20
+	android:theme
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:36:13-63
+	android:name
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:35:13-52
 activity#com.begin.diana.inkainternship.Activities.PengaturanActivity
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:35:9-37:66
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:38:9-40:66
 	android:theme
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:37:13-63
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:40:13-63
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:36:13-58
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:39:13-58
 activity#com.begin.diana.inkainternship.Activities.SplashActivity
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:38:9-47:20
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:41:9-50:20
 	android:theme
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:40:13-51
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:43:13-51
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:39:13-54
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:42:13-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:41:13-45:29
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:44:13-48:29
 action#android.intent.action.MAIN
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:42:17-69
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:45:17-69
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:42:25-66
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:45:25-66
 category#android.intent.category.LAUNCHER
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:44:17-77
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:47:17-77
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:44:27-74
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:47:27-74
 meta-data#preloaded_fonts
-ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:49:9-51:57
+ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:52:9-54:57
 	android:resource
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:51:13-54
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:54:13-54
 	android:name
-		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:50:13-43
+		ADDED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:53:13-43
 uses-sdk
 INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml

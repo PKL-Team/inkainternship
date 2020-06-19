@@ -1714,6 +1714,7 @@ id btnLihatPkl
 id btnLogin
 id btnLogout
 id btnRegister
+id btnRegister2
 id btnSignin
 id btnSimpanInformasi
 id btnTanpaLogin
@@ -1866,10 +1867,12 @@ id legacy_pdf_textView
 id line1
 id line3
 id listItemDaftar
+id listItemDaftar2
 id listMode
 id list_item
 id loading_bar
 id login_title
+id login_title2
 id masked
 id md_buttonDefaultNegative
 id md_buttonDefaultNeutral
@@ -1971,10 +1974,13 @@ id progress_horizontal
 id radio
 id rect
 id regEmail
+id regEmail2
 id regFoto
 id regNama
 id regPass1
+id regPass12
 id regPass2
+id regPass22
 id regTelp
 id relativeLayout
 id relativeLayout1
@@ -2165,6 +2171,7 @@ layout abc_tooltip
 layout activity_alur
 layout activity_coba_coba
 layout activity_daftar
+layout activity_daftar2
 layout activity_file_picker
 layout activity_login
 layout activity_main

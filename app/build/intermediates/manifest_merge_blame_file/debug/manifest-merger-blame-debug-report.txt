@@ -24,7 +24,7 @@
 14-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:8:22-78
 15
 16    <application
-16-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:10:5-52:19
+16-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:10:5-55:19
 17        android:allowBackup="true"
 17-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:11:9-35
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -55,81 +55,87 @@
 31-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:22:13-63
 32        <activity
 32-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:23:9-25:66
-33            android:name="com.begin.diana.inkainternship.Activities.LoginActivity"
-33-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:13-53
+33            android:name="com.begin.diana.inkainternship.Activities.Daftar2Activity"
+33-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:24:13-55
 34            android:theme="@style/Theme.AppCompat.NoActionBar" />
 34-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:25:13-63
 35        <activity
-35-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:9-27:65
-36            android:name="com.begin.diana.inkainternship.Activities.Main3Activity"
-36-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:19-59
+35-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:26:9-28:66
+36            android:name="com.begin.diana.inkainternship.Activities.LoginActivity"
+36-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:27:13-53
 37            android:theme="@style/Theme.AppCompat.NoActionBar" />
-37-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:27:13-63
+37-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:28:13-63
 38        <activity
-38-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:28:9-30:66
-39            android:name="com.begin.diana.inkainternship.Activities.Main2Activity"
-39-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:13-53
+38-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:9-30:65
+39            android:name="com.begin.diana.inkainternship.Activities.Main3Activity"
+39-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:29:19-59
 40            android:theme="@style/Theme.AppCompat.NoActionBar" />
 40-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:30:13-63
 41        <activity
-41-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:31:9-34:20
-42            android:name="com.begin.diana.inkainternship.Activities.MainActivity"
-42-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:32:13-52
-43            android:theme="@style/Theme.AppCompat.NoActionBar" >
+41-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:31:9-33:66
+42            android:name="com.begin.diana.inkainternship.Activities.Main2Activity"
+42-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:32:13-53
+43            android:theme="@style/Theme.AppCompat.NoActionBar" />
 43-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:33:13-63
-44        </activity>
-45        <activity
-45-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:35:9-37:66
-46            android:name="com.begin.diana.inkainternship.Activities.PengaturanActivity"
-46-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:36:13-58
-47            android:theme="@style/Theme.AppCompat.NoActionBar" />
-47-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:37:13-63
+44        <activity
+44-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:34:9-37:20
+45            android:name="com.begin.diana.inkainternship.Activities.MainActivity"
+45-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:35:13-52
+46            android:theme="@style/Theme.AppCompat.NoActionBar" >
+46-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:36:13-63
+47        </activity>
 48        <activity
-48-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:38:9-47:20
-49            android:name="com.begin.diana.inkainternship.Activities.SplashActivity"
-49-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:39:13-54
-50            android:theme="@style/Theme.AppCompat" >
-50-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:40:13-51
-51            <intent-filter>
-51-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:41:13-45:29
-52                <action android:name="android.intent.action.MAIN" />
-52-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:42:17-69
-52-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:42:25-66
-53
-54                <category android:name="android.intent.category.LAUNCHER" />
-54-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:44:17-77
-54-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:44:27-74
-55            </intent-filter>
-56        </activity>
-57
-58        <meta-data
-58-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:49:9-51:57
-59            android:name="preloaded_fonts"
-59-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:50:13-43
-60            android:resource="@array/preloaded_fonts" />
-60-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:51:13-54
-61
-62        <activity
-62-->[com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:27:9-29:72
-63            android:name="com.karumi.dexter.DexterActivity"
-63-->[com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:28:13-60
-64            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-64-->[com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:29:13-69
+48-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:38:9-40:66
+49            android:name="com.begin.diana.inkainternship.Activities.PengaturanActivity"
+49-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:39:13-58
+50            android:theme="@style/Theme.AppCompat.NoActionBar" />
+50-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:40:13-63
+51        <activity
+51-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:41:9-50:20
+52            android:name="com.begin.diana.inkainternship.Activities.SplashActivity"
+52-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:42:13-54
+53            android:theme="@style/Theme.AppCompat" >
+53-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:43:13-51
+54            <intent-filter>
+54-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:44:13-48:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:45:17-69
+55-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:45:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:47:17-77
+57-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:47:27-74
+58            </intent-filter>
+59        </activity>
+60
+61        <meta-data
+61-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:52:9-54:57
+62            android:name="preloaded_fonts"
+62-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:53:13-43
+63            android:resource="@array/preloaded_fonts" />
+63-->G:\PKL\INKAINTERNSHIP\app\src\main\AndroidManifest.xml:54:13-54
+64
 65        <activity
-65-->[com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:14:9-17:20
-66            android:name="com.nbsp.materialfilepicker.ui.FilePickerActivity"
-66-->[com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:15:13-77
-67            android:theme="@style/MFP_BaseTheme" >
-67-->[com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:16:13-49
-68        </activity>
-69
-70        <service
-70-->[es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:12:9-15:19
-71            android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService"
-71-->[es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:13:13-84
-72            android:exported="false" >
-72-->[es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:14:13-37
-73        </service>
-74    </application>
-75
-76</manifest>
+65-->[com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:27:9-29:72
+66            android:name="com.karumi.dexter.DexterActivity"
+66-->[com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:28:13-60
+67            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+67-->[com.karumi:dexter:5.0.0] C:\Users\user\.gradle\caches\transforms-2\files-2.1\65a125b089b9e45344498c5a51d1c9af\jetified-dexter-5.0.0\AndroidManifest.xml:29:13-69
+68        <activity
+68-->[com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:14:9-17:20
+69            android:name="com.nbsp.materialfilepicker.ui.FilePickerActivity"
+69-->[com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:15:13-77
+70            android:theme="@style/MFP_BaseTheme" >
+70-->[com.nbsp:library:1.8] C:\Users\user\.gradle\caches\transforms-2\files-2.1\9ab939647a874fb4bbc59a1acc8eb55e\jetified-library-1.8\AndroidManifest.xml:16:13-49
+71        </activity>
+72
+73        <service
+73-->[es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:12:9-15:19
+74            android:name="es.voghdev.pdfviewpager.library.service.CopyAssetService"
+74-->[es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:13:13-84
+75            android:exported="false" >
+75-->[es.voghdev.pdfviewpager:library:1.0.3] C:\Users\user\.gradle\caches\transforms-2\files-2.1\d195aecd5f090861a421879799c97c57\jetified-library-1.0.3\AndroidManifest.xml:14:13-37
+76        </service>
+77    </application>
+78
+79</manifest>

@@ -21,6 +21,9 @@
             android:name=".Activities.DaftarActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".Activities.Daftar2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".Activities.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Activities.Main3Activity"

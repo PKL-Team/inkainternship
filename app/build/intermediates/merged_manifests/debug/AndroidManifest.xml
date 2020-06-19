@@ -30,6 +30,9 @@
             android:name="com.begin.diana.inkainternship.Activities.DaftarActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name="com.begin.diana.inkainternship.Activities.Daftar2Activity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name="com.begin.diana.inkainternship.Activities.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

@@ -104,7 +104,7 @@ public class Daftar2Activity extends AppCompatActivity {
     }
 
     private void requestRegister(final String email, final String password, final String jenis_kegiatan) {
-        mApiService.registerRequest(email,password,jenis_kegiatan)
+        mApiService.registerRequest2(email,password,jenis_kegiatan)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

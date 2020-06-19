@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent daftar = new Intent(LoginActivity.this, DaftarActivity.class);
+                Intent daftar = new Intent(LoginActivity.this, Daftar2Activity.class);
                 finish();
                 startActivity(daftar);
             }
