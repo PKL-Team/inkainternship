@@ -16,7 +16,7 @@
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <TextView
-        android:id="@+id/login_title"
+        android:id="@+id/login_title2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/login_title"
+            android:layout_below="@+id/login_title2"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
@@ -48,34 +48,14 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp">
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/regFoto"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_account_circle_black_24dp" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabChoosePic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    app:srcCompat="@drawable/ic_picture"
-                    app:fabSize="mini"/>
             </RelativeLayout>
+
             <EditText
-                android:id="@+id/regNama"
-                android:background="@drawable/style_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nama"
-                android:inputType="text"
-                android:textColor="#000000"
-                android:textColorHint="@color/c2"
-                android:layout_margin="5dp"/>
-            <EditText
-                android:id="@+id/regEmail"
+                android:id="@+id/regEmail2"
                 android:background="@drawable/style_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +65,7 @@
                 android:textColorHint="@color/c2"
                 android:layout_margin="5dp"/>
             <EditText
-                android:id="@+id/regPass1"
+                android:id="@+id/regPass12"
                 android:background="@drawable/style_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +75,7 @@
                 android:textColorHint="@color/c2"
                 android:layout_margin="5dp"/>
             <EditText
-                android:id="@+id/regPass2"
+                android:id="@+id/regPass22"
                 android:background="@drawable/style_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,27 +84,17 @@
                 android:inputType="numberPassword"
                 android:textColorHint="@color/c2"
                 android:layout_margin="5dp"/>
-            <EditText
-                android:id="@+id/regTelp"
-                android:background="@drawable/style_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nomor Telepon"
-                android:textColor="#000000"
-                android:inputType="number"
-                android:maxLength="13"
-                android:textColorHint="@color/c2"
-                android:layout_margin="5dp"/>
+
             <Spinner
                 android:background="@drawable/spinner_style"
-                android:id="@+id/listItemDaftar"
+                android:id="@+id/listItemDaftar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/jenis"
                 android:layout_margin="5dp">
             </Spinner>
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnRegister2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/style_btn"

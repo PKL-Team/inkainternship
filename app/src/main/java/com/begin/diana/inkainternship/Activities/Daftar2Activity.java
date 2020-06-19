@@ -39,7 +39,7 @@ public class Daftar2Activity extends AppCompatActivity {
 
     Button btnRegister;
     Spinner list;
-    EditText txtNama, txtEmail, txtPass1, txtPass2, txtTelp;
+    EditText txtEmail, txtPass1, txtPass2;
 
     ProgressDialog loading;
 
@@ -65,16 +65,11 @@ public class Daftar2Activity extends AppCompatActivity {
         mContext = this;
         mApiService = UtilsApi.getAPIService();
 
-        txtNama = findViewById(R.id.regNama);
-        txtEmail = findViewById(R.id.regEmail);
-        txtPass1 = findViewById(R.id.regPass1);
-        txtPass2 = findViewById(R.id.regPass2);
-        txtTelp = findViewById(R.id.regTelp);
-        list = findViewById(R.id.listItemDaftar);
-        btnRegister = findViewById(R.id.btnRegister);
-
-        mPicture = findViewById(R.id.regFoto);
-        mFab = findViewById(R.id.fabChoosePic);
+        txtEmail = findViewById(R.id.regEmail2);
+        txtPass1 = findViewById(R.id.regPass12);
+        txtPass2 = findViewById(R.id.regPass22);
+        list = findViewById(R.id.listItemDaftar2);
+        btnRegister = findViewById(R.id.btnRegister2);
 
     }
 
@@ -91,36 +86,25 @@ public class Daftar2Activity extends AppCompatActivity {
     }
 
     private void buttonClick() {
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chooseFile();
-            }
-
-        });
-
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                String nama = txtNama.getText().toString().trim();
                 String email = txtEmail.getText().toString().trim();
                 String password = txtPass1.getText().toString().trim();
-                String no_telp = txtTelp.getText().toString().trim();
                 String jenis_kegiatan = list.getSelectedItem().toString().trim();
-                String foto_profile = getStringImage(bitmap).trim();
-                if (nama.isEmpty() || email.isEmpty() || password.isEmpty() || no_telp.isEmpty() || jenis_kegiatan.isEmpty()|| foto_profile.isEmpty()){
+                if ( email.isEmpty() || password.isEmpty() || jenis_kegiatan.isEmpty()){
                     showMessage("Field belum terisi. Mohon lengkapi semua field isian diatas");
                 }else {
-                    requestRegister(nama,email,password,no_telp,jenis_kegiatan,foto_profile);
+                    requestRegister(email,password,jenis_kegiatan);
                 }
 
             }
         });
     }
 
-    private void requestRegister(final String nama, final String email, final String password, final String no_telp, final String jenis_kegiatan, final String foto_profile) {
-        mApiService.registerRequest(nama,email,password,no_telp,jenis_kegiatan,foto_profile)
+    private void requestRegister(final String email, final String password, final String jenis_kegiatan) {
+        mApiService.registerRequest(email,password,jenis_kegiatan)
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -156,15 +140,6 @@ public class Daftar2Activity extends AppCompatActivity {
                 });
     }
 
-
-    public String getStringImage(Bitmap bmp){
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodedImage;
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -180,12 +155,6 @@ public class Daftar2Activity extends AppCompatActivity {
 
     }
 
-    private void chooseFile() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
-    }
 
     @Override
     public void onBackPressed() {
