@@ -48,10 +48,12 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp">
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_account_circle_black_24dp" />
+                    android:id="@+id/akunImageUser"
+                    android:layout_width="188dp"
+                    android:layout_height="174dp"
+                    android:layout_gravity="center"
+                    android:elevation="8dp"
+                    android:src="@drawable/logoinka"/>
             </RelativeLayout>
 
             <EditText
