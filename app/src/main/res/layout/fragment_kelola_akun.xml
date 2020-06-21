@@ -15,7 +15,7 @@
             android:layout_height="174dp"
             android:layout_gravity="center"
             android:elevation="8dp"
-            android:src="@drawable/ic_account_circle_white_24dp"/>
+            android:src="@drawable/logoinka"/>
 
     </FrameLayout>
 
@@ -30,32 +30,6 @@
         android:padding="5dp"
         android:layout_below="@id/Frame">
 
-        <TableRow
-            android:layout_marginBottom="15dp">
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Nama Lengkap"
-                android:textSize="15sp"
-                android:textColor="#fff"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text=" : "
-                android:textSize="15sp"
-                android:layout_marginRight="5dp"
-                android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/akunNama"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:text=" "
-                android:textColor="#fff"/>
-        </TableRow>
         <TableRow
             android:layout_marginBottom="15dp">
             <TextView
@@ -82,58 +56,8 @@
                 android:text=" "
                 android:textColor="#fff"/>
         </TableRow>
-        <TableRow
-            android:layout_marginBottom="15dp">
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Jenis Magang"
-                android:textSize="15sp"
-                android:textColor="#fff" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text=" : "
-                android:textSize="15sp"
-                android:layout_marginRight="5dp"
-                android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/akunMagang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:text=" "
-                android:textColor="#fff"/>
-        </TableRow>
-        <TableRow
-            android:layout_marginBottom="15dp">
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Nomor Telepon"
-                android:textSize="15sp"
-                android:textColor="#fff" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text=" : "
-                android:textSize="15sp"
-                android:layout_marginRight="5dp"
-                android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/akunTelp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:text=" "
-                android:textColor="#fff"/>
-        </TableRow>
+
+
     </TableLayout>
 
     <Button
