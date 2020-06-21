@@ -45,34 +45,35 @@ public interface BaseApiService {
     @Multipart
     @POST("daftarAwalPrakerin.php")
     Call<ResponseBody> daftarAwalPrakerin(
-            @Part MultipartBody.Part file, @Part("filename1") RequestBody name,
-            @Part MultipartBody.Part file2, @Part("filename2") RequestBody name2,
-            @Part MultipartBody.Part file3, @Part("filename3") RequestBody name3,
-            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4,
             @Part("id") String id,
             @Part("nama") String nama,
             @Part("nis") String nis,
             @Part("raport") String raport,
-            @Part("sekolah") String sekolah,
-            @Part("divisi") String divisi);
+            @Part("id_sekolah") String id_sekolah,
+            @Part("id_jur") String id_jur,
+            @Part("id_kuota") String id_kuota,
+            @Part MultipartBody.Part file, @Part("filename1") RequestBody name,
+            @Part MultipartBody.Part file2, @Part("filename2") RequestBody name2,
+            @Part MultipartBody.Part file3, @Part("filename3") RequestBody name3,
+            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4);
 
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarAwalPkl.php
     @Multipart
     @POST("daftarAwalPkl.php")
-    Call<ResponseBody> daftarAwalPkl(
-            @Part MultipartBody.Part file, @Part("filename1") RequestBody name,
-            @Part MultipartBody.Part file2, @Part("filename2") RequestBody name2,
-            @Part MultipartBody.Part file3, @Part("filename3") RequestBody name3,
-            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4,
-            @Part MultipartBody.Part file5, @Part("filename5") RequestBody name5,
+    Call<ResponseBody> daftarAwalPkl2(
             @Part("id") String id,
             @Part("nama") String nama,
             @Part("nim") String nim,
             @Part("ipk") String ipk,
-            @Part("kampus") String kampus,
-            @Part("divisi") String divisi,
-            @Part("id_kuota") String id_kuota);
+            @Part("id_pt") String id_pt,
+            @Part("id_jur") String id_jur,
+            @Part("id_kuota") String id_kuota,
+            @Part MultipartBody.Part file, @Part("filename1") RequestBody name,
+            @Part MultipartBody.Part file2, @Part("filename2") RequestBody name2,
+            @Part MultipartBody.Part file3, @Part("filename3") RequestBody name3,
+            @Part MultipartBody.Part file4, @Part("filename4") RequestBody name4,
+            @Part MultipartBody.Part file5, @Part("filename5") RequestBody name5);
 
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/tampilPendaftarPrakerin.php
@@ -86,18 +87,16 @@ public interface BaseApiService {
     Call<ResponseBody> tampilPendaftarPkl(@Field("id") String id);
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarUlangPrakerin.php
-    @Multipart
+    @FormUrlEncoded
     @POST("daftarUlangPrakerin.php")
-    Call<ResponseBody> daftarUlangPrakerin(
-            @Part MultipartBody.Part file, @Part("filename") RequestBody name,
-            @Part("id") String id);
+    Call<ResponseBody> daftarUlangPrakerin(@Field("id") String id,
+                                           @Field("daftar") String daftar);
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/daftarUlangPkl.php
-    @Multipart
+    @FormUrlEncoded
     @POST("daftarUlangPkl.php")
-    Call<ResponseBody> daftarUlangPkl(
-            @Part MultipartBody.Part file, @Part("filename") RequestBody name,
-            @Part("id") String id);
+    Call<ResponseBody> daftarUlangPkl(@Field("id") String id,
+                                      @Field("daftar") String daftar);
 
     // Fungsi ini untuk memanggil API http://inkainternship.000webhostapp.com/android/editInformasiPrakerin.php
     @FormUrlEncoded
@@ -131,30 +130,59 @@ public interface BaseApiService {
     @POST("cekUlangPkl.php")
     Call<ResponseBody> cekUlangPkl(@Field("id") String id);
 
+    @FormUrlEncoded
+    @POST("cekLapPkl.php")
+    Call<ResponseBody> cekLapPkl(@Field("id") String id);
+
+    //fungsi pilih jurusan prakerin atau pkl di inka nya
     @GET("getJurPrakerin.php")
     Call<ResponseBody> getJurPrakerin();
 
     @GET("getJur.php")
     Call<ResponseBody> getJur();
 
+    @GET("getPeriodePrakerin.php")
+    Call<ResponseBody> getPeriodePrakerin();
+
     @GET("getPeriode.php")
     Call<ResponseBody> getPeriode();
 
+    //---------------------------------------------------------------------------------------------
+    // Fungsi untuk spinner PKL
     @GET("getProv.php")
     Call<ResponseBody> getProv();
 
     @FormUrlEncoded
     @POST("getKab.php")
-    Call<ResponseBody> getKab(@Field("id") String id);
+    Call<ResponseBody> getKab(@Field("provinsi") String provinsi);
 
     @FormUrlEncoded
     @POST("getPt.php")
     Call<ResponseBody> getPt(@Field("id") String id);
 
     @FormUrlEncoded
+    @POST("getJurUniv.php")
+    Call<ResponseBody> getJurUniv(@Field("id") String id);
+
+    //-------------------------------------------------------------------------------------------
+    // fungsi spinner Prakerin
+    // Fungsi untuk spinner PKL
+    @GET("getProv.php")
+    Call<ResponseBody> getProvPrakerin();
+
+    @FormUrlEncoded
+    @POST("getKab.php")
+    Call<ResponseBody> getKabPrakerin(@Field("provinsi") String provinsi);
+
+    @FormUrlEncoded
+    @POST("getJurSekolah.php")
+    Call<ResponseBody> getJurSekolah(@Field("id") String id);
+
+    @FormUrlEncoded
     @POST("getSekolah.php")
     Call<ResponseBody> getSekolah(@Field("id") String id);
 
+    //-----------------------------------------------------------
     @FormUrlEncoded
     @POST("reqLihatPkl.php")
     Call<ResponseBody> requestLihatPkl(
@@ -166,4 +194,10 @@ public interface BaseApiService {
     Call<ResponseBody> requestLihatPrakerin(
             @Field("id_jurusan") String id_jurusan,
             @Field("id_periode") String id_periode);
+
+    @Multipart
+    @POST("uploadLapPkl.php")
+    Call<ResponseBody> uploadLapPkl(
+            @Part MultipartBody.Part file, @Part("filename") RequestBody name,
+            @Part("id") String id);
 }

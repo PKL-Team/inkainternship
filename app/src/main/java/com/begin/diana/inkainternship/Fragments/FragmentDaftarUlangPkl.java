@@ -60,7 +60,7 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentDaftarUlangPkl extends Fragment {
     Button btnDaftar;
     LinearLayout layout;
-    TextView tvNama, tvKampus, tvDivisi, scanSuratTugas, status;
+    TextView tvNama, tvKampus, tvDivisi, scanSuratTugas, status1, status2, status3;
     ProgressDialog loading;
 
     private String url = "";
@@ -79,6 +79,12 @@ public class FragmentDaftarUlangPkl extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daftar_ulang_pkl,container,false);
         inItComponents(view);
+
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        String id = sharedPrefManager.getSPId();
+        loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+        cekPkl(id);
+
         toDoDaftarUlang();
         return view;
 
@@ -91,10 +97,12 @@ public class FragmentDaftarUlangPkl extends Fragment {
         tvNama = view.findViewById(R.id.duNamaPkl);
         tvKampus = view.findViewById(R.id.duKampus);
         tvDivisi = view.findViewById(R.id.duDivisiPkl);
-        scanSuratTugas = view.findViewById(R.id.scanSuratTugasPkl);
         btnDaftar = view.findViewById(R.id.btnDaftarUlangPkl);
-        status = view.findViewById(R.id.statusPkl);
         layout  = view.findViewById(R.id.layoutDaftarUlangPkl);
+        status1 = view.findViewById(R.id.statusPkl1); // belum daftar ulang
+        status2 = view.findViewById(R.id.statusPkl2); // belum verifikasi
+        status3 = view.findViewById(R.id.statusPkl3); // sudah daftar ulang
+
     }
 
     private void cekPkl(String id) {
@@ -107,16 +115,34 @@ public class FragmentDaftarUlangPkl extends Fragment {
                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
                         if (jsonRESULTS.getString("error").equals("false")){
                             cekExisted = jsonRESULTS.getString("result");
-                            if (cekExisted.equals("Yes")){
+                            if (cekExisted.equals("1")){
                                 layout.setVisibility(View.INVISIBLE);
-                                status.setVisibility(View.VISIBLE);
-                            }else {
+                                status1.setVisibility(View.VISIBLE);
+                                status2.setVisibility(View.INVISIBLE);
+                                status3.setVisibility(View.INVISIBLE);
+                            }else if(cekExisted.equals("2")) {
+                                layout.setVisibility(View.INVISIBLE);
+                                status1.setVisibility(View.INVISIBLE);
+                                status2.setVisibility(View.VISIBLE);
+                                status3.setVisibility(View.INVISIBLE);
+                            }else if (cekExisted.equals("3")){
+                                sharedPrefManager = new SharedPrefManager(getActivity());
+                                String id = sharedPrefManager.getSPId();
+                                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                                tampilData(id);
                                 layout.setVisibility(View.VISIBLE);
-                                status.setVisibility(View.INVISIBLE);
+                                status1.setVisibility(View.INVISIBLE);
+                                status2.setVisibility(View.INVISIBLE);
+                                status3.setVisibility(View.INVISIBLE);
+                            }else if (cekExisted.equals("4")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status1.setVisibility(View.INVISIBLE);
+                                status2.setVisibility(View.INVISIBLE);
+                                status3.setVisibility(View.VISIBLE);
                             }
                         } else {
-//                            String error_message = jsonRESULTS.getString("error_msg");
-//                            showMessage(error_message);
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -147,10 +173,10 @@ public class FragmentDaftarUlangPkl extends Fragment {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String kampus = jsonRESULTS.getJSONObject("user").getString("kampus");
-                                    String divisi = jsonRESULTS.getJSONObject("user").getString("divisi");
+                                    String jurusan = jsonRESULTS.getJSONObject("user").getString("jurusan");
                                     tvNama.setText(nama);
                                     tvKampus.setText(kampus);
-                                    tvDivisi.setText(divisi);
+                                    tvDivisi.setText(jurusan);
                                 } else {
                                     String error_message = jsonRESULTS.getString("error_msg");
                                     showMessage(error_message);
@@ -173,46 +199,20 @@ public class FragmentDaftarUlangPkl extends Fragment {
     }
 
     private void toDoDaftarUlang() {
-        sharedPrefManager = new SharedPrefManager(getActivity());
-        String id = sharedPrefManager.getSPId();
-        loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-        tampilData(id);
-        cekPkl(id);
-
-        scanSuratTugas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("application/pdf");
-                startActivityForResult(intent,1);
-            }
-        });
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (path.isEmpty()){
-                    showMessage("File belum dipilih");
-                }else {
-                    sharedPrefManager = new SharedPrefManager(getActivity());
-                    String id = sharedPrefManager.getSPId();
-                    loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    daftarUlang(id,path);
-                }
+                sharedPrefManager = new SharedPrefManager(getActivity());
+                String id = sharedPrefManager.getSPId();
+                String daftar = "sudah daftar ulang";
+                loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
+                daftarUlang(id,daftar);
             }
         });
     }
 
-    private void daftarUlang(String id, String path) {
-        String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
-
-        //Create a file object using file path
-        File file = new File(path);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
-        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("filename", file.getName(), requestBody);
-        RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), pdfname);
-
+    private void daftarUlang(String id, String daftar) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -225,7 +225,7 @@ public class FragmentDaftarUlangPkl extends Fragment {
 
         BaseApiService getResponse = retrofit.create(BaseApiService.class);
         Call<ResponseBody> call = getResponse.daftarUlangPkl(
-                fileToUpload, filename,id);
+                id, daftar);
         Log.d("assss","asss");
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -263,94 +263,6 @@ public class FragmentDaftarUlangPkl extends Fragment {
                 showMessage("Koneksi Internet Bermasalah");
             }
         });
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            // Get the Uri of the selected file
-            Uri uri = data.getData();
-            String uriString = uri.toString();
-            File myFile = new File(uriString);
-
-            String fileName = getFileName(uri);
-            scanSuratTugas.setText(fileName);
-
-            path = getFilePathFromURI(getActivity(),uri);
-            Log.d("ioooo",path);
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    public static String getFilePathFromURI(Context context, Uri contentUri) {
-        //copy file and send new file path
-        String fileName = getFileName(contentUri);
-        File wallpaperDirectory = new File(
-                Environment.getExternalStorageDirectory() + IMAGE_DIRECTORY);
-        // have the object build the directory structure, if needed.
-        if (!wallpaperDirectory.exists()) {
-            wallpaperDirectory.mkdirs();
-        }
-        if (!TextUtils.isEmpty(fileName)) {
-            File copyFile = new File(wallpaperDirectory + File.separator + fileName);
-            // create folder if not exists
-            copy(context, contentUri, copyFile);
-            return copyFile.getAbsolutePath();
-        }
-        return null;
-    }
-
-    public static String getFileName(Uri uri) {
-        if (uri == null) return null;
-        String fileName = null;
-        String path = uri.getPath();
-        int cut = path.lastIndexOf('/');
-        if (cut != -1) {
-            fileName = path.substring(cut + 1);
-        }
-        return fileName;
-    }
-
-    public static void copy(Context context, Uri srcUri, File dstFile) {
-        try {
-            InputStream inputStream = context.getContentResolver().openInputStream(srcUri);
-            if (inputStream == null) return;
-            OutputStream outputStream = new FileOutputStream(dstFile);
-            copystream(inputStream, outputStream);
-            inputStream.close();
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static int copystream(InputStream input, OutputStream output) throws Exception, IOException {
-        byte[] buffer = new byte[BUFFER_SIZE];
-
-        BufferedInputStream in = new BufferedInputStream(input, BUFFER_SIZE);
-        BufferedOutputStream out = new BufferedOutputStream(output, BUFFER_SIZE);
-        int count = 0, n = 0;
-        try {
-            while ((n = in.read(buffer, 0, BUFFER_SIZE)) != -1) {
-                out.write(buffer, 0, n);
-                count += n;
-            }
-            out.flush();
-        } finally {
-            try {
-                out.close();
-            } catch (IOException e) {
-                Log.e(e.getMessage(), String.valueOf(e));
-            }
-            try {
-                in.close();
-            } catch (IOException e) {
-                Log.e(e.getMessage(), String.valueOf(e));
-            }
-        }
-        return count;
     }
 
     private void showMessage(String message){

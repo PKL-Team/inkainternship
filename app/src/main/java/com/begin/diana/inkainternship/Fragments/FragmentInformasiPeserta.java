@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,39 +36,31 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FragmentInformasiPeserta extends Fragment {
-    Button btnEdit;
 
-    TextView tvNama, tvId, tvNilai, tvSekolah, tvDivisi;
+    TextView tvNama, tvId, tvSekolah, tvJurusan, tvPenempatan, tvTahun, tvPeriode, status;
+    LinearLayout layout;
     ProgressDialog loading;
 
     Context mContext;
     BaseApiService mApiService;
 
     SharedPrefManager sharedPrefManager;
-
+    private String cekExisted;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_informasi_peserta,container,false);
         inItComponents(view);
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                        new FragmentEditInformasiPeserta()).commit();
-            }
-        });
-
         sharedPrefManager = new SharedPrefManager(getActivity());
         String level_user = sharedPrefManager.getSPLevel();
         String id = sharedPrefManager.getSPId();
-        if (level_user.equals("1")){
+        if (level_user.equals("SISWA")){
             loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-            tampilDataPrakerin(id);
-        }else if (level_user.equals("2")){
+            cekPrakerin(id);
+        }else if (level_user.equals("MAHASISWA")){
             loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-            tampilDataPkl(id);
+            cekPkl(id);
         }
 
 
@@ -80,10 +73,14 @@ public class FragmentInformasiPeserta extends Fragment {
 
         tvNama = view.findViewById(R.id.ipNama);
         tvId = view.findViewById(R.id.ipID);
-        tvNilai = view.findViewById(R.id.ipNilai);
         tvSekolah = view.findViewById(R.id.ipSekolah);
-        tvDivisi = view.findViewById(R.id.ipDivisi);
-        btnEdit = view.findViewById(R.id.btnEditInfo);
+        tvJurusan = view.findViewById(R.id.ipJuruan);
+        tvPenempatan = view.findViewById(R.id.ipPenempatan);
+        tvPeriode = view.findViewById(R.id.ipPeriode);
+        tvTahun = view.findViewById(R.id.ipTahun);
+
+        status = view.findViewById(R.id.status);
+        layout = view.findViewById(R.id.layoutInformasiPeserta);
     }
 
     private void tampilDataPrakerin(String id) {
@@ -100,15 +97,19 @@ public class FragmentInformasiPeserta extends Fragment {
                                     // akan diparsing ke activity selanjutnya.
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String nis = jsonRESULTS.getJSONObject("user").getString("nis");
-                                    String raport = jsonRESULTS.getJSONObject("user").getString("raport");
-                                    String sekolah = jsonRESULTS.getJSONObject("user").getString("sekolah");
-                                    String divisi = jsonRESULTS.getJSONObject("user").getString("divisi");
+                                    String periode = jsonRESULTS.getJSONObject("user").getString("periode");
+                                    String tahun = jsonRESULTS.getJSONObject("user").getString("tahun");
+                                    String kampus = jsonRESULTS.getJSONObject("user").getString("sekolah");
+                                    String jurusan = jsonRESULTS.getJSONObject("user").getString("jurusan");
+                                    String penempatan = jsonRESULTS.getJSONObject("user").getString("penempatan");
 
                                     tvNama.setText(nama);
                                     tvId.setText(nis);
-                                    tvNilai.setText(raport);
-                                    tvSekolah.setText(sekolah);
-                                    tvDivisi.setText(divisi);
+                                    tvSekolah.setText(kampus);
+                                    tvJurusan.setText(jurusan);
+                                    tvPenempatan.setText(penempatan);
+                                    tvPeriode.setText(periode);
+                                    tvTahun.setText(tahun);
                                 } else {
                                     // Jika login gagal
                                     String error_message = jsonRESULTS.getString("error_msg");
@@ -144,14 +145,19 @@ public class FragmentInformasiPeserta extends Fragment {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String nim = jsonRESULTS.getJSONObject("user").getString("nim");
-                                    String ipk = jsonRESULTS.getJSONObject("user").getString("ipk");
+                                    String periode = jsonRESULTS.getJSONObject("user").getString("periode");
+                                    String tahun = jsonRESULTS.getJSONObject("user").getString("tahun");
                                     String kampus = jsonRESULTS.getJSONObject("user").getString("kampus");
-                                    String divisi = jsonRESULTS.getJSONObject("user").getString("divisi");
+                                    String jurusan = jsonRESULTS.getJSONObject("user").getString("jurusan");
+                                    String penempatan = jsonRESULTS.getJSONObject("user").getString("penempatan");
+
                                     tvNama.setText(nama);
                                     tvId.setText(nim);
-                                    tvNilai.setText(ipk);
                                     tvSekolah.setText(kampus);
-                                    tvDivisi.setText(divisi);
+                                    tvJurusan.setText(jurusan);
+                                    tvPenempatan.setText(penempatan);
+                                    tvPeriode.setText(periode);
+                                    tvTahun.setText(tahun);
 
                                 } else {
                                     String error_message = jsonRESULTS.getString("error_msg");
@@ -173,6 +179,94 @@ public class FragmentInformasiPeserta extends Fragment {
                         loading.dismiss();
                     }
                 });
+    }
+
+    private void cekPkl(String id) {
+        mApiService.cekUlangPkl(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            cekExisted = jsonRESULTS.getString("result");
+                            if (cekExisted.equals("1") || cekExisted.equals("2") || cekExisted.equals("3")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status.setVisibility(View.VISIBLE);
+                            }else if (cekExisted.equals("4")){
+                                sharedPrefManager = new SharedPrefManager(getActivity());
+                                String id = sharedPrefManager.getSPId();
+                                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                                tampilDataPkl(id);
+                                layout.setVisibility(View.VISIBLE);
+                                status.setVisibility(View.INVISIBLE);
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
+    }
+
+    private void cekPrakerin(String id) {
+        mApiService.cekUlangPrakerin(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            cekExisted = jsonRESULTS.getString("result");
+                            if (cekExisted.equals("1") || cekExisted.equals("2") || cekExisted.equals("3")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status.setVisibility(View.VISIBLE);
+                            }else if (cekExisted.equals("4")){
+                                sharedPrefManager = new SharedPrefManager(getActivity());
+                                String id = sharedPrefManager.getSPId();
+                                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                                tampilDataPrakerin(id);
+                                layout.setVisibility(View.VISIBLE);
+                                status.setVisibility(View.INVISIBLE);
+                            }
+                        } else {
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    loading.dismiss();
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+                loading.dismiss();
+            }
+        });
+    }
+
+    private void showMessage(String message){
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

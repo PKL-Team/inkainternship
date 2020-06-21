@@ -282,6 +282,24 @@
                     android:layout_weight="1"
                     android:textSize="15sp" />
             </TableRow>
+            <TableRow
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Jurusan"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="15sp"
+                    android:textColor="#fff" />
+
+                <Spinner
+                    android:id="@+id/spNamaJurusan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp" />
+            </TableRow>
         </TableLayout>
     </LinearLayout>
     <Button

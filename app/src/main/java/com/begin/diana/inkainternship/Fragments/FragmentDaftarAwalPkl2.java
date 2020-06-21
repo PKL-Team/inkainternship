@@ -72,7 +72,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentDaftarAwalPkl2 extends Fragment {
 
-    Spinner spinnerProv, spinnerKab, spinnerKampus;
+    Spinner spinnerProv, spinnerKab, spinnerKampus, spinnerJur;
 
     EditText inputNama, inputNim, inputIpk;
     TextView scan1,scan2,scan3,scan4,scan5;
@@ -92,11 +92,12 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
     ProgressDialog loading;
 
     //===============spinner
-    AdapterSpinner adapter1, adapter2, adapter3;
+    AdapterSpinner adapter1, adapter2, adapter3, adapter4;
     List<PilihSpinnerModel> listProv = new ArrayList<PilihSpinnerModel>();
     List<PilihSpinnerModel> listKab = new ArrayList<PilihSpinnerModel>();
     List<PilihSpinnerModel> listPt = new ArrayList<PilihSpinnerModel>();
-    String id_prov, id_kab, id_pt, kampus, divisi;
+    List<PilihSpinnerModel> listJur = new ArrayList<PilihSpinnerModel>();
+    String nama_prov, nama_kab, id_pt, id_jur, nama_jur;
     Context mContext;
 
     @Nullable
@@ -116,17 +117,18 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                 String nama = inputNama.getText().toString();
                 String nim =  inputNim.getText().toString();
                 String ipk = inputIpk.getText().toString();
-                divisi = sharedPrefManager.getSpDivisi();
                 String id_kuota = sharedPrefManager.getSpIDKuota();
 
                 if (id.isEmpty() || nama.isEmpty() || nim.isEmpty() || ipk.isEmpty() || id_kuota.isEmpty()){
                     showMessage("Mohon lengkapi semua field masukan");
                 }
-                else if (path1.isEmpty() || path2.isEmpty() || path3.isEmpty() || path4.isEmpty()){
-                    showMessage("Beberapa/Semua File Scan belum dipilih");
-                }else {
+//                else if (path1.isEmpty() || path2.isEmpty() || path3.isEmpty() || path4.isEmpty()){
+//                    showMessage("Beberapa/Semua File Scan belum dipilih");
+//                }
+                else {
                     loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    uploadPDF(path1,path2,path3,path4,path5,id,nama,nim,ipk,kampus,divisi,id_kuota);
+//                    uploadPDF(path1,path2,path3,path4,path5,id,nama,nim,ipk,id_pt,id_jur,id_kuota);
+                    upload(id,nama,nim,ipk,id_pt,id_jur,id_kuota);
                 }
             }
         });
@@ -153,6 +155,7 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
         spinnerProv = view.findViewById(R.id.spProvinsi);
         spinnerKab = view.findViewById(R.id.spKabupaten);
         spinnerKampus = view.findViewById(R.id.spNamaKampus);
+        spinnerJur = view. findViewById(R.id.spNamaJurusan);
 
         callProv();
         adapter1 = new AdapterSpinner(getActivity(), listProv);
@@ -162,8 +165,8 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 listKab.clear();
-                id_prov = listProv.get(position).getId();
-                callKab(id_prov);
+                nama_prov = listProv.get(position).getId();
+                callKab(nama_prov);
                 adapter2 = new AdapterSpinner(getActivity(), listKab);
                 spinnerKab.setAdapter(adapter2);
             }
@@ -175,8 +178,8 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 listPt.clear();
-                id_kab = listKab.get(position).getId();
-                callPt(id_kab);
+                nama_kab = listKab.get(position).getId();
+                callPt(nama_kab);
                 adapter3 = new AdapterSpinner(getActivity(), listPt);
                 spinnerKampus.setAdapter(adapter3);
             }
@@ -187,13 +190,28 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
         spinnerKampus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                listJur.clear();
                 id_pt = listPt.get(position).getId();
-                kampus = listPt.get(position).getNama();
+                callJur(id_pt);
+                adapter4 = new AdapterSpinner(getActivity(), listJur);
+                spinnerJur.setAdapter(adapter4);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
+        spinnerJur.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                id_jur = listJur.get(position).getId();
+                nama_jur = listJur.get(position).getNama();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private void callProv() {
@@ -209,7 +227,7 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                             JSONObject dataobj = dataArray.getJSONObject(i);
                             PilihSpinnerModel item = new PilihSpinnerModel();
 
-                            item.setId(dataobj.getString("id_prov"));
+                            item.setId(dataobj.getString("nama_prov"));
                             item.setNama(dataobj.getString("nama_prov"));
 
                             listProv.add(item);
@@ -243,7 +261,7 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                             JSONObject dataobj = dataArray.getJSONObject(i);
                             PilihSpinnerModel item = new PilihSpinnerModel();
 
-                            item.setId(dataobj.getString("id_kab"));
+                            item.setId(dataobj.getString("nama_kab"));
                             item.setNama(dataobj.getString("nama_kab"));
 
                             listKab.add(item);
@@ -288,6 +306,40 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                         e.printStackTrace();
                     }
                     adapter3.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+    }
+
+    private void callJur(String id) {
+        mApiService.getJurUniv(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        JSONArray dataArray = jsonRESULTS.getJSONArray("data");
+
+                        for (int i = 0; i < dataArray.length(); i++) {
+                            JSONObject dataobj = dataArray.getJSONObject(i);
+                            PilihSpinnerModel item = new PilihSpinnerModel();
+
+                            item.setId(dataobj.getString("id_jur_univ"));
+                            item.setNama(dataobj.getString("jurusan_univ"));
+
+                            listJur.add(item);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    adapter4.notifyDataSetChanged();
                 }
             }
 
@@ -348,9 +400,8 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
         });
     }
 
-    private void uploadPDF(String path1, String path2, String path3, String path4, String path5,
-                           final String id,final String nama,final String nis,final String raport,
-                           final String kampus, final String divisi, final  String id_kuota){
+    private void upload(final String id,final String nama,final String nis,final String raport,
+                           final String id_pt, final String id_jur, final  String id_kuota){
 
         String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
@@ -391,50 +442,50 @@ public class FragmentDaftarAwalPkl2 extends Fragment {
                 .build();
 
         BaseApiService getResponse = retrofit.create(BaseApiService.class);
-        Call<ResponseBody> call = getResponse.daftarAwalPkl(
+        Call<ResponseBody> call = getResponse.daftarAwalPkl2(
+                id, nama, nis, raport, id_pt, id_jur, id_kuota,
                 fileToUpload1, filename1,
                 fileToUpload2, filename2,
                 fileToUpload3, filename3,
                 fileToUpload4, filename4,
-                fileToUpload5, filename5,
-                id, nama, nis, raport, kampus, divisi, id_kuota);
+                fileToUpload5, filename5 );
         Log.d("assss","asss");
         call.enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        if (response.isSuccessful()){
-                            Log.i("debug", "onResponse: BERHASIL");
-                            loading.dismiss();
-                            try {
-                                JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                if (jsonRESULTS.getString("error").equals("false")){
-                                    showMessage("BERHASIL DAFTAR");
-                                    String id = jsonRESULTS.getJSONObject("user").getString("id");
-                                    if (id != null){
-                                        startActivity(new Intent(getActivity(), Main3Activity.class));
-                                        getActivity().finish();
-                                    }
-                                } else {
-                                    String error_message = jsonRESULTS.getString("error_msg");
-                                    showMessage(error_message);
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    Log.i("debug", "onResponse: BERHASIL");
+                    loading.dismiss();
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("error").equals("false")){
+                            showMessage("BERHASIL DAFTAR");
+                            String id = jsonRESULTS.getJSONObject("user").getString("id");
+                            if (id != null){
+                                startActivity(new Intent(getActivity(), Main3Activity.class));
+                                getActivity().finish();
                             }
                         } else {
-                            Log.i("debug", "onResponse: GA BERHASIL");
-                            loading.dismiss();
+                            String error_message = jsonRESULTS.getString("error_msg");
+                            showMessage(error_message);
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+                } else {
+                    Log.i("debug", "onResponse: GA BERHASIL");
+                    loading.dismiss();
+                }
+            }
 
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Log.e("debug", "onFailure: ERROR > " + t.getMessage());
-                        showMessage("Koneksi Internet Bermasalah");
-                    }
-                });
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                showMessage("Koneksi Internet Bermasalah");
+            }
+        });
 
     }
 

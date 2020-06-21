@@ -7,7 +7,8 @@
         android:id="@+id/layoutDaftarUlang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="invisible">
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,8 +142,42 @@
             android:text="Daftar"/>
     </LinearLayout>
 
+
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/status1"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:background="#FFDAB9"
+        android:textColor="#000000"
+        android:text="ANDA BELUM MELAKUKAN DAFTAR AWAL"/>
+
+
+    <TextView
+        android:id="@+id/status2"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:background="#FFDAB9"
+        android:textColor="#000000"
+        android:text="DATA ANDA BELUM DIVERIFIKASI OLEH ADMIN"/>
+
+    <TextView
+        android:id="@+id/status3"
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="60dp"

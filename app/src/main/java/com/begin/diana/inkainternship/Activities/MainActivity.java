@@ -73,11 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //melihat session user
         sharedPrefManager = new SharedPrefManager(this);
         if (sharedPrefManager.getSPSudahLogin()){
-            if (sharedPrefManager.getSPLevel().equals("1")){
+            if (sharedPrefManager.getSPLevel().equals("SISWA")){
                 startActivity(new Intent(mContext, Main2Activity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 finish();
-            }else if (sharedPrefManager.getSPLevel().equals("2")){
+            }else if (sharedPrefManager.getSPLevel().equals("MAHASISWA")){
                 startActivity(new Intent(mContext, Main3Activity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 finish();

@@ -328,6 +328,10 @@
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\fragment_kelola_akun.xml"
     },
     {
+        "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_laporan_pkl.xml.flat",
+        "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\layout\\fragment_laporan_pkl.xml"
+    },
+    {
         "merged": "G:\\PKL\\INKAINTERNSHIP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_drop_down_black_24dp.xml.flat",
         "source": "G:\\PKL\\INKAINTERNSHIP\\app\\src\\main\\res\\drawable\\ic_arrow_drop_down_black_24dp.xml"
     },

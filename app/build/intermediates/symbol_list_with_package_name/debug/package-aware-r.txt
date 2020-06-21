@@ -1704,7 +1704,6 @@ id btnDaftarAwal2Pkl
 id btnDaftarUlang
 id btnDaftarUlangPkl
 id btnDenganLogin
-id btnEditInfo
 id btnGoRegister
 id btnKelolaAkun
 id btnLanjutkan
@@ -1717,6 +1716,7 @@ id btnRegister
 id btnRegister2
 id btnSignin
 id btnSimpanInformasi
+id btnSimpanLaporanPkl
 id btnTanpaLogin
 id btnTentangAplikasi
 id bukaFile
@@ -1841,11 +1841,13 @@ id imageView
 id imageViewZoom
 id info
 id invisible
-id ipDivisi
 id ipID
+id ipJuruan
 id ipNama
-id ipNilai
+id ipPenempatan
+id ipPeriode
 id ipSekolah
+id ipTahun
 id italic
 id item_file_image
 id item_file_subtitle
@@ -1860,6 +1862,8 @@ id layoutDaftarAwal
 id layoutDaftarAwalPkl
 id layoutDaftarUlang
 id layoutDaftarUlangPkl
+id layoutInformasiPeserta
+id layoutLapPkl
 id left
 id legacy_pdf_button
 id legacy_pdf_progressBar
@@ -1922,6 +1926,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
 id namaUser
+id nav_LaporanPkl
 id nav_alur
 id nav_alur2
 id nav_alur3
@@ -1997,8 +2002,8 @@ id scan3
 id scan4
 id scan5
 id scanFile
+id scanLaporanPkl
 id scanSuratTugas
-id scanSuratTugasPkl
 id screen
 id scroll
 id scrollIndicatorDown
@@ -2031,6 +2036,7 @@ id snap
 id snapMargins
 id spJurusan
 id spKabupaten
+id spNamaJurusan
 id spNamaKampus
 id spNamaSekolah
 id spPeriode
@@ -2047,9 +2053,17 @@ id src_over
 id standard
 id start
 id status
+id status1
+id status2
+id status3
 id statusAwal
 id statusAwalPkl
-id statusPkl
+id statusLapPkl1
+id statusLapPkl2
+id statusLapPkl3
+id statusPkl1
+id statusPkl2
+id statusPkl3
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
@@ -2209,6 +2223,7 @@ layout fragment_dokumen_berkas
 layout fragment_edit_informasi_peserta
 layout fragment_informasi_peserta
 layout fragment_kelola_akun
+layout fragment_laporan_pkl
 layout fragment_pengaturan
 layout fragment_persyaratan
 layout fragment_tentang_aplikasi

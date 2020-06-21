@@ -21,6 +21,7 @@ import com.begin.diana.inkainternship.Fragments.FragmentDaftarAwalPkl;
 import com.begin.diana.inkainternship.Fragments.FragmentDaftarUlangPkl;
 import com.begin.diana.inkainternship.Fragments.FragmentDokumenBerkas;
 import com.begin.diana.inkainternship.Fragments.FragmentInformasiPeserta;
+import com.begin.diana.inkainternship.Fragments.FragmentLaporanPkl;
 import com.begin.diana.inkainternship.Fragments.FragmentPersyaratan;
 import com.begin.diana.inkainternship.R;
 import com.begin.diana.inkainternship.SharedPrefManager;
@@ -126,6 +127,11 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                         new FragmentDokumenBerkas()).commit();
                 title.setText("Dokumen dan Berkas");
+                break;
+            case R.id.nav_LaporanPkl:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                        new FragmentLaporanPkl()).commit();
+                title.setText("Upload Laporan PKL");
                 break;
             case R.id.nav_infoPesertaPkl:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,

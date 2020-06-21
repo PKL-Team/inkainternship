@@ -25,6 +25,11 @@
                 android:icon="@drawable/ic_dokumenberkas"
                 android:title="Dokumen dan Berkas"/>
             <item
+                android:id="@+id/nav_LaporanPkl"
+                android:checked="false"
+                android:icon="@drawable/ic_dokumenberkas"
+                android:title="Upload Laporan PKL"/>
+            <item
                 android:id="@+id/nav_infoPesertaPkl"
                 android:checked="false"
                 android:icon="@drawable/ic_informasipeserta_24dp"

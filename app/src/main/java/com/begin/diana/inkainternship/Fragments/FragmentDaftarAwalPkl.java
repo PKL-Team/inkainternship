@@ -99,22 +99,6 @@ public class FragmentDaftarAwalPkl extends Fragment {
                 if (tvKuota.getText().toString().equals("...") || tvKuota.getText().toString().equals("0") || tvKuota.getText().toString().isEmpty() ){
                     showMessage("Kuota tidak mencukupi untuk melakukan pendaftaran");
                 }else {
-                    if (id_jur.equals("2") || id_jur.equals("3") || id_jur.equals("4") || id_jur.equals("11")){
-                        String divisi = "Dukungan dan Infrastruktur Bisnis";
-                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
-                    }else if (id_jur.equals("7")){
-                        String divisi = "Perakitan";
-                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
-                    }else if (id_jur.equals("1") || id_jur.equals("9") || id_jur.equals("8")  || id_jur.equals("10")){
-                        String divisi = "Pengelasan";
-                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
-                    }else if (id_jur.equals("6")  || id_jur.equals("13")){
-                        String divisi = "Multimedia";
-                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
-                    }else if (id_jur.equals("5")  || id_jur.equals("12")){
-                        String divisi = "Human Capital";
-                        sharedPrefManager.saveSPString(SharedPrefManager.SP_DIVISI, divisi);
-                    }
                     getFragmentManager().beginTransaction().replace(R.id.container_fragment,
                             new FragmentDaftarAwalPkl2()).commit();
                 }
@@ -184,7 +168,9 @@ public class FragmentDaftarAwalPkl extends Fragment {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     String tahun = jsonRESULTS.getJSONObject("user").getString("tahun");
                                     String kuota = jsonRESULTS.getJSONObject("user").getString("kuota");
+                                    String id = jsonRESULTS.getJSONObject("user").getString("id_kuota");
 
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_IDKUOTA, id);
                                     tvTahun.setText(tahun);
                                     tvKuota.setText(kuota);
                                 } else {
@@ -293,12 +279,12 @@ public class FragmentDaftarAwalPkl extends Fragment {
                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
                         if (jsonRESULTS.getString("error").equals("false")){
                             cekExisted = jsonRESULTS.getString("result");
-                            if (cekExisted.equals("Yes")){
-                                layout.setVisibility(View.INVISIBLE);
-                                status.setVisibility(View.VISIBLE);
-                            }else {
+                            if (cekExisted.equals("1")){
                                 layout.setVisibility(View.VISIBLE);
                                 status.setVisibility(View.INVISIBLE);
+                            }else {
+                                layout.setVisibility(View.INVISIBLE);
+                                status.setVisibility(View.VISIBLE);
                             }
                         } else {
                             String error_message = jsonRESULTS.getString("error_msg");

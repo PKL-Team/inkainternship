@@ -106,8 +106,8 @@ public class LoginActivity extends AppCompatActivity {
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
 //                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_FOTO, foto);
 //                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
-//                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
-//                                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+                                    sharedPrefManager.saveSPString(SharedPrefManager.SP_LEVEL, level_user);
+                                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
 
                                     if (level_user.equals("SISWA")){
                                         startActivity(new Intent(mContext, Main2Activity.class)

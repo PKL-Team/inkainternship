@@ -56,7 +56,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentDaftarUlang extends Fragment {
     Button btnDaftar;
-    TextView tvNama, tvSekolah, tvDivisi, scanSuratTugas, status;
+    TextView tvNama, tvSekolah, tvDivisi, scanSuratTugas, status1, status2,status3;
     ProgressDialog loading;
     LinearLayout layout;
     Context mContext;
@@ -104,8 +104,9 @@ public class FragmentDaftarUlang extends Fragment {
                 }else {
                     sharedPrefManager = new SharedPrefManager(getActivity());
                     String id = sharedPrefManager.getSPId();
+                    String daftar = "sudah daftar ulang";
                     loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    daftarUlang(id,path);
+                    daftarUlang(id,daftar);
                 }
             }
         });
@@ -120,8 +121,10 @@ public class FragmentDaftarUlang extends Fragment {
         tvDivisi = view.findViewById(R.id.duDivisi);
         scanSuratTugas = view.findViewById(R.id.scanSuratTugas);
         btnDaftar = view.findViewById(R.id.btnDaftarUlang);
-        status = view.findViewById(R.id.status);
         layout = view.findViewById(R.id.layoutDaftarUlang);
+        status1 = view.findViewById(R.id.status1); // belum daftar ulang
+        status2 = view.findViewById(R.id.status2); // belum verifikasi
+        status3 = view.findViewById(R.id.status3); // sudah daftar ulang
     }
 
     private void cekPrakerin(String id) {
@@ -134,12 +137,30 @@ public class FragmentDaftarUlang extends Fragment {
                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
                         if (jsonRESULTS.getString("error").equals("false")){
                             String cekExisted = jsonRESULTS.getString("result");
-                            if (cekExisted.equals("Yes")){
+                            if (cekExisted.equals("1")){
                                 layout.setVisibility(View.INVISIBLE);
-                                status.setVisibility(View.VISIBLE);
-                            }else {
+                                status1.setVisibility(View.VISIBLE);
+                                status2.setVisibility(View.INVISIBLE);
+                                status3.setVisibility(View.INVISIBLE);
+                            }else if(cekExisted.equals("2")) {
+                                layout.setVisibility(View.INVISIBLE);
+                                status1.setVisibility(View.INVISIBLE);
+                                status2.setVisibility(View.VISIBLE);
+                                status3.setVisibility(View.INVISIBLE);
+                            }else if (cekExisted.equals("3")){
+                                sharedPrefManager = new SharedPrefManager(getActivity());
+                                String id = sharedPrefManager.getSPId();
+                                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                                tampilData(id);
                                 layout.setVisibility(View.VISIBLE);
-                                status.setVisibility(View.INVISIBLE);
+                                status1.setVisibility(View.INVISIBLE);
+                                status2.setVisibility(View.INVISIBLE);
+                                status3.setVisibility(View.INVISIBLE);
+                            }else if (cekExisted.equals("4")){
+                                layout.setVisibility(View.INVISIBLE);
+                                status1.setVisibility(View.INVISIBLE);
+                                status2.setVisibility(View.INVISIBLE);
+                                status3.setVisibility(View.VISIBLE);
                             }
                         } else {
                             String error_message = jsonRESULTS.getString("error_msg");
@@ -174,7 +195,7 @@ public class FragmentDaftarUlang extends Fragment {
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                     String sekolah = jsonRESULTS.getJSONObject("user").getString("sekolah");
-                                    String divisi = jsonRESULTS.getJSONObject("user").getString("divisi");
+                                    String divisi = jsonRESULTS.getJSONObject("user").getString("penempatan");
 
                                     tvNama.setText(nama);
                                     tvSekolah.setText(sekolah);
@@ -201,15 +222,7 @@ public class FragmentDaftarUlang extends Fragment {
                 });
     }
 
-    private void daftarUlang(String id, String path) {
-        String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
-
-        //Create a file object using file path
-        File file = new File(path);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
-        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("filename", file.getName(), requestBody);
-        RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), pdfname);
-
+    private void daftarUlang(String id, String daftar) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -221,8 +234,7 @@ public class FragmentDaftarUlang extends Fragment {
                 .build();
 
         BaseApiService getResponse = retrofit.create(BaseApiService.class);
-        Call<ResponseBody> call = getResponse.daftarUlangPrakerin(
-                fileToUpload, filename,id);
+        Call<ResponseBody> call = getResponse.daftarUlangPrakerin(id, daftar);
         Log.d("assss","asss");
         call.enqueue(new Callback<ResponseBody>() {
             @Override
