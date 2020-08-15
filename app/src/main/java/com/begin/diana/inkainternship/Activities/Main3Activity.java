@@ -77,7 +77,7 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         navigationView = findViewById(R.id.navigationView3);
         View headerView = navigationView.getHeaderView(0);
         final TextView namaUser = headerView.findViewById(R.id.namaUser);
-        final CircleImageView fotoUser = headerView.findViewById(R.id.imageUser);
+//        final CircleImageView fotoUser = headerView.findViewById(R.id.imageUser);
 
         sharedPrefManager = new SharedPrefManager(this);
         String email = sharedPrefManager.getSPEmail();

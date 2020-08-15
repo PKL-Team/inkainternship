@@ -1554,6 +1554,7 @@ drawable inka_2
 drawable inka_3
 drawable inka_4
 drawable logo
+drawable logoinka
 drawable main_header_selector
 drawable md_btn_selected
 drawable md_btn_selected_dark
@@ -1687,9 +1688,6 @@ id activity_chooser_view_content
 id add
 id akunEmail
 id akunImageUser
-id akunMagang
-id akunNama
-id akunTelp
 id alertTitle
 id all
 id always
@@ -1836,7 +1834,6 @@ id idTool3
 id id_appbar
 id ifRoom
 id image
-id imageUser
 id imageView
 id imageViewZoom
 id info
@@ -1973,7 +1970,6 @@ id peekHeight
 id percent
 id pilihLembaga
 id pin
-id profilePic2
 id progress_circular
 id progress_horizontal
 id radio
@@ -2003,7 +1999,6 @@ id scan4
 id scan5
 id scanFile
 id scanLaporanPkl
-id scanSuratTugas
 id screen
 id scroll
 id scrollIndicatorDown

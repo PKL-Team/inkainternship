@@ -83,10 +83,7 @@ public class FragmentKelolaAkun extends Fragment {
         mApiService = UtilsApi.getAPIService();
 
         btnLogout = view.findViewById(R.id.btnLogout);
-        namaUser = view.findViewById(R.id.akunNama);
         emailUser = view.findViewById(R.id.akunEmail);
-        magangUser = view.findViewById(R.id.akunMagang);
-        telpUser = view.findViewById(R.id.akunTelp);
         imageUser = view.findViewById(R.id.akunImageUser);
     }
 

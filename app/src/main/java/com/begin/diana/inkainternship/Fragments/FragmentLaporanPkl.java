@@ -177,13 +177,13 @@ public class FragmentLaporanPkl extends Fragment {
                     sharedPrefManager = new SharedPrefManager(getActivity());
                     String id = sharedPrefManager.getSPId();
                     loading = ProgressDialog.show(getActivity(), null, "Harap Tunggu...", true, false);
-                    daftarUlang(id,path);
+                    uploadLaporan(id,path);
                 }
             }
         });
     }
 
-    private void daftarUlang(String id, String path) {
+    private void uploadLaporan(String id, String path) {
         String pdfname = String.valueOf(Calendar.getInstance().getTimeInMillis());
 
         //Create a file object using file path
@@ -215,7 +215,7 @@ public class FragmentLaporanPkl extends Fragment {
                     try {
                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
                         if (jsonRESULTS.getString("error").equals("false")){
-                            showMessage("BERHASIL DAFTAR ULANG");
+                            showMessage("BERHASIL UPLOAD LAPORAN");
                             String id = jsonRESULTS.getJSONObject("user").getString("id");
                             if (id != null){
                                 startActivity(new Intent(getActivity(), Main3Activity.class));

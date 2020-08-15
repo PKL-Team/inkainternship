@@ -7,7 +7,8 @@
         android:id="@+id/layoutLapPkl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="invisible">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -52,7 +53,7 @@
             android:gravity="center_vertical|center"
             android:background="@drawable/ripple_effect_raised"
             android:textColor="#000000"
-            android:text="Daftar"/>
+            android:text="Simpan"/>
     </LinearLayout>
 
     <TextView
